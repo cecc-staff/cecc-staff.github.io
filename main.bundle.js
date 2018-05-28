@@ -106,12 +106,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pto_new_pto_new_component__ = __webpack_require__("../../../../../src/app/pto-new/pto-new.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pto_preview_pto_preview_component__ = __webpack_require__("../../../../../src/app/pto-preview/pto-preview.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__cas_list_cas_list_component__ = __webpack_require__("../../../../../src/app/cas-list/cas-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__help_help_component__ = __webpack_require__("../../../../../src/app/help/help.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -168,7 +170,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_24__pto_search_pto_search_component__["a" /* PtoSearchComponent */],
                 __WEBPACK_IMPORTED_MODULE_25__pto_new_pto_new_component__["a" /* PtoNewComponent */],
                 __WEBPACK_IMPORTED_MODULE_26__pto_preview_pto_preview_component__["a" /* PtoPreviewComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__cas_list_cas_list_component__["a" /* CasListComponent */]
+                __WEBPACK_IMPORTED_MODULE_27__cas_list_cas_list_component__["a" /* CasListComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__help_help_component__["a" /* HelpComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -277,6 +280,8 @@ var CasListComponent = (function () {
             _this.casualities = [];
             console.log('casSummary subscribed');
             _this.mesno = obj.mesno;
+            _this.name = 'Not Found';
+            _this.category = '';
             _this.dateFrom = obj.from;
             _this.dateUpto = obj.upto;
             for (var _i = 0, _a = _this.ptos; _i < _a.length; _i++) {
@@ -308,10 +313,10 @@ var CasListComponent = (function () {
             this.sortOnElement(keys[index]);
         }
         else {
-            this.sortOnNumber();
+            this.sortOnPTONumber();
         }
     };
-    CasListComponent.prototype.sortOnNumber = function () {
+    CasListComponent.prototype.sortOnPTONumber = function () {
         // this.sortUp = !this.sortUp;
         if (this.sortUp) {
             this.casualities.sort(function (a, b) {
@@ -1037,6 +1042,68 @@ var NavbarComponent = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__services_item_service__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], NavbarComponent);
     return NavbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/help/help.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nli {\n    font-weight: bold;\n}\n.header {\n    text-align: center;\n}\nh3 {\n    margin: 0px;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/help/help.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<mat-card class=\"help-card\">\n    <div class=\"header\">\n      <mat-card-title><h3>Help</h3></mat-card-title>\n      <mat-card-subtitle>A Guide for using this PTO publishing App.</mat-card-subtitle>\n    </div>\n    <img mat-card-image [src]=\"helpImagePath\" alt=\"Photo of Help Image\">\n    <mat-card-content>\n      <p>\n        The PTO publishing App will open in the browser after logging in and on clicking the link \"PTO\" on \n        Heading bar at top left of the page.The page consists of a Main Panel and a Side Nav Panel below \n        the Heading Bar. The Main Panel is for \n        displaying the data or forms as per the menu items chosen in the Side Nav Panel. The menu items\n        in the Side Nav Panel and their functions are as under :\n      </p>\n      <h4>Side Nav Panel</h4>\n        <ol>\n          <li>List :</li><p>The \"List\" Menu Item displays the list of all PTOs in the Main Panel and is also \n            the default Menu Item on opening of the PTO page of the App. The List can be Searched (Filtered) \n            and Sorted on any Column. Enter the required field at the top of any Column and press the\n             \"Search\" button to filter the PTOs on that field. To Sort on any Column click the Arrows Icons \n             below the textfields. The individual PTO row on clicking \n            will open the details of the PTO with all its Casualities listed.</p>\n          <li>New PTO :</li><p>The \"New PTO\" Menu Item opens a form for creating new PTO, which contains five \n            text fields for No., Year, Unit, Station and Date of the PTO. After filling the values in the PTO \n            text fields, click on \"New Casuality\".</p>\n          <li>New Casuality :</li><p>Clicking on it opens a new form for a new Casuality under the PTO form.\n            The seven text fields for S.No., MES No., Name, Category, Date, Type and Particulars fully define \n            a Casuality for any employee. The Particulars text field get automatically filled with a templete\n            on selecting a Type from the drop down list. It can then be completed to specify the actual casuality\n             for the employee by filling the blanks in the templete of the Casuality or amending it as required.</p>\n          <li>Publish... :</li><p>After filling the PTO form and adding and completing the required nos. of \n            Casualities, you would like to Publish it. On clicking this Menu Item you are presented with a preview \n            of the completed PTO form which you have filled in the above Menu items. If everything is allright \n            you may press the \"Publish\" button to upload it onto the database. Once it is uploaded to the database \n            it cannot be amended therafter. Also any PTO for a particular combination of PTO No., PTO Year, Unit, \n            Station and Date, once published it cannot be published again thereby avoiding duplicate PTOs in the \n            database. However if you feel some correction is required, you have a chance to correct it by pressing \n            the \"Edit\" button before pressing the \"Publish\" button. Also there is option to Print the completed PTO by \n            pressing the \"Print\" button.</p>\n          <li>MES No. :</li><p>This is not an action button but a textfield where you put in the MES No. of the \n            employee whose casualities you want to search. All the casualities for the employee with this MES No.\n             are searched in the entire database and listed in the Main Panel if you leave the following two \n             textfields of \"PTO Date From\" and \"PTO Date Upto\" blank. However if you you want the casualities of \n             the employee for a particular period, you need to fill the textfield at Para 6 and 7 below to get \n             the filtered casualities of the employee within the period specified.</p>\n          <li>PTO Date From :</li><p>As specified in the Para above, the textfield when filled will filter the \n            casualities of the employee with MES No. specified in Para 5 above to only those casualities whose \n            PTO date falls on or after this date.</p>\n          <li>PTO Date Upto :</li><p>As specified in the Para 5 above, the textfield when filled will filter the \n              casualities of the employee with MES No. specified in Para 5 above to only those casualities whose \n              PTO date falls on or before this date.</p>\n          <li>Search Casualities :</li><p>This is the action button for the Search Casualities Form specified from \n            Para 5 to Para 7 above. After filling the textfields in the Para 5 to 7 specified above, pressing this \n            button will show the casualities in the Main Panel. </p>\n          <li>Help :</li><p>This Menu Item is for displaying this Help page in the Main Panel of the App.</p>\n        </ol>\n      \n    </mat-card-content>\n  </mat-card>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/help/help.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HelpComponent = (function () {
+    function HelpComponent() {
+        this.helpImagePath = 'https://cecc-staff.github.io/assets/helpImage.png';
+    }
+    HelpComponent.prototype.ngOnInit = function () {
+    };
+    HelpComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'app-help',
+            template: __webpack_require__("../../../../../src/app/help/help.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/help/help.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HelpComponent);
+    return HelpComponent;
 }());
 
 
@@ -1788,7 +1855,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto/pto.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container>\n    \n  <mat-sidenav mode=\"side\" opened fixedInViewport=\"true\" fixedTopGap=\"110\">\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let nav of fillerNav\" (click)=\"onNavItemClick(nav)\">{{nav}}</a>\n      <mat-card class=\"card-2\">\n          <mat-form-field>\n            <input matInput placeholder=\"MES No\" type=\"text\" [(ngModel)]=\"mesno\" name=\"mesno\">\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"PTO Date From\" [(ngModel)]=\"dateFrom\" name=\"dateFrom\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker2\" placeholder=\"PTO Date Upto\" [(ngModel)]=\"dateUpto\" name=\"dateUpto\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n            <mat-datepicker #picker2></mat-datepicker>\n          </mat-form-field>\n\n        <div>\n          <button mat-raised-button (click)=\"searchCas()\"color=\"primary\">Search Casualities</button>\n        </div>\n      </mat-card>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content id=\"content\">\n    <mat-card class=\"card-1\">\n        <app-pto-list *ngIf=\"page === 'list'\" (detailClicked)=\"page = 'preview'\"></app-pto-list>\n        <app-pto-new  *ngIf=\"page === 'new'\"></app-pto-new>\n        <app-pto-preview *ngIf=\"page === 'preview'\" (goBack)=\"onNavItemClick($event)\"></app-pto-preview>\n        <app-cas-list  *ngIf=\"page === 'cas'\" (detailClicked)=\"page = 'preview'\"></app-cas-list>\n    </mat-card>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
+module.exports = "<mat-sidenav-container>\n    \n  <mat-sidenav mode=\"side\" opened fixedInViewport=\"true\" fixedTopGap=\"110\">\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let nav of fillerNav\" (click)=\"onNavItemClick(nav)\">{{nav}}</a>\n      <mat-card class=\"card-2\">\n          <mat-form-field>\n            <input matInput placeholder=\"MES No\" type=\"text\" [(ngModel)]=\"mesno\" name=\"mesno\">\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"PTO Date From\" [(ngModel)]=\"dateFrom\" name=\"dateFrom\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker2\" placeholder=\"PTO Date Upto\" [(ngModel)]=\"dateUpto\" name=\"dateUpto\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n            <mat-datepicker #picker2></mat-datepicker>\n          </mat-form-field>\n\n        <div>\n          <button mat-raised-button (click)=\"searchCas()\"color=\"primary\">Search Casualities</button>\n        </div>\n      </mat-card>\n      <a mat-list-item (click)=\"onNavItemClick('help')\">Help</a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content id=\"content\">\n    <mat-card class=\"card-1\">\n        <app-pto-list *ngIf=\"page === 'list'\" (detailClicked)=\"page = 'preview'\"></app-pto-list>\n        <app-pto-new  *ngIf=\"page === 'new'\"></app-pto-new>\n        <app-pto-preview *ngIf=\"page === 'preview'\" (goBack)=\"onNavItemClick($event)\"></app-pto-preview>\n        <app-cas-list  *ngIf=\"page === 'cas'\" (detailClicked)=\"page = 'preview'\"></app-cas-list>\n        <app-help  *ngIf=\"page === 'help'\"></app-help>\n    </mat-card>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -1846,10 +1913,9 @@ var PtoComponent = (function () {
             };
             this.ptoService.casuality.next(casuality);
         }
-        // if (navItem === 'Search Casuality') {
-        //   // this.snackBar.open('This Page is Under Construction !', '', { duration: 2000, });
-        //   this.page = 'cas';
-        // }
+        if (navItem === 'help') {
+            this.page = 'help';
+        }
     };
     PtoComponent.prototype.searchCas = function () {
         var _this = this;
