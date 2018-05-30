@@ -1562,8 +1562,8 @@ var PtoNewComponent = (function () {
                 DATE: '',
                 PARTICULAR: ''
             };
-            casuality.S_No = control.value.sno;
-            casuality.MES_No = control.value.mesno;
+            casuality.S_No = +control.value.sno;
+            casuality.MES_No = +control.value.mesno;
             casuality.NAME = control.value.name;
             casuality.CATEGORY = control.value.category;
             casuality.DATE = this.getDateStr(control.value.date);
@@ -1724,8 +1724,8 @@ var PtoPreviewComponent = (function () {
         for (var _i = 0, _a = this.ptoService.pto.CASUALITIES; _i < _a.length; _i++) {
             var cas = _a[_i];
             var arrPart = this.split(cas.PARTICULAR, 55);
-            doc.text(cas.S_No, 20, partY);
-            doc.text([cas.MES_No, cas.NAME, cas.CATEGORY], 30, partY);
+            doc.text(cas.S_No + '', 20, partY);
+            doc.text([cas.MES_No + '', cas.NAME, cas.CATEGORY], 30, partY);
             doc.text(cas.DATE, 75, partY);
             doc.text(arrPart, 100, partY);
             partY = arrPart.length < 3 ? partY + 15 : partY + arrPart.length * 5;
