@@ -1594,6 +1594,7 @@ var PtoNewComponent = (function () {
     }
     PtoNewComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.units = __WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */][this.ptoService.pto.STATION];
         this.ptoForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormGroup */]({
             'ptono': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.PTO_No),
             'year': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.YEAR),
