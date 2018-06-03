@@ -1271,6 +1271,84 @@ var MaterialModule = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/models/ceccAOR.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ceccAOR; });
+var ceccAOR = {
+    'Agra': ['CWE Agra', 'GE(E) Agra', 'GE(W) Agra', 'GE(AF) AA Kheria', 'GE(AF) TA Kheria',
+        'PM(COD Agra', 'GE(I) (R&D) Agra', 'CWE(AF) Kheria'],
+    'Allahabad': ['CE(AF) Allahabad', 'CWE(AF) Bamrauli', 'GE(AF) Bamrauli', 'CWE Allahabad',
+        'GE(E) Allahabad', 'GE(W) Allahabad', 'GE(P) Allahabad', 'Pension Cell Allahabad', 'SSB Allahabad',
+        'GE Engr Park Allahabad', 'SO-1(L) HQ CAC Allahabad'],
+    'Bareilly': ['CE Bareilly Zone', 'CWE Bareilly', 'GE(E) Bareilly', 'GE(W) Barielly', 'GE(P) Bareilly',
+        'CWE Izzatnagar', 'GE(AF) Izzatnagar'],
+    'Dehradoon': ['CWE Dehradoon', 'GE Dehradoon', 'GE(P) Dehradoon', 'GE IMA Dehradoon',
+        'CWE(Hills) Dehradoon', 'GE Clement Town', 'GE(I) (R&D) Dehradoon', 'AGE(I) (P) Dehradoon',
+        'AGE(Fy) Dehradoon'],
+    'Gwalior': ['CWE(AF) Maharajpur', 'GE(AF) AA Maharajpur', 'GE(AF) TA Maharajpur',
+        'GE(AF) (P) Maharajpur', 'AGE(I) (R&D) Gwalior'],
+    'Jabalpur': ['CE Jabalpur Zone', 'CWE Jabalpur', 'GE(E) Jabalpur', 'GE(W) Jabalpur', 'GE(P) Jabalpur',
+        'GE(I) (P) Fy Jabalpur', 'PM COD Jabalpur'],
+    'Kanpur': ['CWE(AF) Chakeri', 'GE(AF) B/R Chakeri', 'GE(AF) E/M Chakeri', 'GE(AF) (P) Chakeri',
+        'GE(I) Kanpur', 'GE(I) (R&D) Kanpur', 'GE(P) Fy Kanpur'],
+    'Lucknow': ['CE Central Command', 'STE Central Command', 'SPA Central Command', 'CTL Central Command',
+        'CE Lucknow Zone', 'CWE Lucknow', 'GE(E) Lucknow', 'GE(W) Lucknow', 'GE(E/M) Lucknow', 'GE(P) Lucknow',
+        'AGE Memaura'],
+    'Meerut': ['CWE Meerut', 'CWE(P) Meerut', 'GE(N) Meerut', 'GE(S) Meerut', 'GE(U) (E/M) Meerut',
+        'GE(P) No 1 Meerut', 'GE(P) No 2 Meerut', 'MES Fund Liasion Cell'],
+    'Mhow': ['CWE Mhow', 'GE(AWC) Mhow', 'GE(P) Inf School Mhow', 'GE(M) Inf School Mhow', 'GE(MCTE) Mhow'],
+    'Ranchi': ['CWE Ranchi', 'GE Ranchi', 'GE Dipatoli'],
+    'Pithoragarh': ['CWE(Hills) Pithoragarh', 'GE Pithoragarh', 'AGE(MAP) Pithoragarh', 'Det Pithoragarh'],
+    'Joshimath': ['GE 871 EWS'],
+    'Gopalpur-on-Sea': ['GE Gopalpur-on-Sea'],
+    'Lansdowne': ['GE(I) Lansdowne'],
+    'Darbhanga': ['AGE(B/R) Darbhanga', 'AGE(B/R) (P) Darbhanga'],
+    'Panchmarhi': ['AGE(I) Panchmarhi'],
+    'Dharchula': ['AGE(B/R) Dharchula'],
+    'Bhowali': ['AGE Bhowali'],
+    'Kausani': ['JE Kausani'],
+    'Bakshi-ka-Talab': ['GE(AF) BKT', 'GE(AF) (P) BKT'],
+    'Bihta': ['GE (AF) Bihta'],
+    'Danapur': ['GE Danapur'],
+    'Faizabad': ['GE Faizabad'],
+    'Fatehgarh': ['GE Fatehgarh'],
+    'Gaya': ['CCE(P) OTA Gaya', 'GE Gaya', 'PM CCE(P) OTA Gaya'],
+    'Gorakhpur': ['GE(AF) Gorakhpur'],
+    'Ranikhet': ['GE Ranikhet'],
+    'Ramgarh': ['GE Ramgarh'],
+    'Roorkee': ['GE Roorkee'],
+    'Almora': ['JE(B/R) Almora'],
+    'Auli': ['Det Auli'],
+    'Babugarh': ['JE(B/R) Babugarh'],
+    'Banbassa': ['JE Banbassa'],
+    'Barabanki': ['JE Barabanki'],
+    'Bhuwaneshwar': ['JE(B/R) Bhuwaneswar'],
+    'Dabathua': ['JE(B/R) Dabathua'],
+    'Delhi': ['E-in-C Br', 'DG(MAP)', 'CRO Delhi Cantt'],
+    'Haldwani': ['AGE(B/R) Haldwani', 'AGE(R&D) Haldwani'],
+    'Harsil': ['JE(B/R) Harsil'],
+    'Hempur': ['JE(B/R) Hempur'],
+    'Itarsi': ['AGE(P) Fy Itarsi'],
+    'Jamshedpur': ['JE(B/R) Jamshedpur'],
+    'Kotdwara': ['JE(B/R) Kotdwara'],
+    'Manauri': ['AGE(I) Manauri'],
+    'Muradnagar': ['AGE Fy Muradnagar'],
+    'Mussoorie': ['AGE(R&D) Mussoorie'],
+    'Muzaffarpur': ['JE(B/R) Muzaffarpur'],
+    'Nainital': ['JE(B/R) Nainital'],
+    'Raipur': ['AGE(I) Raipur'],
+    'Raiwala': ['AGE(I) Raiwala'],
+    'Rudraprayag': ['JE(B/R) Rudraprayag'],
+    'Saharanpur': ['AGR(B/R) Saharanpur'],
+    'Sahjahanpur': ['AGE Sahjahanpur'],
+    'Varanasi': ['AGE Varanasi', 'AGE(AF) Varanasi']
+};
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/models/particulars.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1341,7 +1419,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-list/pto-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-pto-search></app-pto-search>\n<div class=\"ptos\">      \n  <mat-card>\n    <mat-nav-list>\n        <a mat-list-item *ngFor=\"let pto of ptos\" (click)=\"showDetails(pto)\">\n            <div class=\"pto-sno\">\n                {{ pto.PTO_No }}\n            </div>\n            <div class=\"pto-year\">\n                {{ pto.YEAR }}\n            </div>\n            <div class=\"pto-unit\">\n                {{ pto.UNIT }}\n            </div>\n            <div class=\"pto-station\">\n                {{ pto.STATION }}\n            </div>\n            <div class=\"pto-date\">\n                {{ pto.DATE }}\n            </div>\n        </a>\n    </mat-nav-list>\n  </mat-card>    \n</div>"
+module.exports = "\n<app-pto-search></app-pto-search>\n<div class=\"ptos\">      \n  <mat-card>\n    <mat-nav-list>\n        <a mat-list-item *ngFor=\"let pto of ptos\" (click)=\"showDetails(pto)\">\n            <div class=\"pto-sno\">\n                {{ pto.PTO_No }}\n            </div>\n            <div class=\"pto-year\">\n                {{ pto.YEAR }}\n            </div>\n            <div class=\"pto-station\">\n                {{ pto.STATION }}\n            </div>\n            <div class=\"pto-unit\">\n                {{ pto.UNIT }}\n            </div>\n            <div class=\"pto-date\">\n                {{ pto.DATE }}\n            </div>\n        </a>\n    </mat-nav-list>\n  </mat-card>    \n</div>"
 
 /***/ }),
 
@@ -1478,7 +1556,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-new/pto-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [formGroup]=\"ptoForm\" fxLayout=\"row\" fxLayoutAlign=\"start center\"> \n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"S No\" formControlName=\"ptono\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Year\" formControlName=\"year\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Unit\" formControlName=\"unit\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Station\" formControlName=\"station\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" formControlName=\"date\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n        </div>\n    </form>\n  </mat-card>\n  <h3>Casualities</h3> \n  <div *ngFor=\"let formControl of controls\">\n    <mat-card>\n      <form [formGroup]=\"formControl\">\n          <div class=\"cas\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"cas-sno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"S No\" formControlName=\"sno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-mesno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"MES No\" formControlName=\"mesno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-name\">\n                <mat-form-field>\n                  <input matInput placeholder=\"Name\" formControlName=\"name\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-category\">\n              <mat-form-field>\n                <mat-select placeholder=\"Category\" formControlName=\"category\">\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                    {{ category }}\n                    </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Date\" formControlName=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-type\">\n                <mat-form-field>\n                  <mat-select placeholder=\"Type\" formControlName=\"type\">\n                      <mat-option *ngFor=\"let type of particulars\" (click)=\"onSelect(formControl,type.value)\" [value]=\"type.viewValue\">\n                      {{ type.viewValue }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </div>\n            <div class=\"cas-particular\">\n              <mat-form-field>\n                <textarea matInput placeholder=\"Particular\" formControlName=\"particular\"></textarea>\n              </mat-form-field>\n            </div>\n        \n            <div class=\"icon-close\">\n              <a href=\"#\" (click)=\"deleteCas(formControl)\"><mat-icon>close</mat-icon></a>\n            </div>\n          </div>\n      </form>\n    </mat-card>\n  </div>\n   \n</div>"
+module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [formGroup]=\"ptoForm\" fxLayout=\"row\" fxLayoutAlign=\"start center\"> \n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"S No\" formControlName=\"ptono\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Year\" formControlName=\"year\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <mat-select placeholder=\"Station\" formControlName=\"station\">\n                <mat-option *ngFor=\"let stn of stations\" [value]=\"stn\" (click)=\"onSelectStation(stn)\">\n                {{ stn }}\n                </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n              <mat-select placeholder=\"Unit\" formControlName=\"unit\">\n                  <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                  {{ unit }}\n                  </mat-option>\n              </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" formControlName=\"date\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n        </div>\n    </form>\n  </mat-card>\n  <h3>Casualities</h3> \n  <div *ngFor=\"let formControl of controls\">\n    <mat-card>\n      <form [formGroup]=\"formControl\">\n          <div class=\"cas\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"cas-sno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"S No\" formControlName=\"sno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-mesno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"MES No\" formControlName=\"mesno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-name\">\n                <mat-form-field>\n                  <input matInput placeholder=\"Name\" formControlName=\"name\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-category\">\n              <mat-form-field>\n                <mat-select placeholder=\"Category\" formControlName=\"category\">\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                    {{ category }}\n                    </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Date\" formControlName=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-type\">\n                <mat-form-field>\n                  <mat-select placeholder=\"Type\" formControlName=\"type\">\n                      <mat-option *ngFor=\"let type of particulars\" (click)=\"onSelect(formControl,type.value)\" [value]=\"type.viewValue\">\n                      {{ type.viewValue }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </div>\n            <div class=\"cas-particular\">\n              <mat-form-field>\n                <textarea matInput placeholder=\"Particular\" formControlName=\"particular\"></textarea>\n              </mat-form-field>\n            </div>\n        \n            <div class=\"icon-close\">\n              <a href=\"#\" (click)=\"deleteCas(formControl)\"><mat-icon>close</mat-icon></a>\n            </div>\n          </div>\n      </form>\n    </mat-card>\n  </div>\n   \n</div>"
 
 /***/ }),
 
@@ -1491,6 +1569,7 @@ module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_particulars__ = __webpack_require__("../../../../../src/app/models/particulars.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__ = __webpack_require__("../../../../../src/app/models/ceccAOR.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1504,12 +1583,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PtoNewComponent = (function () {
     function PtoNewComponent(ptoService) {
         this.ptoService = ptoService;
         this.categories = ['JE (Civ)', 'JE (E/M)', 'JE(QS&C)', 'OS', 'AAO', 'UDC', 'SAA', 'LDC', 'JAA',
             'STENO GDE-III', 'STENO', 'DTMN', 'BS', 'SK', 'CHOW(O)'];
         this.particulars = __WEBPACK_IMPORTED_MODULE_3__models_particulars__["a" /* particulars */];
+        this.stations = Object.keys(__WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */]);
     }
     PtoNewComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1589,6 +1670,9 @@ var PtoNewComponent = (function () {
     };
     PtoNewComponent.prototype.onSelect = function (formControl, type) {
         formControl.patchValue({ particular: type });
+    };
+    PtoNewComponent.prototype.onSelectStation = function (stn) {
+        this.units = __WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */][stn];
     };
     PtoNewComponent.prototype.deleteCas = function (formControl) {
         var casIndex = this.ptoForm.get('casualities').controls.indexOf(formControl);
@@ -1791,7 +1875,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-search/pto-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n      <form (ngSubmit)=\"onSubmit()\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Search</button>\n          </div>\n          <span class=\"filler\"></span>\n          <div><h2>PTO-II Order List</h2></div>\n          <span class=\"filler\"></span>   \n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n            <div class=\"pto-no\">\n              <mat-form-field>\n                <input matInput placeholder=\"PTO No\" type=\"text\" [(ngModel)]=\"pto.PTO_No\" name=\"ptono\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(0)\">\n                  <i class=\"fa fa-sort\" *ngIf=\"sortCol !== 0\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 0 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 0 && !sortUp)\"></i>\n              </a>   \n            </div>\n\n            <div class=\"pto-year\">\n              <mat-form-field>\n                <input matInput placeholder=\"Year\" type=\"text\" [(ngModel)]=\"pto.YEAR\" name=\"year\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(1)\">\n                  <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 1\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 1 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 1 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-unit\">\n                <mat-form-field>\n                    <input matInput placeholder=\"Unit\" type=\"text\" [(ngModel)]=\"pto.UNIT\" name=\"unit\">\n                  </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(2)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 2\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 2 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 2 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-station\">\n                <mat-form-field>\n                    <input matInput placeholder=\"Station\" type=\"text\" [(ngModel)]=\"pto.STATION\" name=\"station\">\n                  </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(3)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 3\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 3 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 3 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" [(ngModel)]=\"pto.DATE\" name=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                <mat-datepicker #picker1></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(4)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 4\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 4 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 4 && !sortUp)\"></i>\n              </a>\n            </div>\n   \n        </div>\n\n      </form>\n    </mat-card-content>\n</mat-card>\n\n          \n          \n          "
+module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n      <form (ngSubmit)=\"onSubmit()\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Search</button>\n          </div>\n          <span class=\"filler\"></span>\n          <div><h2>PTO-II Order List</h2></div>\n          <span class=\"filler\"></span>   \n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n            <div class=\"pto-no\">\n              <mat-form-field>\n                <input matInput placeholder=\"PTO No\" type=\"text\" [(ngModel)]=\"pto.PTO_No\" name=\"ptono\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(0)\">\n                  <i class=\"fa fa-sort\" *ngIf=\"sortCol !== 0\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 0 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 0 && !sortUp)\"></i>\n              </a>   \n            </div>\n\n            <div class=\"pto-year\">\n              <mat-form-field>\n                <input matInput placeholder=\"Year\" type=\"text\" [(ngModel)]=\"pto.YEAR\" name=\"year\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(1)\">\n                  <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 1\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 1 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 1 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-station\">\n                <mat-form-field>\n                  <mat-select matInput placeholder=\"Station\">\n                      <mat-option (click)=\"onSelectStation('None')\">None</mat-option>\n                      <mat-option *ngFor=\"let stn of stations\" [value]=\"stn\" (click)=\"onSelectStation(stn)\">\n                      {{ stn }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(3)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 3\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 3 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 3 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-unit\">\n              <mat-form-field>\n                  <mat-select placeholder=\"Unit\" [(ngModel)]=\"pto.UNIT\" name=\"unit\">\n                      <mat-option>None</mat-option>\n                      <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                      {{ unit }}\n                      </mat-option>\n                  </mat-select>\n              </mat-form-field>\n            <a href=\"#\"  (click)=\"onSort(2)\">\n              <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 2\"></i>\n              <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 2 && sortUp)\"></i>\n              <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 2 && !sortUp)\"></i>\n            </a>\n          </div>\n\n            <div class=\"pto-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" [(ngModel)]=\"pto.DATE\" name=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                <mat-datepicker #picker1></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(4)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 4\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 4 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 4 && !sortUp)\"></i>\n              </a>\n            </div>\n   \n        </div>\n\n      </form>\n    </mat-card-content>\n</mat-card>\n\n          \n          \n          "
 
 /***/ }),
 
@@ -1802,6 +1886,7 @@ module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n 
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PtoSearchComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_ceccAOR__ = __webpack_require__("../../../../../src/app/models/ceccAOR.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1811,6 +1896,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var PtoSearchComponent = (function () {
@@ -1823,6 +1909,7 @@ var PtoSearchComponent = (function () {
             STATION: '',
             DATE: ''
         };
+        this.stations = Object.keys(__WEBPACK_IMPORTED_MODULE_2__models_ceccAOR__["a" /* ceccAOR */]);
     }
     PtoSearchComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1833,9 +1920,28 @@ var PtoSearchComponent = (function () {
         this.pto.YEAR = this.pto.YEAR ? +this.pto.YEAR : null;
         this.pto.DATE = this.getDateStr(this.pto.DATE);
         this.ptoService.search.next(this.pto);
-        console.log(this.pto);
+        console.log('Search PTO : ', this.pto);
         this.sortCol = -1;
     };
+    PtoSearchComponent.prototype.onSelectStation = function (stn) {
+        if (stn !== 'None') {
+            this.pto.STATION = stn;
+            this.pto.UNIT = '';
+            this.units = __WEBPACK_IMPORTED_MODULE_2__models_ceccAOR__["a" /* ceccAOR */][stn];
+        }
+        else {
+            this.pto.STATION = '';
+            this.pto.UNIT = '';
+            this.units = [];
+        }
+    };
+    // onSelectUnit(unit: string) {
+    //   if (unit !== 'None') {
+    //     this.pto.UNIT = unit;
+    //   } else {
+    //     this.pto.UNIT = '';
+    //   }
+    // }
     PtoSearchComponent.prototype.getDateStr = function (dtStr) {
         if (dtStr) {
             var dt = new Date(dtStr);
