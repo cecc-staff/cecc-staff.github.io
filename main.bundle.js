@@ -1674,6 +1674,9 @@ var PtoNewComponent = (function () {
     };
     PtoNewComponent.prototype.onSelectStation = function (stn) {
         this.units = __WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */][stn];
+        if (this.units.length === 1) {
+            this.ptoForm.get('unit').setValue(this.units[0]);
+        }
     };
     PtoNewComponent.prototype.deleteCas = function (formControl) {
         var casIndex = this.ptoForm.get('casualities').controls.indexOf(formControl);
