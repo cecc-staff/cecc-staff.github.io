@@ -1406,7 +1406,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ptos {\n    width: 100%;\n}\n.pto-sno {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-year {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-unit {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-station {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-date {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\nh2 {\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, ".ptos {\n    width: 100%;\n    position: relative;\n    max-height: 425px;\n    overflow: auto;\n}\n.pto-sno {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-year {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-unit {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-station {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-date {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\nh2 {\n    text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -1596,11 +1596,11 @@ var PtoNewComponent = (function () {
         var _this = this;
         this.units = __WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */][this.ptoService.pto.STATION];
         this.ptoForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormGroup */]({
-            'ptono': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.PTO_No),
-            'year': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.YEAR),
-            'unit': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.UNIT),
-            'station': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.STATION),
-            'date': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.DATE),
+            'ptono': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.PTO_No, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'year': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.YEAR, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'unit': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.UNIT, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'station': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.STATION, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'date': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.DATE, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
             'casualities': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormArray */]([]),
         });
         this.controls = this.ptoForm.get('casualities').controls;
@@ -1613,13 +1613,13 @@ var PtoNewComponent = (function () {
     };
     PtoNewComponent.prototype.addCasuality = function (cas) {
         this.casForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormGroup */]({
-            'sno': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.S_No),
-            'mesno': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.MES_No),
-            'name': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.NAME),
-            'category': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.CATEGORY),
-            'date': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.DATE),
-            'type': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.TYPE),
-            'particular': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.PARTICULAR)
+            'sno': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.S_No, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'mesno': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.MES_No, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'name': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.NAME, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'category': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.CATEGORY, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'date': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.DATE, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'type': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.TYPE, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'particular': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.PARTICULAR, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required)
         });
         this.ptoForm.get('casualities').push(this.casForm);
         // console.log(this.casuality);
@@ -2051,9 +2051,12 @@ var PtoComponent = (function () {
         }
         if (navItem === 'Publish...') {
             this.ptoService.preview.next();
-            if ((this.ptoService.pto.PTO_No !== 0) && (this.ptoService.pto.YEAR !== 0) &&
+            if ((this.ptoService.pto.PTO_No) && (this.ptoService.pto.YEAR) &&
                 this.ptoService.pto.UNIT && this.ptoService.pto.STATION && this.ptoService.pto.DATE) {
                 this.page = 'preview';
+            }
+            else {
+                this.snackBar.open('The PTO Form Fields cannot be left Blank!', '', { duration: 2000, });
             }
         }
         if (navItem === 'New Casuality') {
