@@ -1587,8 +1587,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PtoNewComponent = (function () {
     function PtoNewComponent(ptoService) {
         this.ptoService = ptoService;
-        this.categories = ['JE (Civ)', 'JE (E/M)', 'JE(QS&C)', 'OS', 'AAO', 'UDC', 'SAA', 'LDC', 'JAA',
-            'STENO GDE-III', 'STENO', 'DTMN', 'BS', 'SK', 'CHOW(O)'];
+        this.categories = ['JE (Civ)', 'JE (E/M)', 'JE(QS&C)', 'OS', 'AAO', 'UDC', 'SAA', 'LDC', 'JAA', 'STENO GDE-III',
+            'STENO', 'DTMN', 'BS', 'SK', 'M-READER', 'CMD', 'DUFTRY', 'PEON', 'CHOW(O)', 'MALI', 'S-WALA'];
         this.particulars = __WEBPACK_IMPORTED_MODULE_3__models_particulars__["a" /* particulars */];
         this.stations = Object.keys(__WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */]);
     }
