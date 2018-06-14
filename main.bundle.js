@@ -1349,12 +1349,12 @@ var ceccAOR = {
 
 /***/ }),
 
-/***/ "../../../../../src/app/models/particulars.ts":
+/***/ "../../../../../src/app/models/templetes.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return particulars; });
-var particulars = [
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return templetes; });
+var templetes = [
     { value: 'Reported arrival and TOS on permanent posting from _______ and posted as _____ wef the same date',
         viewValue: 'Strength Increase' },
     { value: 'SOS on permanent transfer to ______\n Auth: CECC letter no. _____ dt. ______',
@@ -1365,31 +1365,31 @@ var particulars = [
         viewValue: 'Commuted Leave' },
     { value: "Permitted to avail LTC for the Block of ______ for self/wife/son/daughter to _____",
         viewValue: 'LTC' },
-    { value: "Promoted as _________ and placed in position wef same date.\n    He will be on probation foe a period of 2 years from same date.\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Promoted as _________ and placed in position wef same date.\n  He will be on probation foe a period of 2 years from same date.\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Promotion' },
-    { value: "Allowed to continue in the post of _____ in regular temporary\n    establishment beyond _____ on satisfactory completion of probation.\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Allowed to continue in the post of _____ in regular temporary\n  establishment beyond _____ on satisfactory completion of probation.\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Probation' },
     { value: "Alloted MES No. _______ \nAuth: CECC letter No. _____ dated ______",
         viewValue: 'Personal Number' },
     { value: "Alloted GPF Account No. _______ \nAuth: CECC letter No. _____ dated ______",
         viewValue: 'GPF Number' },
-    { value: "Resignation accepted by Govt.of India, Min. of Defence and SOS from from same date.\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Resignation accepted by Govt.of India, Min. of Defence and SOS from from same date.\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Resignation' },
-    { value: "Appointed in permanent capacity on the post of ______\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Appointed in permanent capacity on the post of ______\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Permanent Appointment' },
-    { value: "Previous Service rendered in _____ wef ____ to ______ will count as qualifying service\n    for pension and gratuity in present Dept. viz. MES\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Previous Service rendered in _____ wef ____ to ______ will count as qualifying service\n  for pension and gratuity in present Dept. viz. MES\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Counting of Previous Service' },
-    { value: "Service verified from _____ to ______ with reference to paid bills and PTOs.\n    PTOs and paid DVs for the period scrutinised and discrepancies noticed reconciled.\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Service verified from _____ to ______ with reference to paid bills and PTOs.\n  PTOs and paid DVs for the period scrutinised and discrepancies noticed reconciled.\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Service Verification' },
     { value: "Granted annual increment of _____ raising pay from _____ to ______ in the scale of _______",
         viewValue: 'Increment' },
-    { value: "Granted ___ MACP in the scale of ______\n     Auth: CECC letter No. _____ dated ________",
+    { value: "Granted ___ MACP in the scale of ______\n   Auth: CECC letter No. _____ dated ________",
         viewValue: 'MACP' },
-    { value: "Appointed in permanent capacity on the post of ______\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Appointed in permanent capacity on the post of ______\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Permanent Appointment' },
-    { value: "Charge sheeted under Rule __ of CCS(CC&A) Rules 1965 for _______\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Charge sheeted under Rule __ of CCS(CC&A) Rules 1965 for _______\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Discipline' },
-    { value: "Placed under suspension under Rule ____ of CCS(CC&A) Rules 1965\n    Auth: CECC letter No. _____ dated ______",
+    { value: "Placed under suspension under Rule ____ of CCS(CC&A) Rules 1965\n  Auth: CECC letter No. _____ dated ______",
         viewValue: 'Suspension' },
     { value: "____________________________",
         viewValue: 'Misc.' },
@@ -1556,7 +1556,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-new/pto-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [formGroup]=\"ptoForm\" fxLayout=\"row\" fxLayoutAlign=\"start center\"> \n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"S No\" formControlName=\"ptono\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Year\" formControlName=\"year\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <mat-select placeholder=\"Station\" formControlName=\"station\">\n                <mat-option *ngFor=\"let stn of stations\" [value]=\"stn\" (click)=\"onSelectStation(stn)\">\n                {{ stn }}\n                </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n              <mat-select placeholder=\"Unit\" formControlName=\"unit\">\n                  <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                  {{ unit }}\n                  </mat-option>\n              </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" formControlName=\"date\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n        </div>\n    </form>\n  </mat-card>\n  <h3>Casualities</h3> \n  <div *ngFor=\"let formControl of controls\">\n    <mat-card>\n      <form [formGroup]=\"formControl\">\n          <div class=\"cas\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"cas-sno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"S No\" formControlName=\"sno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-mesno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"MES No\" formControlName=\"mesno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-name\">\n                <mat-form-field>\n                  <input matInput placeholder=\"Name\" formControlName=\"name\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-category\">\n              <mat-form-field>\n                <mat-select placeholder=\"Category\" formControlName=\"category\">\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                    {{ category }}\n                    </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Date\" formControlName=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-type\">\n                <mat-form-field>\n                  <mat-select placeholder=\"Type\" formControlName=\"type\">\n                      <mat-option *ngFor=\"let type of particulars\" (click)=\"onSelect(formControl,type.value)\" [value]=\"type.viewValue\">\n                      {{ type.viewValue }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </div>\n            <div class=\"cas-particular\">\n              <mat-form-field>\n                <textarea matInput placeholder=\"Particular\" formControlName=\"particular\"></textarea>\n              </mat-form-field>\n            </div>\n        \n            <div class=\"icon-close\">\n              <a href=\"#\" (click)=\"deleteCas(formControl)\"><mat-icon>close</mat-icon></a>\n            </div>\n          </div>\n      </form>\n    </mat-card>\n  </div>\n   \n</div>"
+module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [formGroup]=\"ptoForm\" fxLayout=\"row\" fxLayoutAlign=\"start center\"> \n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"S No\" formControlName=\"ptono\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Year\" formControlName=\"year\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <mat-select placeholder=\"Station\" formControlName=\"station\">\n                <mat-option *ngFor=\"let stn of stations\" [value]=\"stn.station\" (click)=\"onSelectStation(stn)\">\n                {{ stn.station }}\n                </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n              <mat-select placeholder=\"Unit\" formControlName=\"unit\">\n                  <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                  {{ unit }}\n                  </mat-option>\n              </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" formControlName=\"date\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n        </div>\n    </form>\n  </mat-card>\n  <h3>Casualities</h3> \n  <div *ngFor=\"let formControl of controls\">\n    <mat-card>\n      <form [formGroup]=\"formControl\">\n          <div class=\"cas\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"cas-sno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"S No\" formControlName=\"sno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-mesno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"MES No\" formControlName=\"mesno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-name\">\n                <mat-form-field>\n                  <input matInput placeholder=\"Name\" formControlName=\"name\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-category\">\n              <mat-form-field>\n                <mat-select placeholder=\"Category\" formControlName=\"category\">\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                    {{ category }}\n                    </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Date\" formControlName=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-type\">\n                <mat-form-field>\n                  <mat-select placeholder=\"Type\" formControlName=\"type\">\n                      <mat-option *ngFor=\"let templete of templetes\" \n                                (click)=\"onSelect(formControl,templete.particular)\" [value]=\"templete.type\">\n                      {{ templete.type }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </div>\n            <div class=\"cas-particular\">\n              <mat-form-field>\n                <textarea matInput placeholder=\"Particular\" formControlName=\"particular\"></textarea>\n              </mat-form-field>\n            </div>\n        \n            <div class=\"icon-close\">\n              <a href=\"#\" (click)=\"deleteCas(formControl)\"><mat-icon>close</mat-icon></a>\n            </div>\n          </div>\n      </form>\n    </mat-card>\n  </div>\n   \n</div>"
 
 /***/ }),
 
@@ -1568,8 +1568,6 @@ module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_particulars__ = __webpack_require__("../../../../../src/app/models/particulars.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__ = __webpack_require__("../../../../../src/app/models/ceccAOR.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1582,19 +1580,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
+// import { ceccAOR } from '../models/ceccAOR';
 var PtoNewComponent = (function () {
     function PtoNewComponent(ptoService) {
         this.ptoService = ptoService;
         this.categories = ['JE (Civ)', 'JE (E/M)', 'JE(QS&C)', 'OS', 'AAO', 'UDC', 'SAA', 'LDC', 'JAA', 'STENO GDE-III',
             'STENO', 'DTMN', 'BS', 'SK', 'M-READER', 'CMD', 'DUFTRY', 'PEON', 'CHOW(O)', 'MALI', 'S-WALA'];
-        this.particulars = __WEBPACK_IMPORTED_MODULE_3__models_particulars__["a" /* particulars */];
-        this.stations = Object.keys(__WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */]);
     }
     PtoNewComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.units = __WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */][this.ptoService.pto.STATION];
+        this.ptoService.getStations().subscribe(function (stations) {
+            _this.stations = stations;
+            _this.units = _this.getUnits(_this.ptoService.pto.STATION);
+            // console.log('Stations : ', stations);
+        });
+        this.ptoService.getTempletes().subscribe(function (temp) {
+            _this.templetes = temp;
+            console.log('Templetes : ', _this.templetes);
+        });
         this.ptoForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormGroup */]({
             'ptono': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.PTO_No, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
             'year': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.YEAR, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
@@ -1669,11 +1672,11 @@ var PtoNewComponent = (function () {
             return dtStr;
         }
     };
-    PtoNewComponent.prototype.onSelect = function (formControl, type) {
-        formControl.patchValue({ particular: type });
+    PtoNewComponent.prototype.onSelect = function (formControl, particular) {
+        formControl.patchValue({ particular: particular });
     };
     PtoNewComponent.prototype.onSelectStation = function (stn) {
-        this.units = __WEBPACK_IMPORTED_MODULE_4__models_ceccAOR__["a" /* ceccAOR */][stn];
+        this.units = stn.units;
         if (this.units.length === 1) {
             this.ptoForm.get('unit').setValue(this.units[0]);
         }
@@ -1683,6 +1686,14 @@ var PtoNewComponent = (function () {
         this.ptoForm.get('casualities').controls.splice(casIndex, 1);
         this.ptoService.pto.CASUALITIES.splice(casIndex, 1);
         console.log('After Delete-PTO : ', this.ptoService.pto);
+    };
+    PtoNewComponent.prototype.getUnits = function (stn) {
+        for (var _i = 0, _a = this.stations; _i < _a.length; _i++) {
+            var station = _a[_i];
+            if (stn === station.station) {
+                return station.units;
+            }
+        }
     };
     PtoNewComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -2273,6 +2284,8 @@ var ItemService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_firestore__ = __webpack_require__("../../../../angularfire2/firestore/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_ceccAOR__ = __webpack_require__("../../../../../src/app/models/ceccAOR.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_templetes__ = __webpack_require__("../../../../../src/app/models/templetes.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2285,7 +2298,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import { Casuality } from '../models/casuality';
+
+
 var PTOService = (function () {
     function PTOService(afs) {
         this.afs = afs;
@@ -2302,6 +2316,7 @@ var PTOService = (function () {
             DATE: '',
             CASUALITIES: []
         };
+        this.stations = Object.keys(__WEBPACK_IMPORTED_MODULE_3__models_ceccAOR__["a" /* ceccAOR */]);
         this.ptoCollection = this.afs.collection('pto');
         this.ptos = this.ptoCollection.valueChanges();
         // this.ptos = this.ptoCollection.snapshotChanges().map(changes => {
@@ -2348,7 +2363,70 @@ var PTOService = (function () {
             return changes.map(function (a) {
                 var data = a.payload.doc.data();
                 data.id = a.payload.doc.id;
-                console.log('Filter PTOs - data : ' + JSON.stringify(data));
+                // console.log('Filter PTOs - data : ' + JSON.stringify(data));
+                return data;
+            });
+        });
+    };
+    PTOService.prototype.deletePto = function (id) {
+        return this.afs.doc('pto/' + id).delete();
+    };
+    /*  Method for Adding PTO Templetes to database from file "templetes.ts"  */
+    PTOService.prototype.addTempletes = function () {
+        for (var _i = 0, templetes_1 = __WEBPACK_IMPORTED_MODULE_4__models_templetes__["a" /* templetes */]; _i < templetes_1.length; _i++) {
+            var templete = templetes_1[_i];
+            this.afs.collection('templetes').add({ 'type': templete.viewValue, 'particular': templete.value });
+        }
+    };
+    PTOService.prototype.addTemplete = function (templete) {
+        this.afs.collection('templetes').add({ 'type': templete.type, 'particular': templete.particular });
+    };
+    PTOService.prototype.deleteTemplete = function (templete) {
+        this.afs.doc('templetes/' + templete.id).delete();
+    };
+    PTOService.prototype.setTemplete = function (templete) {
+        this.afs.doc('templetes/' + templete.id)
+            .set({ 'type': templete.type, 'particular': templete.particular }).then(function () {
+            console.log('Templete set : ', templete);
+        });
+    };
+    PTOService.prototype.getTempletes = function () {
+        return this.afs.collection('templetes').snapshotChanges().map(function (changes) {
+            return changes.map(function (a) {
+                var data = a.payload.doc.data();
+                data.id = a.payload.doc.id;
+                return data;
+            });
+        });
+    };
+    /*  Method for Adding Stations & Units to database from file "ceccAOR.ts"  */
+    PTOService.prototype.addStations = function () {
+        for (var _i = 0, _a = this.stations; _i < _a.length; _i++) {
+            var station = _a[_i];
+            this.afs.collection('stations').add({ 'station': station, 'units': __WEBPACK_IMPORTED_MODULE_3__models_ceccAOR__["a" /* ceccAOR */][station] });
+        }
+    };
+    PTOService.prototype.addStation = function (stn) {
+        this.afs.collection('stations').add({ 'station': stn.station, 'units': stn.units }).then(function (docRef) {
+            console.log('Station added with ID: ', docRef.id);
+        });
+    };
+    PTOService.prototype.deleteStation = function (stn) {
+        this.afs.doc('stations/' + stn.id).delete();
+    };
+    PTOService.prototype.setStation = function (stn) {
+        this.afs.doc('stations/' + stn.id).set({ 'station': stn.station, 'units': stn.units }).then(function () {
+            console.log('Station set : ', stn);
+        });
+    };
+    PTOService.prototype.getStations = function () {
+        return this.afs.collection('stations').valueChanges();
+    };
+    PTOService.prototype.getStationsWithId = function () {
+        return this.afs.collection('stations').snapshotChanges().map(function (changes) {
+            return changes.map(function (a) {
+                var data = a.payload.doc.data();
+                data.id = a.payload.doc.id;
                 return data;
             });
         });
