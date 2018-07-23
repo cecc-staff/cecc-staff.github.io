@@ -107,12 +107,16 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pto_preview_pto_preview_component__ = __webpack_require__("../../../../../src/app/pto-preview/pto-preview.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__cas_list_cas_list_component__ = __webpack_require__("../../../../../src/app/cas-list/cas-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__help_help_component__ = __webpack_require__("../../../../../src/app/help/help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__edit_units_edit_units_component__ = __webpack_require__("../../../../../src/app/edit-units/edit-units.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__templetes_templetes_component__ = __webpack_require__("../../../../../src/app/templetes/templetes.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -171,7 +175,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_25__pto_new_pto_new_component__["a" /* PtoNewComponent */],
                 __WEBPACK_IMPORTED_MODULE_26__pto_preview_pto_preview_component__["a" /* PtoPreviewComponent */],
                 __WEBPACK_IMPORTED_MODULE_27__cas_list_cas_list_component__["a" /* CasListComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__help_help_component__["a" /* HelpComponent */]
+                __WEBPACK_IMPORTED_MODULE_28__help_help_component__["a" /* HelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__edit_units_edit_units_component__["a" /* EditUnitsComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__templetes_templetes_component__["a" /* TempletesComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -485,7 +491,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\n\n.input {\n    width: 10%;\n}\n.input-mesno {\n    width: 5%;\n}\n.input-name {\n    width: 17%;\n}\n.input-category {\n    width: 8%;\n}\nmat-form-field {\n    width: 95%;\n}\na {\n    padding: 0px 25px;\n}\n.filler {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nlabel {\n    font-weight: bold;\n    color: black;\n}\n.btn {\n    color: white;\n    background-color: rgb(50, 162, 250);\n    font-weight: bold;\n}\nh5 {\n    text-align: center;\n    font-size: 14px;\n    font-weight: bold;\n    margin: 0px;\n    padding: 0px;\n}\n.row {\n    margin: 0px;\n    padding: 0px;\n}\n\n", ""]);
+exports.push([module.i, "\n\n.input {\n    width: 10%;\n}\n.input-mesno {\n    width: 5%;\n}\n.input-name {\n    width: 17%;\n}\n.input-category {\n    width: 8%;\n}\nmat-form-field {\n    width: 95%;\n}\na {\n    padding: 0px 25px;\n}\n.filler {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nlabel {\n    font-weight: bold;\n    color: black;\n}\n.btn {\n    color: white;\n    background-color: rgb(50, 162, 250);\n    font-weight: bold;\n}\nh5 {\n    text-align: center;\n    font-size: 14px;\n    font-weight: bold;\n    margin: 0px;\n    padding: 0px;\n}\n.row {\n    margin: 0px;\n    padding: 0px;\n}\n.add-button {\n    margin-left: 15px;\n}\n\n", ""]);
 
 // exports
 
@@ -498,7 +504,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/add-item/add-item.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n      <form (ngSubmit)=\"onSubmit()\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Search</button>\n          </div>\n          <span class=\"filler\"></span>\n          <div>\n            <h5>Showing {{itemService.count}} records</h5>\n            <h5 *ngIf=\"searchStr\">searched on {{ searchStr }}</h5>\n          </div>\n          <span class=\"filler\"></span>\n          <div>\n              <a href=\"http://mes.gov.in/\" target=\"_blank\">\n                  <img [src]=\"logoPath\" class=\"img-responsive\" style=\"max-height:75px\">\n              </a>   \n          </div>   \n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"input-mesno\">\n              <mat-form-field>\n                <input matInput placeholder=\"MES No\" type=\"text\" [(ngModel)]=\"item.MES_No\" name=\"mesno\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(0)\">\n                  <i class=\"fa fa-sort\" *ngIf=\"sortCol !== 0\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 0 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 0 && !sortUp)\"></i>\n              </a>   \n            </div>\n\n            <div class=\"input-name\">\n              <mat-form-field>\n                <input matInput placeholder=\"Name\" type=\"text\" [(ngModel)]=\"item.NAME\" name=\"name\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(1)\">\n                  <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 1\"></i>\n                  <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 1 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 1 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input-category\">\n              <mat-form-field>\n                  <mat-select placeholder=\"Category\" [(ngModel)]=\"item.CATEGORY\" name=\"category\">\n                    <mat-option>None</mat-option>\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                      {{ category }}\n                    </mat-option>\n                  </mat-select>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(2)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 2\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 2 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 2 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker1\" placeholder=\"Dt. of Birth\" [(ngModel)]=\"item.DOB\" name=\"dob\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                <mat-datepicker #picker1></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(3)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 3\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 3 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 3 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Dt. of Joining\" [(ngModel)]=\"item.DOJ\" name=\"doj\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(4)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 4\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 4 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 4 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput placeholder=\"Unit\" type=\"text\" [(ngModel)]=\"item.UNIT\" name=\"unit\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(5)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 5\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 5 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 5 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker3\" placeholder=\"Unit Seniority\" [(ngModel)]=\"item.UNIT_SENIORITY\" name=\"unit-seniority\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker3\"></mat-datepicker-toggle>\n                <mat-datepicker #picker3></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(6)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 6\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 6 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 6 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput placeholder=\"Station\" type=\"text\" [(ngModel)]=\"item.STATION\" name=\"station\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(7)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 7\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 7 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 7 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker4\" placeholder=\"Stn. Seniority\" [(ngModel)]=\"item.STN_SENIORITY\" name=\"stn-seniority\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker4\"></mat-datepicker-toggle>\n                <mat-datepicker #picker4></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(8)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 8\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 8 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 8 && !sortUp)\"></i>\n              </a>\n            </div>\n            \n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput placeholder=\"Remarks\" type=\"text\" [(ngModel)]=\"item.REMARKS\" name=\"remarks\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(9)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 9\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 9 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 9 && !sortUp)\"></i>\n              </a>\n            </div>  \n        </div>\n\n      </form>\n    </mat-card-content>\n</mat-card>\n\n          \n          \n          "
+module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n      <form (ngSubmit)=\"onSubmit()\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Search</button>\n          </div>\n          <div class=\"add-button\">\n            <button mat-raised-button type=\"button\" color=\"primary\" (click)=\"onAdd()\" [disabled]=\"user === null\">Add</button>\n          </div>\n          <span class=\"filler\"></span>\n          <div>\n            <h5>Showing {{itemService.count}} records</h5>\n            <h5 *ngIf=\"searchStr\">searched on {{ searchStr }}</h5>\n          </div>\n          <span class=\"filler\"></span>\n          <div>\n              <a href=\"http://mes.gov.in/\" target=\"_blank\">\n                  <img [src]=\"logoPath\" class=\"img-responsive\" style=\"max-height:75px\">\n              </a>   \n          </div>   \n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"input-mesno\">\n              <mat-form-field>\n                <input matInput placeholder=\"MES No\" type=\"text\" [(ngModel)]=\"item.MES_No\" name=\"mesno\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(0)\">\n                  <i class=\"fa fa-sort\" *ngIf=\"sortCol !== 0\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 0 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 0 && !sortUp)\"></i>\n              </a>   \n            </div>\n\n            <div class=\"input-name\">\n              <mat-form-field>\n                <input matInput placeholder=\"Name\" type=\"text\" [(ngModel)]=\"item.NAME\" name=\"name\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(1)\">\n                  <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 1\"></i>\n                  <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 1 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 1 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input-category\">\n              <mat-form-field>\n                  <mat-select placeholder=\"Category\" [(ngModel)]=\"item.CATEGORY\" name=\"category\">\n                    <mat-option>None</mat-option>\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                      {{ category }}\n                    </mat-option>\n                  </mat-select>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(2)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 2\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 2 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 2 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker1\" placeholder=\"Dt. of Birth\" [(ngModel)]=\"item.DOB\" name=\"dob\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                <mat-datepicker #picker1></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(3)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 3\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 3 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 3 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Dt. of Joining\" [(ngModel)]=\"item.DOJ\" name=\"doj\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(4)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 4\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 4 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 4 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput placeholder=\"Unit\" type=\"text\" [(ngModel)]=\"item.UNIT\" name=\"unit\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(5)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 5\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 5 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 5 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker3\" placeholder=\"Unit Seniority\" [(ngModel)]=\"item.UNIT_SENIORITY\" name=\"unit-seniority\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker3\"></mat-datepicker-toggle>\n                <mat-datepicker #picker3></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(6)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 6\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 6 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 6 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput placeholder=\"Station\" type=\"text\" [(ngModel)]=\"item.STATION\" name=\"station\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(7)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 7\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 7 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 7 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker4\" placeholder=\"Stn. Seniority\" [(ngModel)]=\"item.STN_SENIORITY\" name=\"stn-seniority\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker4\"></mat-datepicker-toggle>\n                <mat-datepicker #picker4></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(8)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 8\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 8 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 8 && !sortUp)\"></i>\n              </a>\n            </div>\n            \n            <div class=\"input\">\n              <mat-form-field>\n                <input matInput placeholder=\"Remarks\" type=\"text\" [(ngModel)]=\"item.REMARKS\" name=\"remarks\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(9)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 9\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 9 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 9 && !sortUp)\"></i>\n              </a>\n            </div>  \n        </div>\n\n      </form>\n    </mat-card-content>\n</mat-card>\n\n          \n          \n          "
 
 /***/ }),
 
@@ -539,6 +545,7 @@ var AddItemComponent = (function () {
             STN_SENIORITY: '',
             REMARKS: ''
         };
+        this.user = null;
     }
     AddItemComponent.prototype.onSubmit = function () {
         this.item.MES_No = this.item.MES_No ? +this.item.MES_No : null;
@@ -591,6 +598,10 @@ var AddItemComponent = (function () {
         this.searchStr = str;
         this.sortCol = -1;
     };
+    AddItemComponent.prototype.onAdd = function () {
+        console.log('Add : ', this.item);
+        this.itemService.addItem(this.item);
+    };
     AddItemComponent.prototype.getDateStr = function (dtStr) {
         if (dtStr) {
             var dt = new Date(dtStr);
@@ -609,6 +620,10 @@ var AddItemComponent = (function () {
         this.sortUp = !this.sortUp;
         this.itemService.sort.next(index);
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Input */])(),
+        __metadata("design:type", Object)
+    ], AddItemComponent.prototype, "user", void 0);
     AddItemComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-add-item',
@@ -674,7 +689,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/items/items.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div *ngIf=\"items?.length > 0; else noItems\">\n  <mat-list>\n    <mat-list-item *ngFor=\"let item of items\">\n        <div *ngIf=\"!(editState && itemToEdit.id == item.id)\" class=\"items\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n            <div class=\"item-mesno\" [ngClass]=\"{pointer:showPointer(item)}\" (click)=\"showSB(item)\">\n                {{item.MES_No}}\n            </div>\n            <div class=\"item-name\">\n                {{item.NAME}}\n            </div>\n            <div class=\"item-category\">\n                {{item.CATEGORY}}\n            </div>\n            <div class=\"item\">\n                {{item.DOB}}\n            </div>\n            <div class=\"item\">\n                {{item.DOJ}}\n            </div>\n            <div class=\"item\">\n                {{item.UNIT}}\n            </div>\n            <div class=\"item\">\n                {{item.UNIT_SENIORITY}}\n            </div>\n            <div class=\"item\">\n                {{item.STATION}}\n            </div>\n            <div class=\"item\">\n                {{item.STN_SENIORITY}}\n            </div>\n            <div class=\"item\">\n                {{item.REMARKS}}\n            </div>\n            <a *ngIf=\"user && user.email\">\n              <i (click)=\"editItem(item)\" class=\"fa fa-pencil pointer\"></i>\n            </a>\n        </div>\n        <div *ngIf=\"editState && itemToEdit.id == item.id\" class=\"items\">\n            <form  [formGroup]=\"myForm\" (ngSubmit)=\"updateItem()\" >\n                <div class=\"form-items\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                    <div class=\"item-mesno\">\n                        <mat-form-field>\n                            <input matInput type=\"text\" formControlName=\"mesno\">\n                        </mat-form-field>\n                    </div>\n                    <div class=\"item-name\">\n                            <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"name\">\n                            </mat-form-field>\n                    </div>      \n                    <div class=\"item-category\">\n                            <mat-form-field>\n                                <mat-select formControlName=\"category\">\n                                    <mat-option>None</mat-option>\n                                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                                    {{ category }}\n                                    </mat-option>\n                                </mat-select>\n                            </mat-form-field>\n                    </div>    \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput [matDatepicker]=\"picker1\" formControlName=\"dob\">\n                                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                                <mat-datepicker #picker1></mat-datepicker>\n                            </mat-form-field>\n                    </div>                          \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput [matDatepicker]=\"picker2\" formControlName=\"doj\">\n                                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                                <mat-datepicker #picker2></mat-datepicker>\n                            </mat-form-field>\n                    </div>    \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"unit\">\n                            </mat-form-field>\n                    </div>    \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput [matDatepicker]=\"picker3\" formControlName=\"unit_seniority\">\n                                <mat-datepicker-toggle matSuffix [for]=\"picker3\"></mat-datepicker-toggle>\n                                <mat-datepicker #picker3></mat-datepicker>\n                            </mat-form-field>\n                    </div>    \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"station\">\n                            </mat-form-field>\n                    </div>   \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput [matDatepicker]=\"picker4\" formControlName=\"stn_seniority\">\n                                <mat-datepicker-toggle matSuffix [for]=\"picker4\"></mat-datepicker-toggle>\n                                <mat-datepicker #picker4></mat-datepicker>\n                            </mat-form-field>\n                    </div>   \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"remarks\">\n                            </mat-form-field> \n                    </div>   \n               </div>\n               <div class=\"form-items\">\n                    <button mat-raised-button [disabled]=\"!myForm.valid\" type=\"submit\" color=\"primary\">Update</button>\n                    <button mat-raised-button color=\"primary\" type=\"button\" (click)=\"deleteItem(item)\" [disabled]=\"true\">Delete</button>\n                    <button mat-raised-button color=\"primary\" type=\"button\" (click)=\"clearState()\">Cancel</button>\n               </div> \n            </form>  \n        </div>\n    </mat-list-item>\n  </mat-list>\n</div>\n<ng-template #noItems>\n  <hr>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n    <div>\n        <h5>{{ loadingMsg }}</h5>\n    </div>\n    <div>\n        <i *ngIf=\"loadingMsg === 'Loading ...  '\" class=\"fa fa-spinner fa-spin fa-5x\"></i>\n    </div>\n  </div>\n</ng-template>"
+module.exports = "\n<div *ngIf=\"items?.length > 0; else noItems\">\n  <mat-list>\n    <mat-list-item *ngFor=\"let item of items\">\n        <div *ngIf=\"!(editState && itemToEdit.id == item.id)\" class=\"items\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n            <div class=\"item-mesno\" [ngClass]=\"{pointer:showPointer(item)}\" (click)=\"showSB(item)\">\n                {{item.MES_No}}\n            </div>\n            <div class=\"item-name\">\n                {{item.NAME}}\n            </div>\n            <div class=\"item-category\">\n                {{item.CATEGORY}}\n            </div>\n            <div class=\"item\">\n                {{item.DOB}}\n            </div>\n            <div class=\"item\">\n                {{item.DOJ}}\n            </div>\n            <div class=\"item\">\n                {{item.UNIT}}\n            </div>\n            <div class=\"item\">\n                {{item.UNIT_SENIORITY}}\n            </div>\n            <div class=\"item\">\n                {{item.STATION}}\n            </div>\n            <div class=\"item\">\n                {{item.STN_SENIORITY}}\n            </div>\n            <div class=\"item\">\n                {{item.REMARKS}}\n            </div>\n            <a *ngIf=\"user && user.email\">\n              <i (click)=\"editItem(item)\" class=\"fa fa-pencil pointer\"></i>\n            </a>\n        </div>\n        <div *ngIf=\"editState && itemToEdit.id == item.id\" class=\"items\">\n            <form  [formGroup]=\"myForm\" (ngSubmit)=\"updateItem()\" >\n                <div class=\"form-items\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                    <div class=\"item-mesno\">\n                        <mat-form-field>\n                            <input matInput type=\"text\" formControlName=\"mesno\">\n                        </mat-form-field>\n                    </div>\n                    <div class=\"item-name\">\n                            <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"name\">\n                            </mat-form-field>\n                    </div>      \n                    <div class=\"item-category\">\n                            <mat-form-field>\n                                <mat-select formControlName=\"category\">\n                                    <mat-option>None</mat-option>\n                                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                                    {{ category }}\n                                    </mat-option>\n                                </mat-select>\n                            </mat-form-field>\n                    </div>    \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput [matDatepicker]=\"picker1\" formControlName=\"dob\">\n                                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                                <mat-datepicker #picker1></mat-datepicker>\n                            </mat-form-field>\n                    </div>                          \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput [matDatepicker]=\"picker2\" formControlName=\"doj\">\n                                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                                <mat-datepicker #picker2></mat-datepicker>\n                            </mat-form-field>\n                    </div>    \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"unit\">\n                            </mat-form-field>\n                    </div>    \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput [matDatepicker]=\"picker3\" formControlName=\"unit_seniority\">\n                                <mat-datepicker-toggle matSuffix [for]=\"picker3\"></mat-datepicker-toggle>\n                                <mat-datepicker #picker3></mat-datepicker>\n                            </mat-form-field>\n                    </div>    \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"station\">\n                            </mat-form-field>\n                    </div>   \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput [matDatepicker]=\"picker4\" formControlName=\"stn_seniority\">\n                                <mat-datepicker-toggle matSuffix [for]=\"picker4\"></mat-datepicker-toggle>\n                                <mat-datepicker #picker4></mat-datepicker>\n                            </mat-form-field>\n                    </div>   \n                    <div class=\"item\">\n                            <mat-form-field>\n                                <input matInput type=\"text\" formControlName=\"remarks\">\n                            </mat-form-field> \n                    </div>   \n               </div>\n               <div class=\"form-items\">\n                    <button mat-raised-button [disabled]=\"!myForm.valid\" type=\"submit\" color=\"primary\">Update</button>\n                    <button mat-raised-button color=\"primary\" type=\"button\" (click)=\"deleteItem(item)\" [disabled]=\"false\">Delete</button>\n                    <button mat-raised-button color=\"primary\" type=\"button\" (click)=\"clearState()\">Cancel</button>\n               </div> \n            </form>  \n        </div>\n    </mat-list-item>\n  </mat-list>\n</div>\n<ng-template #noItems>\n  <hr>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n    <div>\n        <h5>{{ loadingMsg }}</h5>\n    </div>\n    <div>\n        <i *ngIf=\"loadingMsg === 'Loading ...  '\" class=\"fa fa-spinner fa-spin fa-5x\"></i>\n    </div>\n  </div>\n</ng-template>"
 
 /***/ }),
 
@@ -911,7 +926,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href=\"#\" (click)=\"togglePTO()\">{{ ptoStr }}</a>\n    <span class=\"filler1\"></span>\n    <a class=\"heading\" href=\"/\">Chief Engineer Central Command</a>\n    <span class=\"filler2\"></span>\n    <a *ngIf=\"!showPTO\" class=\"login\" id=\"downloadLink\" download=\"cecc-staff.csv\">Download</a>\n    <span class=\"filler3\"></span>\n    <a class=\"login\" href=\"#\" (click)=\"login()\">{{ logStr }}</a>\n</mat-toolbar>\n<h2 class=\"database\" (click)=\"publishMessage()\">{{ headStr }} of Basic Staff</h2>\n<p class=\"feedback\" color=\"primary\">Feedback: Sanjeev Gahlot,Jt.DG(Pers),CE CC Lucknow</p>\n<div *ngIf=\"!showPTO\">\n  <div *ngIf=\"!showLoginCard\">\n    <app-add-item></app-add-item>\n    <app-items [user]=\"user\"></app-items>\n  </div>\n  <app-login *ngIf=\"showLoginCard\"></app-login>\n</div>\n<app-pto *ngIf=\"showPTO\"></app-pto>\n\n\n"
+module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href=\"#\" (click)=\"togglePTO()\">{{ ptoStr }}</a>\n    <span class=\"filler1\"></span>\n    <a class=\"heading\" href=\"/\">Chief Engineer Central Command</a>\n    <span class=\"filler2\"></span>\n    <a *ngIf=\"!showPTO\" class=\"login\" id=\"downloadLink\" download=\"cecc-staff.csv\">Download</a>\n    <span class=\"filler3\"></span>\n    <a class=\"login\" href=\"#\" (click)=\"login()\">{{ logStr }}</a>\n</mat-toolbar>\n<h2 class=\"database\" (click)=\"publishMessage()\">{{ headStr }} of Basic Staff</h2>\n<p class=\"feedback\" color=\"primary\">Feedback: Sanjeev Gahlot,Jt.DG(Pers),CE CC Lucknow</p>\n<div *ngIf=\"!showPTO\">\n  <div *ngIf=\"!showLoginCard\">\n    <app-add-item [user]=\"user\"></app-add-item>\n    <app-items [user]=\"user\"></app-items>\n  </div>\n  <app-login *ngIf=\"showLoginCard\"></app-login>\n</div>\n<app-pto *ngIf=\"showPTO\"></app-pto>\n\n\n"
 
 /***/ }),
 
@@ -1042,6 +1057,126 @@ var NavbarComponent = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__services_item_service__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], NavbarComponent);
     return NavbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/edit-units/edit-units.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.edit-units-card {\n    margin-bottom: 0px;\n}\n.header {\n    text-align: center;\n    width: 100%;\n}\nh4, h5 {\n    text-align: center;\n    margin: 0px;\n}\n.stations {\n    width: 44%;\n}\n.filler {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\n.units {\n    width: 44%;\n}\nmat-nav-list {\n    position: relative;\n    max-height: 320px;\n    overflow: auto;\n}\n.station-list-item, .unit-list-item {\n    width: 100%;\n}\n.station, .unit {\n    width: 60%;\n}\n.close {\n    width: 10%;\n}\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/edit-units/edit-units.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<mat-card class=\"edit-units-card\">\n  <div class=\"header\">\n    <mat-card-title><h4>Edit Stations and Units</h4></mat-card-title>\n    <mat-card-subtitle>You can add or delete any Station or Unit from this Application.</mat-card-subtitle>\n  </div>\n  <mat-card-content fxLayout=\"row\" fxLayoutAlign=\"center start\">\n    <mat-card class=\"stations\">\n      <mat-card-title><h5>Stations</h5></mat-card-title>\n      <form (ngSubmit)=\"onSubmitStation(f)\" #f=\"ngForm\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n              <mat-form-field>\n                <input matInput ngModel placeholder=\"Station\" required type=\"text\" name=\"station\">\n              </mat-form-field>\n          </div>\n          <span class=\"filler\"></span>\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Add</button>\n          </div>   \n      </form>\n\n      <mat-nav-list>\n          <a mat-list-item *ngFor=\"let stn of stations\" (click)=\"onSelectStation($event,stn)\">\n            <div  class=\"station-list-item\" fxLayout=\"row\" fxLayoutAlign=\"center center\"> \n              <div class=\"station\">\n                  {{ stn.station }}\n              </div>\n              <span class=\"filler\"></span>\n              <span class=\"close\" hidden><mat-icon>close</mat-icon></span>\n            </div> \n          </a>\n      </mat-nav-list>\n  </mat-card>\n    <span class=\"filler\"></span>\n    <mat-card class=\"units\">\n        <mat-card-title><h5>Units</h5></mat-card-title>\n        <form (ngSubmit)=\"onSubmitUnit(uf)\" #uf=\"ngForm\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n            <div>\n                <mat-form-field>\n                  <input matInput placeholder=\"Unit\" ngModel required type=\"text\" name=\"unit\">\n                </mat-form-field>\n            </div>\n            <span class=\"filler\"></span>\n            <div>\n              <button mat-raised-button type=\"submit\" color=\"primary\">Add</button>\n            </div>   \n        </form>\n\n        <mat-nav-list>\n            <a mat-list-item *ngFor=\"let unit of units\">\n              <div  class=\"unit-list-item\" fxLayout=\"row\" fxLayoutAlign=\"center center\"> \n                <div class=\"unit\">\n                    {{ unit }}\n                </div>\n                <span class=\"filler\"></span>\n                <span class=\"close\" (click)=\"onDeleteUnit(unit)\" hidden><mat-icon>close</mat-icon></span>\n              </div> \n            </a>\n        </mat-nav-list>\n    </mat-card>\n  </mat-card-content>\n</mat-card>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/edit-units/edit-units.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditUnitsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditUnitsComponent = (function () {
+    function EditUnitsComponent(ptoService, snackBar) {
+        this.ptoService = ptoService;
+        this.snackBar = snackBar;
+    }
+    EditUnitsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ptoService.getStationsWithId().subscribe(function (stations) {
+            _this.stations = stations;
+            console.log('Stations : ', _this.stations);
+        });
+    };
+    EditUnitsComponent.prototype.onSubmitStation = function (form) {
+        console.log('Station Form : ', form);
+        if (form.valid && form.value.station.trim()) {
+            var count = this.stations.push({ 'station': form.value.station.trim(), 'units': [] });
+            this.ptoService.addStation(this.stations[count - 1]);
+            form.reset();
+        }
+        else {
+            this.snackBar.open('The "Station" Form Field cannot be Empty!', '', { duration: 2000, });
+        }
+    };
+    EditUnitsComponent.prototype.onSubmitUnit = function (form) {
+        console.log('Unit Form : ', form);
+        if (form.valid && form.value.unit.trim()) {
+            this.units.push(form.value.unit);
+            for (var i = 0; i < this.stations.length; i++) {
+                if (this.station === this.stations[i].station) {
+                    this.stations[i].units.push(form.value.unit.trim());
+                    this.ptoService.setStation(this.stations[i]);
+                    form.reset();
+                    return;
+                }
+            }
+        }
+        else {
+            this.snackBar.open('The "Unit" Form Field cannot be Empty!', '', { duration: 2000, });
+        }
+    };
+    EditUnitsComponent.prototype.onSelectStation = function (event, stn) {
+        if (event.srcElement.innerHTML === 'close') {
+            this.stations.splice(this.stations.indexOf(stn), 1);
+            this.ptoService.deleteStation(stn);
+            return;
+        }
+        this.station = stn.station;
+        this.units = stn.units;
+    };
+    EditUnitsComponent.prototype.onDeleteUnit = function (unit) {
+        console.log('Deleting Unit : ', unit);
+        this.units.splice(this.units.indexOf(unit), 1);
+        for (var i = 0; i < this.stations.length; i++) {
+            if (this.station === this.stations[i].station) {
+                this.stations[i].units.splice(this.stations[i].units.indexOf(unit), 1);
+                this.ptoService.setStation(this.stations[i]);
+                return;
+            }
+        }
+    };
+    EditUnitsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'app-edit-units',
+            template: __webpack_require__("../../../../../src/app/edit-units/edit-units.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/edit-units/edit-units.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatSnackBar */]])
+    ], EditUnitsComponent);
+    return EditUnitsComponent;
 }());
 
 
@@ -1271,133 +1406,6 @@ var MaterialModule = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/models/ceccAOR.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ceccAOR; });
-var ceccAOR = {
-    'Agra': ['CWE Agra', 'GE(E) Agra', 'GE(W) Agra', 'GE(AF) AA Kheria', 'GE(AF) TA Kheria',
-        'PM(COD Agra', 'GE(I) (R&D) Agra', 'CWE(AF) Kheria'],
-    'Allahabad': ['CE(AF) Allahabad', 'CWE(AF) Bamrauli', 'GE(AF) Bamrauli', 'CWE Allahabad',
-        'GE(E) Allahabad', 'GE(W) Allahabad', 'GE(P) Allahabad', 'Pension Cell Allahabad', 'SSB Allahabad',
-        'GE Engr Park Allahabad', 'SO-1(L) HQ CAC Allahabad'],
-    'Bareilly': ['CE Bareilly Zone', 'CWE Bareilly', 'GE(E) Bareilly', 'GE(W) Barielly', 'GE(P) Bareilly',
-        'CWE Izzatnagar', 'GE(AF) Izzatnagar'],
-    'Dehradoon': ['CWE Dehradoon', 'GE Dehradoon', 'GE(P) Dehradoon', 'GE IMA Dehradoon',
-        'CWE(Hills) Dehradoon', 'GE Clement Town', 'GE(I) (R&D) Dehradoon', 'AGE(I) (P) Dehradoon',
-        'AGE(Fy) Dehradoon'],
-    'Gwalior': ['CWE(AF) Maharajpur', 'GE(AF) AA Maharajpur', 'GE(AF) TA Maharajpur',
-        'GE(AF) (P) Maharajpur', 'AGE(I) (R&D) Gwalior'],
-    'Jabalpur': ['CE Jabalpur Zone', 'CWE Jabalpur', 'GE(E) Jabalpur', 'GE(W) Jabalpur', 'GE(P) Jabalpur',
-        'GE(I) (P) Fy Jabalpur', 'PM COD Jabalpur'],
-    'Kanpur': ['CWE(AF) Chakeri', 'GE(AF) B/R Chakeri', 'GE(AF) E/M Chakeri', 'GE(AF) (P) Chakeri',
-        'GE(I) Kanpur', 'GE(I) (R&D) Kanpur', 'GE(P) Fy Kanpur'],
-    'Lucknow': ['CE Central Command', 'STE Central Command', 'SPA Central Command', 'CTL Central Command',
-        'CE Lucknow Zone', 'CWE Lucknow', 'GE(E) Lucknow', 'GE(W) Lucknow', 'GE(E/M) Lucknow', 'GE(P) Lucknow',
-        'AGE Memaura'],
-    'Meerut': ['CWE Meerut', 'CWE(P) Meerut', 'GE(N) Meerut', 'GE(S) Meerut', 'GE(U) (E/M) Meerut',
-        'GE(P) No 1 Meerut', 'GE(P) No 2 Meerut', 'MES Fund Liasion Cell'],
-    'Mhow': ['CWE Mhow', 'GE(AWC) Mhow', 'GE(P) Inf School Mhow', 'GE(M) Inf School Mhow', 'GE(MCTE) Mhow'],
-    'Ranchi': ['CWE Ranchi', 'GE Ranchi', 'GE Dipatoli'],
-    'Pithoragarh': ['CWE(Hills) Pithoragarh', 'GE Pithoragarh', 'AGE(MAP) Pithoragarh', 'Det Pithoragarh'],
-    'Joshimath': ['GE 871 EWS'],
-    'Gopalpur-on-Sea': ['GE Gopalpur-on-Sea'],
-    'Lansdowne': ['GE(I) Lansdowne'],
-    'Darbhanga': ['AGE(B/R) Darbhanga', 'AGE(B/R) (P) Darbhanga'],
-    'Panchmarhi': ['AGE(I) Panchmarhi'],
-    'Dharchula': ['AGE(B/R) Dharchula'],
-    'Bhowali': ['AGE Bhowali'],
-    'Kausani': ['JE Kausani'],
-    'Bakshi-ka-Talab': ['GE(AF) BKT', 'GE(AF) (P) BKT'],
-    'Bihta': ['GE (AF) Bihta'],
-    'Danapur': ['GE Danapur'],
-    'Faizabad': ['GE Faizabad'],
-    'Fatehgarh': ['GE Fatehgarh'],
-    'Gaya': ['CCE(P) OTA Gaya', 'GE Gaya', 'PM CCE(P) OTA Gaya'],
-    'Gorakhpur': ['GE(AF) Gorakhpur'],
-    'Ranikhet': ['GE Ranikhet'],
-    'Ramgarh': ['GE Ramgarh'],
-    'Roorkee': ['GE Roorkee'],
-    'Almora': ['JE(B/R) Almora'],
-    'Auli': ['Det Auli'],
-    'Babugarh': ['JE(B/R) Babugarh'],
-    'Banbassa': ['JE Banbassa'],
-    'Barabanki': ['JE Barabanki'],
-    'Bhuwaneshwar': ['JE(B/R) Bhuwaneswar'],
-    'Dabathua': ['JE(B/R) Dabathua'],
-    'Delhi': ['E-in-C Br', 'DG(MAP)', 'CRO Delhi Cantt'],
-    'Haldwani': ['AGE(B/R) Haldwani', 'AGE(R&D) Haldwani'],
-    'Harsil': ['JE(B/R) Harsil'],
-    'Hempur': ['JE(B/R) Hempur'],
-    'Itarsi': ['AGE(P) Fy Itarsi'],
-    'Jamshedpur': ['JE(B/R) Jamshedpur'],
-    'Kotdwara': ['JE(B/R) Kotdwara'],
-    'Manauri': ['AGE(I) Manauri'],
-    'Muradnagar': ['AGE Fy Muradnagar'],
-    'Mussoorie': ['AGE(R&D) Mussoorie'],
-    'Muzaffarpur': ['JE(B/R) Muzaffarpur'],
-    'Nainital': ['JE(B/R) Nainital'],
-    'Raipur': ['AGE(I) Raipur'],
-    'Raiwala': ['AGE(I) Raiwala'],
-    'Rudraprayag': ['JE(B/R) Rudraprayag'],
-    'Saharanpur': ['AGR(B/R) Saharanpur'],
-    'Sahjahanpur': ['AGE Sahjahanpur'],
-    'Varanasi': ['AGE Varanasi', 'AGE(AF) Varanasi']
-};
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/models/templetes.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return templetes; });
-var templetes = [
-    { value: 'Reported arrival and TOS on permanent posting from _______ and posted as _____ wef the same date',
-        viewValue: 'Strength Increase' },
-    { value: 'SOS on permanent transfer to ______\n Auth: CECC letter no. _____ dt. ______',
-        viewValue: 'Strength Decrease' },
-    { value: 'Granted Earned Leave for _____ days wef ___ to _____',
-        viewValue: 'Earned Leave' },
-    { value: 'Granted commuted leave for ____ days on MC wef ______ to ____ equivalent to ____ days HPL',
-        viewValue: 'Commuted Leave' },
-    { value: "Permitted to avail LTC for the Block of ______ for self/wife/son/daughter to _____",
-        viewValue: 'LTC' },
-    { value: "Promoted as _________ and placed in position wef same date.\n  He will be on probation foe a period of 2 years from same date.\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Promotion' },
-    { value: "Allowed to continue in the post of _____ in regular temporary\n  establishment beyond _____ on satisfactory completion of probation.\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Probation' },
-    { value: "Alloted MES No. _______ \nAuth: CECC letter No. _____ dated ______",
-        viewValue: 'Personal Number' },
-    { value: "Alloted GPF Account No. _______ \nAuth: CECC letter No. _____ dated ______",
-        viewValue: 'GPF Number' },
-    { value: "Resignation accepted by Govt.of India, Min. of Defence and SOS from from same date.\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Resignation' },
-    { value: "Appointed in permanent capacity on the post of ______\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Permanent Appointment' },
-    { value: "Previous Service rendered in _____ wef ____ to ______ will count as qualifying service\n  for pension and gratuity in present Dept. viz. MES\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Counting of Previous Service' },
-    { value: "Service verified from _____ to ______ with reference to paid bills and PTOs.\n  PTOs and paid DVs for the period scrutinised and discrepancies noticed reconciled.\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Service Verification' },
-    { value: "Granted annual increment of _____ raising pay from _____ to ______ in the scale of _______",
-        viewValue: 'Increment' },
-    { value: "Granted ___ MACP in the scale of ______\n   Auth: CECC letter No. _____ dated ________",
-        viewValue: 'MACP' },
-    { value: "Appointed in permanent capacity on the post of ______\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Permanent Appointment' },
-    { value: "Charge sheeted under Rule __ of CCS(CC&A) Rules 1965 for _______\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Discipline' },
-    { value: "Placed under suspension under Rule ____ of CCS(CC&A) Rules 1965\n  Auth: CECC letter No. _____ dated ______",
-        viewValue: 'Suspension' },
-    { value: "____________________________",
-        viewValue: 'Misc.' },
-];
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/pto-list/pto-list.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1406,7 +1414,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ptos {\n    width: 100%;\n    position: relative;\n    max-height: 425px;\n    overflow: auto;\n}\n.pto-sno {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-year {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-unit {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-station {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-date {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\nh2 {\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, ".ptos {\n    width: 100%;\n    position: relative;\n    max-height: 425px;\n    overflow: auto;\n}\n.pto-sno {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-year {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-unit {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-station {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-date {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\nh2 {\n    text-align: center;\n}\n.pto-list {\n    height: 350px;\n}\n", ""]);
 
 // exports
 
@@ -1419,7 +1427,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-list/pto-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-pto-search></app-pto-search>\n<div class=\"ptos\">      \n  <mat-card>\n    <mat-nav-list>\n        <a mat-list-item *ngFor=\"let pto of ptos\" (click)=\"showDetails(pto)\">\n            <div class=\"pto-sno\">\n                {{ pto.PTO_No }}\n            </div>\n            <div class=\"pto-year\">\n                {{ pto.YEAR }}\n            </div>\n            <div class=\"pto-station\">\n                {{ pto.STATION }}\n            </div>\n            <div class=\"pto-unit\">\n                {{ pto.UNIT }}\n            </div>\n            <div class=\"pto-date\">\n                {{ pto.DATE }}\n            </div>\n        </a>\n    </mat-nav-list>\n  </mat-card>    \n</div>"
+module.exports = "\n<app-pto-search></app-pto-search>\n<div class=\"ptos\">      \n  <mat-card>\n    <mat-nav-list>\n        <a mat-list-item *ngFor=\"let pto of ptos\" (click)=\"showDetails($event,pto)\">\n            <div class=\"pto-sno\">\n                {{ pto.PTO_No }}\n            </div>\n            <div class=\"pto-year\">\n                {{ pto.YEAR }}\n            </div>\n            <div class=\"pto-station\">\n                {{ pto.STATION }}\n            </div>\n            <div class=\"pto-unit\">\n                {{ pto.UNIT }}\n            </div>\n            <div class=\"pto-date\">\n                {{ pto.DATE }}\n            </div>\n            <span hidden><mat-icon>close</mat-icon></span>\n        </a>\n    </mat-nav-list>\n  </mat-card>    \n</div>"
 
 /***/ }),
 
@@ -1449,17 +1457,17 @@ var PtoListComponent = (function () {
     }
     PtoListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.ptoSubscription = this.ptoService.getPtos().subscribe(function (ptos) {
+        this.getSubscription = this.ptoService.getPtos().subscribe(function (ptos) {
             _this.ptos = ptos;
-            console.log('Total ptos : ' + _this.ptos.length);
+            console.log('Total ptos : ', _this.ptos);
         });
-        this.ptoService.search.subscribe(function (pto) {
+        this.searchSubscription = this.ptoService.search.subscribe(function (pto) {
             _this.ptoService.filterPtos(pto).subscribe(function (ptos) {
                 _this.ptos = ptos;
                 console.log('Total search ptos : ' + _this.ptos.length);
             });
         });
-        this.ptoService.sort.subscribe(function (index) {
+        this.sortSubscription = this.ptoService.sort.subscribe(function (index) {
             var keys = ['PTO_No', 'YEAR', 'UNIT', 'STATION', 'DATE'];
             if (index > 1) {
                 _this.sortOnElement(keys[index]);
@@ -1470,9 +1478,9 @@ var PtoListComponent = (function () {
         });
     };
     PtoListComponent.prototype.ngOnDestroy = function () {
-        // this.ptos = null;
-        // console.log('On Destroy Total ptos : ' + this.ptos.length);
-        this.ptoSubscription.unsubscribe();
+        this.getSubscription.unsubscribe();
+        this.searchSubscription.unsubscribe();
+        this.sortSubscription.unsubscribe();
     };
     PtoListComponent.prototype.sortOnNumber = function (key) {
         this.sortUp = !this.sortUp;
@@ -1512,7 +1520,11 @@ var PtoListComponent = (function () {
             });
         }
     };
-    PtoListComponent.prototype.showDetails = function (pto) {
+    PtoListComponent.prototype.showDetails = function (event, pto) {
+        if (event.srcElement.innerHTML === 'close') {
+            this.ptoService.deletePto(pto.id).then(function () { return console.log('PTO Deleted'); });
+            return;
+        }
         this.detailClicked.emit();
         this.ptoService.pto = pto;
     };
@@ -1589,14 +1601,15 @@ var PtoNewComponent = (function () {
     }
     PtoNewComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.ptoService.getStations().subscribe(function (stations) {
+        this.stationsSubscription = this.ptoService.getStations()
+            .subscribe(function (stations) {
             _this.stations = stations;
             _this.units = _this.getUnits(_this.ptoService.pto.STATION);
             // console.log('Stations : ', stations);
         });
-        this.ptoService.getTempletes().subscribe(function (temp) {
+        this.templetesSubscription = this.ptoService.getTempletes().subscribe(function (temp) {
             _this.templetes = temp;
-            console.log('Templetes : ', _this.templetes);
+            // console.log('Templetes : ', this.templetes);
         });
         this.ptoForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormGroup */]({
             'ptono': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](this.ptoService.pto.PTO_No, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
@@ -1611,8 +1624,16 @@ var PtoNewComponent = (function () {
             var cas = _a[_i];
             this.addCasuality(cas);
         }
-        this.ptoService.casuality.subscribe(function (casuality) { return _this.addCasuality(casuality); });
-        this.ptoService.preview.subscribe(function () { return _this.preview(); });
+        this.casualitySubscription = this.ptoService.casuality.subscribe(function (casuality) {
+            _this.addCasuality(casuality);
+        });
+        this.previewSubscription = this.ptoService.preview.subscribe(function () { return _this.preview(); });
+    };
+    PtoNewComponent.prototype.ngOnDestroy = function () {
+        this.stationsSubscription.unsubscribe();
+        this.templetesSubscription.unsubscribe();
+        this.casualitySubscription.unsubscribe();
+        this.previewSubscription.unsubscribe();
     };
     PtoNewComponent.prototype.addCasuality = function (cas) {
         this.casForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormGroup */]({
@@ -1657,7 +1678,7 @@ var PtoNewComponent = (function () {
             this.ptoService.pto.CASUALITIES.push(casuality);
         }
         localStorage.setItem('pto', JSON.stringify(this.ptoService.pto));
-        console.log(this.ptoService.pto);
+        console.log('Inside pto-new : ', this.ptoService.pto);
     };
     PtoNewComponent.prototype.getDateStr = function (dtStr) {
         if (dtStr) {
@@ -1731,7 +1752,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-preview/pto-preview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h2>\n    Part-II Order<br> by {{ ptoService.pto.UNIT }}, {{ ptoService.pto.STATION }}\n  </h2>\n  <div class=\"row\">\n    <span>UNIT : {{ ptoService.pto.UNIT }}</span>\n    <span class=\"filler\"></span>\n    <span>S.No. : {{ ptoService.pto.PTO_No }} / {{ ptoService.pto.YEAR }}</span>\n  </div>\n  <div class=\"row\">\n    <span>STATION : {{ ptoService.pto.STATION }}</span>\n    <span class=\"filler\"></span>\n    <span>Dated : {{ ptoService.pto.DATE }}</span>\n  </div>\n  <hr>\n  <table id=\"table\">\n    <tr>\n      <th class=\"sno\">S.No.</th>\n      <th class=\"mesno\">MES No & Name</th>\n      <th class=\"design\">Design</th>\n      <th class=\"date\">Date</th>\n      <th class=\"particular\">Particulars</th>\n    </tr>\n    <tr *ngFor=\"let cas of ptoService.pto.CASUALITIES\">\n      <td>{{ cas.S_No }}</td>\n      <td>MES - {{ cas.MES_No }} <br> {{ cas.NAME }}</td>\n      <td>{{ cas.CATEGORY }}</td>\n      <td>{{ cas.DATE }}</td>\n      <td>{{ cas.PARTICULAR }}</td>\n    </tr>\n  </table>\n  <hr>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n      <span class=\"filler\"></span>\n      <div>\n        <button mat-raised-button (click)=\"print()\"color=\"primary\">Print</button>\n      </div>\n      <div>\n        <button mat-raised-button (click)=\"back('Edit PTO')\"color=\"primary\">Edit</button>\n      </div>\n      <div>\n        <button mat-raised-button (click)=\"publish()\"color=\"primary\">Publish</button>\n      </div>\n  </div>\n</div>\n"
+module.exports = "<div>\n  <h2>\n    Part-II Order<br> by {{ ptoService.pto.UNIT }}, {{ ptoService.pto.STATION }}\n  </h2>\n  <div class=\"row\">\n    <span>UNIT : {{ ptoService.pto.UNIT }}</span>\n    <span class=\"filler\"></span>\n    <span>S.No. : {{ ptoService.pto.PTO_No }} / {{ ptoService.pto.YEAR }}</span>\n  </div>\n  <div class=\"row\">\n    <span>STATION : {{ ptoService.pto.STATION }}</span>\n    <span class=\"filler\"></span>\n    <span>Dated : {{ ptoService.pto.DATE }}</span>\n  </div>\n  <div class=\"row\">\n    <span>IP ADDRESS / CITY : {{ ptoService.pto.IP }} / {{ ptoService.pto.CITY }}</span>\n    <span class=\"filler\"></span>\n    <span>Date & Time : {{ time }}</span>\n  </div>\n  <hr>\n  <table id=\"table\">\n    <tr>\n      <th class=\"sno\">S.No.</th>\n      <th class=\"mesno\">MES No & Name</th>\n      <th class=\"design\">Design</th>\n      <th class=\"date\">Date</th>\n      <th class=\"particular\">Particulars</th>\n    </tr>\n    <tr *ngFor=\"let cas of ptoService.pto.CASUALITIES\">\n      <td>{{ cas.S_No }}</td>\n      <td>MES - {{ cas.MES_No }} <br> {{ cas.NAME }}</td>\n      <td>{{ cas.CATEGORY }}</td>\n      <td>{{ cas.DATE }}</td>\n      <td>{{ cas.PARTICULAR }}</td>\n    </tr>\n  </table>\n  <hr>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n      <span class=\"filler\"></span>\n      <div>\n        <button mat-raised-button (click)=\"print()\"color=\"primary\">Print</button>\n      </div>\n      <div>\n        <button mat-raised-button (click)=\"back('Edit PTO')\"color=\"primary\">Edit</button>\n      </div>\n      <div>\n        <button mat-raised-button (click)=\"publish()\"color=\"primary\">Publish</button>\n      </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1745,6 +1766,15 @@ module.exports = "<div>\n  <h2>\n    Part-II Order<br> by {{ ptoService.pto.UNIT
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jspdf_dist_jspdf_min___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jspdf_dist_jspdf_min__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1758,34 +1788,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PtoPreviewComponent = (function () {
-    function PtoPreviewComponent(ptoService, snackBar) {
+    function PtoPreviewComponent(ptoService, snackBar, http) {
         this.ptoService = ptoService;
         this.snackBar = snackBar;
+        this.http = http;
         this.goBack = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
     }
+    PtoPreviewComponent.prototype.ngOnInit = function () {
+        if (this.ptoService.pto.TIME) {
+            var date = new Date(this.ptoService.pto.TIME);
+            this.time = date.toDateString() + '/' + date.toLocaleTimeString();
+        }
+        else {
+            this.time = 'Not Found';
+        }
+    };
     PtoPreviewComponent.prototype.publish = function () {
         var _this = this;
         var showSnackBar = true;
         if ((this.ptoService.pto.PTO_No !== 0) && (this.ptoService.pto.YEAR !== 0) &&
             this.ptoService.pto.UNIT && this.ptoService.pto.STATION && this.ptoService.pto.DATE) {
-            this.ptoService.filterPtos(this.ptoService.pto).subscribe(function (ptos) {
+            this.filterSubscription = this.ptoService.filterPtos(this.ptoService.pto).subscribe(function (ptos) {
                 console.log('ptos.length : ', ptos.length);
                 if (ptos.length === 0) {
-                    _this.ptoService.addPto(_this.ptoService.pto);
-                    localStorage.clear();
-                    console.log('Added PTO : ', _this.ptoService.pto);
-                    _this.ptoService.pto = {
-                        PTO_No: null,
-                        YEAR: null,
-                        UNIT: '',
-                        STATION: '',
-                        DATE: '',
-                        CASUALITIES: []
-                    };
                     showSnackBar = false;
-                    // console.log('PTO Reset : ', this.ptoService.pto);
-                    _this.back('List');
+                    _this.http.get('https://ipapi.co/json')
+                        .subscribe(function (res) {
+                        var data = res.json();
+                        console.log('pto before : ', __assign({}, _this.ptoService.pto));
+                        _this.ptoService.pto.CITY = data.city;
+                        _this.ptoService.pto.IP = data.ip;
+                        _this.ptoService.pto.TIME = new Date().toString();
+                        console.log('pto after: ', _this.ptoService.pto);
+                        _this.ptoService.addPto().subscribe(function () {
+                            localStorage.clear();
+                            _this.ptoService.pto = {
+                                PTO_No: null,
+                                YEAR: null,
+                                UNIT: '',
+                                STATION: '',
+                                DATE: '',
+                                CASUALITIES: []
+                            };
+                            _this.back('List');
+                        });
+                    });
                 }
                 else {
                     if (showSnackBar) {
@@ -1794,6 +1843,11 @@ var PtoPreviewComponent = (function () {
                     }
                 }
             });
+        }
+    };
+    PtoPreviewComponent.prototype.ngOnDestroy = function () {
+        if (this.filterSubscription) {
+            this.filterSubscription.unsubscribe();
         }
     };
     PtoPreviewComponent.prototype.back = function (navItem) {
@@ -1860,7 +1914,7 @@ var PtoPreviewComponent = (function () {
             template: __webpack_require__("../../../../../src/app/pto-preview/pto-preview.component.html"),
             styles: [__webpack_require__("../../../../../src/app/pto-preview/pto-preview.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatSnackBar */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatSnackBar */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], PtoPreviewComponent);
     return PtoPreviewComponent;
 }());
@@ -1890,7 +1944,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-search/pto-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n      <form (ngSubmit)=\"onSubmit()\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Search</button>\n          </div>\n          <span class=\"filler\"></span>\n          <div><h2>PTO-II Order List</h2></div>\n          <span class=\"filler\"></span>   \n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n            <div class=\"pto-no\">\n              <mat-form-field>\n                <input matInput placeholder=\"PTO No\" type=\"text\" [(ngModel)]=\"pto.PTO_No\" name=\"ptono\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(0)\">\n                  <i class=\"fa fa-sort\" *ngIf=\"sortCol !== 0\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 0 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 0 && !sortUp)\"></i>\n              </a>   \n            </div>\n\n            <div class=\"pto-year\">\n              <mat-form-field>\n                <input matInput placeholder=\"Year\" type=\"text\" [(ngModel)]=\"pto.YEAR\" name=\"year\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(1)\">\n                  <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 1\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 1 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 1 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-station\">\n                <mat-form-field>\n                  <mat-select matInput placeholder=\"Station\">\n                      <mat-option (click)=\"onSelectStation('None')\">None</mat-option>\n                      <mat-option *ngFor=\"let stn of stations\" [value]=\"stn\" (click)=\"onSelectStation(stn)\">\n                      {{ stn }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(3)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 3\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 3 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 3 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-unit\">\n              <mat-form-field>\n                  <mat-select placeholder=\"Unit\" [(ngModel)]=\"pto.UNIT\" name=\"unit\">\n                      <mat-option>None</mat-option>\n                      <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                      {{ unit }}\n                      </mat-option>\n                  </mat-select>\n              </mat-form-field>\n            <a href=\"#\"  (click)=\"onSort(2)\">\n              <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 2\"></i>\n              <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 2 && sortUp)\"></i>\n              <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 2 && !sortUp)\"></i>\n            </a>\n          </div>\n\n            <div class=\"pto-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" [(ngModel)]=\"pto.DATE\" name=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                <mat-datepicker #picker1></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(4)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 4\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 4 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 4 && !sortUp)\"></i>\n              </a>\n            </div>\n   \n        </div>\n\n      </form>\n    </mat-card-content>\n</mat-card>\n\n          \n          \n          "
+module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n      <form (ngSubmit)=\"onSubmit()\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Search</button>\n          </div>\n          <span class=\"filler\"></span>\n          <div><h2>PTO-II Order List</h2></div>\n          <span class=\"filler\"></span>   \n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n            <div class=\"pto-no\">\n              <mat-form-field>\n                <input matInput placeholder=\"PTO No\" type=\"text\" [(ngModel)]=\"pto.PTO_No\" name=\"ptono\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(0)\">\n                  <i class=\"fa fa-sort\" *ngIf=\"sortCol !== 0\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 0 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 0 && !sortUp)\"></i>\n              </a>   \n            </div>\n\n            <div class=\"pto-year\">\n              <mat-form-field>\n                <input matInput placeholder=\"Year\" type=\"text\" [(ngModel)]=\"pto.YEAR\" name=\"year\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(1)\">\n                  <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 1\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 1 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 1 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-station\">\n                <mat-form-field>\n                  <mat-select matInput placeholder=\"Station\">\n                      <mat-option (click)=\"onSelectStation(null)\">None</mat-option>\n                      <mat-option *ngFor=\"let stn of stations\" [value]=\"stn.station\" (click)=\"onSelectStation(stn)\">\n                      {{ stn.station }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(3)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 3\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 3 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 3 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-unit\">\n              <mat-form-field>\n                  <mat-select placeholder=\"Unit\" [(ngModel)]=\"pto.UNIT\" name=\"unit\">\n                      <mat-option>None</mat-option>\n                      <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                      {{ unit }}\n                      </mat-option>\n                  </mat-select>\n              </mat-form-field>\n            <a href=\"#\"  (click)=\"onSort(2)\">\n              <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 2\"></i>\n              <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 2 && sortUp)\"></i>\n              <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 2 && !sortUp)\"></i>\n            </a>\n          </div>\n\n            <div class=\"pto-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" [(ngModel)]=\"pto.DATE\" name=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                <mat-datepicker #picker1></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(4)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 4\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 4 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 4 && !sortUp)\"></i>\n              </a>\n            </div>\n   \n        </div>\n\n      </form>\n    </mat-card-content>\n</mat-card>\n\n          \n          \n          "
 
 /***/ }),
 
@@ -1901,7 +1955,6 @@ module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n 
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PtoSearchComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_ceccAOR__ = __webpack_require__("../../../../../src/app/models/ceccAOR.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1911,7 +1964,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 var PtoSearchComponent = (function () {
@@ -1924,10 +1976,13 @@ var PtoSearchComponent = (function () {
             STATION: '',
             DATE: ''
         };
-        this.stations = Object.keys(__WEBPACK_IMPORTED_MODULE_2__models_ceccAOR__["a" /* ceccAOR */]);
     }
     PtoSearchComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.ptoService.getStations().subscribe(function (stations) {
+            _this.stations = stations;
+            // console.log('Stations : ', stations);
+        });
         this.ptoService.search.subscribe(function (pto) { return _this.pto = pto; });
     };
     PtoSearchComponent.prototype.onSubmit = function () {
@@ -1937,12 +1992,14 @@ var PtoSearchComponent = (function () {
         this.ptoService.search.next(this.pto);
         console.log('Search PTO : ', this.pto);
         this.sortCol = -1;
+        // this.ptoService.addStations();     //  For Adding Stations to Cloud Firestore Database
+        // this.ptoService.addTempletes();    //  For Adding PTO Templetess to Cloud Firestore Database
     };
     PtoSearchComponent.prototype.onSelectStation = function (stn) {
-        if (stn !== 'None') {
-            this.pto.STATION = stn;
+        if (stn) {
+            this.pto.STATION = stn.station;
             this.pto.UNIT = '';
-            this.units = __WEBPACK_IMPORTED_MODULE_2__models_ceccAOR__["a" /* ceccAOR */][stn];
+            this.units = stn.units;
         }
         else {
             this.pto.STATION = '';
@@ -1950,13 +2007,6 @@ var PtoSearchComponent = (function () {
             this.units = [];
         }
     };
-    // onSelectUnit(unit: string) {
-    //   if (unit !== 'None') {
-    //     this.pto.UNIT = unit;
-    //   } else {
-    //     this.pto.UNIT = '';
-    //   }
-    // }
     PtoSearchComponent.prototype.getDateStr = function (dtStr) {
         if (dtStr) {
             var dt = new Date(dtStr);
@@ -1998,7 +2048,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\nmat-sidenav {\n    width: 13%;\n}\nmat-form-field {\n    width: 95%;\n}\n.card-1 {\n    margin-bottom: 5px;\n}\n.card-2 {\n    padding-top: 5px;\n    padding-bottom: 15px;\n    padding-left: 5px;\n    padding-right: 5px;\n    background-color: aliceblue;\n}\nmat-list-item {\n    border-bottom-style: solid;\n    border-bottom-width: 2px;\n    border-bottom-color: black;\n}\nh2 {\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, "\nmat-sidenav {\n    width: 13%;\n}\nmat-form-field {\n    width: 95%;\n}\n.card-1 {\n    margin-bottom: 5px;\n    padding-bottom: 0px;\n}\n.card-2 {\n    padding-top: 5px;\n    padding-bottom: 15px;\n    padding-left: 5px;\n    padding-right: 5px;\n    background-color: aliceblue;\n}\nmat-list-item {\n    border-bottom-style: solid;\n    border-bottom-width: 2px;\n    border-bottom-color: black;\n}\nh2 {\n    text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -2011,7 +2061,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto/pto.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container>\n    \n  <mat-sidenav mode=\"side\" opened fixedInViewport=\"true\" fixedTopGap=\"110\">\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let nav of fillerNav\" (click)=\"onNavItemClick(nav)\">{{nav}}</a>\n      <mat-card class=\"card-2\">\n          <mat-form-field>\n            <input matInput placeholder=\"MES No\" type=\"text\" [(ngModel)]=\"mesno\" name=\"mesno\">\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"PTO Date From\" [(ngModel)]=\"dateFrom\" name=\"dateFrom\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker2\" placeholder=\"PTO Date Upto\" [(ngModel)]=\"dateUpto\" name=\"dateUpto\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n            <mat-datepicker #picker2></mat-datepicker>\n          </mat-form-field>\n\n        <div>\n          <button mat-raised-button (click)=\"searchCas()\"color=\"primary\">Search Casualities</button>\n        </div>\n      </mat-card>\n      <a mat-list-item (click)=\"onNavItemClick('help')\">Help</a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content id=\"content\">\n    <mat-card class=\"card-1\">\n        <app-pto-list *ngIf=\"page === 'list'\" (detailClicked)=\"page = 'preview'\"></app-pto-list>\n        <app-pto-new  *ngIf=\"page === 'new'\"></app-pto-new>\n        <app-pto-preview *ngIf=\"page === 'preview'\" (goBack)=\"onNavItemClick($event)\"></app-pto-preview>\n        <app-cas-list  *ngIf=\"page === 'cas'\" (detailClicked)=\"page = 'preview'\"></app-cas-list>\n        <app-help  *ngIf=\"page === 'help'\"></app-help>\n    </mat-card>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
+module.exports = "<mat-sidenav-container>\n    \n  <mat-sidenav mode=\"side\" opened fixedInViewport=\"true\" fixedTopGap=\"110\">\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let nav of fillerNav\" (click)=\"onNavItemClick(nav)\">{{nav}}</a>\n      <mat-card class=\"card-2\">\n          <mat-form-field>\n            <input matInput placeholder=\"MES No\" type=\"text\" [(ngModel)]=\"mesno\" name=\"mesno\">\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"PTO Date From\" [(ngModel)]=\"dateFrom\" name=\"dateFrom\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker2\" placeholder=\"PTO Date Upto\" [(ngModel)]=\"dateUpto\" name=\"dateUpto\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n            <mat-datepicker #picker2></mat-datepicker>\n          </mat-form-field>\n\n        <div>\n          <button mat-raised-button (click)=\"searchCas()\"color=\"primary\">Search Casualities</button>\n        </div>\n      </mat-card>\n      <a mat-list-item (click)=\"onNavItemClick('edit-units')\">Edit Units</a>\n      <a mat-list-item (click)=\"onNavItemClick('templetes')\">PTO Templetes</a>\n      <a mat-list-item (click)=\"onNavItemClick('help')\">Help</a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content id=\"content\">\n    <mat-card class=\"card-1\">\n        <app-pto-list *ngIf=\"page === 'list'\" (detailClicked)=\"page = 'preview'\"></app-pto-list>\n        <app-pto-new  *ngIf=\"page === 'new'\"></app-pto-new>\n        <app-pto-preview *ngIf=\"page === 'preview'\" (goBack)=\"onNavItemClick($event)\"></app-pto-preview>\n        <app-cas-list  *ngIf=\"page === 'cas'\" (detailClicked)=\"page = 'preview'\"></app-cas-list>\n        <app-edit-units  *ngIf=\"page === 'edit-units'\"></app-edit-units>\n        <app-templetes  *ngIf=\"page === 'templetes'\"></app-templetes>\n        <app-help  *ngIf=\"page === 'help'\"></app-help>\n    </mat-card>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -2080,6 +2130,12 @@ var PtoComponent = (function () {
                 PARTICULAR: ''
             };
             this.ptoService.casuality.next(casuality);
+        }
+        if (navItem === 'edit-units') {
+            this.page = 'edit-units';
+        }
+        if (navItem === 'templetes') {
+            this.page = 'templetes';
         }
         if (navItem === 'help') {
             this.page = 'help';
@@ -2283,9 +2339,8 @@ var ItemService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PTOService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_firestore__ = __webpack_require__("../../../../angularfire2/firestore/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_ceccAOR__ = __webpack_require__("../../../../../src/app/models/ceccAOR.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_templetes__ = __webpack_require__("../../../../../src/app/models/templetes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2299,15 +2354,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
+// import { ceccAOR } from '../models/ceccAOR';
+// import { templetes } from '../models/templetes';
 var PTOService = (function () {
+    // stations = Object.keys(ceccAOR);
     function PTOService(afs) {
         this.afs = afs;
-        this.search = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
-        this.sort = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
-        this.casuality = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
-        this.preview = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
-        this.casSummary = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
+        this.search = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
+        this.sort = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
+        this.casuality = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
+        this.preview = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
+        this.casSummary = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
         this.pto = {
             PTO_No: null,
             YEAR: null,
@@ -2316,26 +2373,24 @@ var PTOService = (function () {
             DATE: '',
             CASUALITIES: []
         };
-        this.stations = Object.keys(__WEBPACK_IMPORTED_MODULE_3__models_ceccAOR__["a" /* ceccAOR */]);
         this.ptoCollection = this.afs.collection('pto');
-        this.ptos = this.ptoCollection.valueChanges();
-        // this.ptos = this.ptoCollection.snapshotChanges().map(changes => {
-        //     return changes.map(a => {
-        //         const data = a.payload.doc.data() as PTO;
-        //         data.id = a.payload.doc.id;
-        //         console.log('Get PTOs - data : ' + JSON.stringify(data));
-        //         return data;
-        //     });
-        // });
+        // this.ptos = this.ptoCollection.valueChanges();
+        this.ptos = this.ptoCollection.snapshotChanges().map(function (changes) {
+            console.log('changes : ', changes);
+            return changes.map(function (a) {
+                var data = a.payload.doc.data();
+                data.id = a.payload.doc.id;
+                // console.log('Get PTOs - data : ' + JSON.stringify(data));
+                return data;
+            });
+        });
         // afs.collection('pto').auditTrail().subscribe(console.log);
     }
     PTOService.prototype.getPtos = function () {
         return this.ptos;
     };
-    PTOService.prototype.addPto = function (pto) {
-        this.ptoCollection.add(pto).then(function (docRef) {
-            console.log('Document written with ID: ', docRef.id);
-        });
+    PTOService.prototype.addPto = function () {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */].fromPromise(this.ptoCollection.add(this.pto));
     };
     PTOService.prototype.filterPtos = function (pto) {
         console.log('Filtering PTOs');
@@ -2358,26 +2413,17 @@ var PTOService = (function () {
             }
             return query;
         });
-        return this.ptoCollection.snapshotChanges().map(function (changes) {
-            console.log('changes : ', changes);
-            return changes.map(function (a) {
-                var data = a.payload.doc.data();
-                data.id = a.payload.doc.id;
-                // console.log('Filter PTOs - data : ' + JSON.stringify(data));
-                return data;
-            });
-        });
+        return this.ptoCollection.valueChanges();
     };
     PTOService.prototype.deletePto = function (id) {
         return this.afs.doc('pto/' + id).delete();
     };
     /*  Method for Adding PTO Templetes to database from file "templetes.ts"  */
-    PTOService.prototype.addTempletes = function () {
-        for (var _i = 0, templetes_1 = __WEBPACK_IMPORTED_MODULE_4__models_templetes__["a" /* templetes */]; _i < templetes_1.length; _i++) {
-            var templete = templetes_1[_i];
-            this.afs.collection('templetes').add({ 'type': templete.viewValue, 'particular': templete.value });
-        }
-    };
+    // addTempletes() {
+    //     for (const templete of templetes) {
+    //         this.afs.collection('templetes').add({'type': templete.viewValue, 'particular': templete.value});
+    //     }
+    // }
     PTOService.prototype.addTemplete = function (templete) {
         this.afs.collection('templetes').add({ 'type': templete.type, 'particular': templete.particular });
     };
@@ -2400,12 +2446,11 @@ var PTOService = (function () {
         });
     };
     /*  Method for Adding Stations & Units to database from file "ceccAOR.ts"  */
-    PTOService.prototype.addStations = function () {
-        for (var _i = 0, _a = this.stations; _i < _a.length; _i++) {
-            var station = _a[_i];
-            this.afs.collection('stations').add({ 'station': station, 'units': __WEBPACK_IMPORTED_MODULE_3__models_ceccAOR__["a" /* ceccAOR */][station] });
-        }
-    };
+    // addStations() {
+    //     for (const station of this.stations) {
+    //         this.afs.collection('stations').add({'station': station, 'units': ceccAOR[station]});
+    //     }
+    // }
     PTOService.prototype.addStation = function (stn) {
         this.afs.collection('stations').add({ 'station': stn.station, 'units': stn.units }).then(function (docRef) {
             console.log('Station added with ID: ', docRef.id);
@@ -2436,6 +2481,104 @@ var PTOService = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_firestore__["a" /* AngularFirestore */]])
     ], PTOService);
     return PTOService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/templetes/templetes.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.templetes-card {\n    margin-bottom: 0px;\n}\n.header {\n    text-align: center;\n    width: 100%;\n}\nh4, h5 {\n    text-align: center;\n    margin: 0px;\n}\n.types, .particulars {\n    width: 44%;\n}\n.filler {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nmat-nav-list {\n    position: relative;\n    max-height: 320px;\n    overflow: auto;\n}\n.type-list-item{\n    width: 100%;\n}\n.type {\n    width: 60%;\n}\n.close {\n    width: 10%;\n}\n.particular {\n    width: 100%\n}\n.button {\n    width: 20%;\n}\nmat-form-field {\n    width: 100%;\n}\n\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/templetes/templetes.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<mat-card class=\"templetes-card\">\n  <div class=\"header\">\n    <mat-card-title><h4>Edit PTO Templetes</h4></mat-card-title>\n    <mat-card-subtitle>You can add, edit or delete any PTO Templete from this Application.</mat-card-subtitle>\n  </div>\n  <mat-card-content fxLayout=\"row\" fxLayoutAlign=\"center start\">\n    <mat-card class=\"types\">\n      <mat-card-title><h5>Types of PTO</h5></mat-card-title>\n      <form (ngSubmit)=\"onSubmitType(f)\" #f=\"ngForm\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div class=\"type-input-item\">\n              <mat-form-field>\n                <input matInput ngModel placeholder=\"Type\" required type=\"text\" name=\"type\">\n              </mat-form-field>\n          </div>\n          <span class=\"filler\"></span>\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Add</button>\n          </div>   \n      </form>\n      \n      <mat-nav-list>\n          <a mat-list-item *ngFor=\"let templete of templetes\" (click)=\"onSelectType($event,templete)\">\n            <div class=\"type-list-item\" fxLayout=\"row\" fxLayoutAlign=\"center center\"> \n              <div class=\"type\">\n                  {{ templete.type }}\n              </div>\n              <span class=\"filler\"></span>\n              <span class=\"close\" hidden><mat-icon>close</mat-icon></span>\n            </div> \n          </a>\n      </mat-nav-list>\n  </mat-card>\n    <span class=\"filler\"></span>\n    <mat-card class=\"particulars\">\n        <mat-card-title><h5>Particulars</h5></mat-card-title>\n        <form (ngSubmit)=\"onSubmitParticular()\" fxLayout=\"column\" fxLayoutAlign=\"start end\">\n            <div class=\"particular\">\n                <mat-form-field>\n                  <textarea matInput placeholder=\"Particular\" type=\"text\" name=\"particular\" \n                            rows=\"10\" cols=\"50\" [(ngModel)]=\"templeteSelected.particular\"></textarea>\n                </mat-form-field>\n            </div>\n            <span class=\"filler\"></span>\n            <div class=\"button\">\n              <button mat-raised-button type=\"submit\" color=\"primary\">Edit</button>\n            </div>   \n        </form>\n    </mat-card>\n  </mat-card-content>\n</mat-card>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/templetes/templetes.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TempletesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TempletesComponent = (function () {
+    function TempletesComponent(ptoService, snackBar) {
+        this.ptoService = ptoService;
+        this.snackBar = snackBar;
+        this.templeteSelected = { type: '', particular: '', id: '' };
+    }
+    TempletesComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ptoService.getTempletes().subscribe(function (temp) {
+            _this.templetes = temp;
+            _this.templeteSelected = _this.templetes[0];
+            console.log('Templetes : ', _this.templetes);
+        });
+    };
+    TempletesComponent.prototype.onSubmitType = function (form) {
+        console.log('Type Form : ', form);
+        if (form.valid && form.value.type.trim()) {
+            var count = this.templetes.push({ 'type': form.value.type.trim(), 'particular': '' });
+            this.ptoService.addTemplete(this.templetes[count - 1]);
+            form.reset();
+        }
+        else {
+            this.snackBar.open('The "Type" Form Field cannot be Empty!', '', { duration: 2000, });
+        }
+    };
+    TempletesComponent.prototype.onSelectType = function (event, templete) {
+        if (event.srcElement.innerHTML === 'close') {
+            this.templetes.splice(this.templetes.indexOf(templete), 1);
+            this.ptoService.deleteTemplete(templete);
+            return;
+        }
+        this.templeteSelected = templete;
+    };
+    TempletesComponent.prototype.onSubmitParticular = function () {
+        // const index = this.templetes.indexOf(this.templeteSelected);
+        // this.templetes[index].particular = this.templeteSelected.particular;
+        this.ptoService.setTemplete(this.templeteSelected);
+    };
+    TempletesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'app-templetes',
+            template: __webpack_require__("../../../../../src/app/templetes/templetes.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/templetes/templetes.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatSnackBar */]])
+    ], TempletesComponent);
+    return TempletesComponent;
 }());
 
 
