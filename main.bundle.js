@@ -271,18 +271,22 @@ var CasListComponent = (function () {
     CasListComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log('Cas ngOnInit Called!');
-        this.casSubscription = this.ptoService.getPtos().subscribe(function (ptos) {
+        this.getSubscription = this.ptoService.getPtos().subscribe(function (ptos) {
             console.log('Nos. of ptos : ', ptos.length);
             _this.ptos = ptos;
             _this.casSummarySubscribed();
         });
     };
     CasListComponent.prototype.ngOnDestroy = function () {
+        this.getSubscription.unsubscribe();
         this.casSubscription.unsubscribe();
+        if (this.filterSubscription) {
+            this.filterSubscription.unsubscribe();
+        }
     };
     CasListComponent.prototype.casSummarySubscribed = function () {
         var _this = this;
-        this.ptoService.casSummary.subscribe(function (obj) {
+        this.casSubscription = this.ptoService.casSummary.subscribe(function (obj) {
             _this.casualities = [];
             console.log('casSummary subscribed');
             _this.mesno = obj.mesno;
@@ -299,7 +303,6 @@ var CasListComponent = (function () {
                         _this.casualities.push(cas_pto);
                         _this.name = cas_pto.NAME;
                         _this.category = cas_pto.CATEGORY;
-                        // console.log('Date From/Upto : ', pto.DATE + ' ' + this.dateFrom);
                     }
                 }
             }
@@ -402,7 +405,6 @@ var CasListComponent = (function () {
     };
     CasListComponent.prototype.showDetails = function (cas) {
         var _this = this;
-        this.detailClicked.emit();
         var pto = {
             PTO_No: cas.PTO_No,
             YEAR: cas.PTO_YEAR,
@@ -411,8 +413,9 @@ var CasListComponent = (function () {
             DATE: cas.PTO_DATE,
             CASUALITIES: []
         };
-        this.ptoService.filterPtos(pto).subscribe(function (ptos) {
+        this.filterSubscription = this.ptoService.filterPtos(pto).subscribe(function (ptos) {
             _this.ptoService.pto = ptos[0];
+            _this.detailClicked.emit();
         });
     };
     CasListComponent.prototype.print = function () {
@@ -427,9 +430,8 @@ var CasListComponent = (function () {
             this.hline(15, 38, 180);
             this.hline(15, 55, 180);
             this.setFontSize(10);
-            this.text('PTO No.', 15, 48);
-            this.text('PTO Date', 35, 48);
-            this.text(['Unit', 'Station'], 60, 48);
+            this.text(['PTO No.', '& Date'], 15, 48);
+            this.text(['Unit', 'Station'], 35, 48);
             this.text(['Casuality', 'Date'], 80, 48);
             this.text('Particulars', 140, 48);
         };
@@ -439,9 +441,8 @@ var CasListComponent = (function () {
         for (var _i = 0, _a = this.casualities; _i < _a.length; _i++) {
             var cas = _a[_i];
             var arrPart = this.split(cas.PARTICULAR, 55);
-            doc.text(cas.PTO_No + '/' + cas.PTO_YEAR, 15, partY);
-            doc.text(cas.PTO_DATE, 35, partY);
-            doc.text([cas.PTO_UNIT, cas.PTO_STATION], 60, partY);
+            doc.text([cas.PTO_No + '/' + cas.PTO_YEAR, cas.PTO_DATE], 15, partY);
+            doc.text([cas.PTO_UNIT, cas.PTO_STATION], 35, partY);
             doc.text(cas.DATE, 80, partY);
             doc.text(arrPart, 105, partY);
             partY = arrPart.length < 3 ? partY + 15 : partY + arrPart.length * 5;
@@ -1115,10 +1116,13 @@ var EditUnitsComponent = (function () {
     }
     EditUnitsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.ptoService.getStationsWithId().subscribe(function (stations) {
+        this.stationSubscription = this.ptoService.getStationsWithId().subscribe(function (stations) {
             _this.stations = stations;
             console.log('Stations : ', _this.stations);
         });
+    };
+    EditUnitsComponent.prototype.ngOnDestroy = function () {
+        this.stationSubscription.unsubscribe();
     };
     EditUnitsComponent.prototype.onSubmitStation = function (form) {
         console.log('Station Form : ', form);
@@ -1662,14 +1666,14 @@ var PtoNewComponent = (function () {
             var control = _a[_i];
             var casuality = {
                 S_No: 0,
-                MES_No: 0,
+                MES_No: '',
                 NAME: '',
                 CATEGORY: '',
                 DATE: '',
                 PARTICULAR: ''
             };
             casuality.S_No = +control.value.sno;
-            casuality.MES_No = +control.value.mesno;
+            casuality.MES_No = control.value.mesno;
             casuality.NAME = control.value.name;
             casuality.CATEGORY = control.value.category;
             casuality.DATE = this.getDateStr(control.value.date);
@@ -1979,11 +1983,15 @@ var PtoSearchComponent = (function () {
     }
     PtoSearchComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.ptoService.getStations().subscribe(function (stations) {
+        this.getSubscription = this.ptoService.getStations().subscribe(function (stations) {
             _this.stations = stations;
             // console.log('Stations : ', stations);
         });
-        this.ptoService.search.subscribe(function (pto) { return _this.pto = pto; });
+        this.searchSubscription = this.ptoService.search.subscribe(function (pto) { return _this.pto = pto; });
+    };
+    PtoSearchComponent.prototype.ngOnDestroy = function () {
+        this.getSubscription.unsubscribe();
+        this.searchSubscription.unsubscribe();
     };
     PtoSearchComponent.prototype.onSubmit = function () {
         this.pto.PTO_No = this.pto.PTO_No ? +this.pto.PTO_No : null;
@@ -2123,7 +2131,7 @@ var PtoComponent = (function () {
         if (navItem === 'New Casuality') {
             var casuality = {
                 S_No: 0,
-                MES_No: 0,
+                MES_No: '',
                 NAME: '',
                 CATEGORY: '',
                 DATE: '',
@@ -2144,7 +2152,6 @@ var PtoComponent = (function () {
     PtoComponent.prototype.searchCas = function () {
         var _this = this;
         this.page = 'cas';
-        console.log('MES No. Type : ', typeof (this.mesno));
         setTimeout(function () {
             _this.dateFrom = _this.getDateStr(_this.dateFrom);
             _this.dateUpto = _this.getDateStr(_this.dateUpto);
@@ -2540,11 +2547,14 @@ var TempletesComponent = (function () {
     }
     TempletesComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.ptoService.getTempletes().subscribe(function (temp) {
+        this.templeteSubscription = this.ptoService.getTempletes().subscribe(function (temp) {
             _this.templetes = temp;
             _this.templeteSelected = _this.templetes[0];
             console.log('Templetes : ', _this.templetes);
         });
+    };
+    TempletesComponent.prototype.ngOnDestroy = function () {
+        this.templeteSubscription.unsubscribe();
     };
     TempletesComponent.prototype.onSubmitType = function (form) {
         console.log('Type Form : ', form);
