@@ -690,7 +690,7 @@ var AddItemComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/add-item/add-item.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/add-item/add-item.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_item_service__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatSnackBar */], __WEBPACK_IMPORTED_MODULE_3__services_pto_service__["a" /* PTOService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_item_service__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatSnackBar */], __WEBPACK_IMPORTED_MODULE_3__services_pto_service__["a" /* PTOService */]])
     ], AddItemComponent);
     return AddItemComponent;
 }());
@@ -778,6 +778,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// import { Subscription } from 'rxjs';
 
 
 
@@ -1001,7 +1002,7 @@ var ItemsComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/items/items.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/items/items.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_item_service__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MatDialog */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_item_service__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatDialog */],
             __WEBPACK_IMPORTED_MODULE_3_angularfire2_storage__["a" /* AngularFireStorage */], __WEBPACK_IMPORTED_MODULE_6__services_pto_service__["a" /* PTOService */]])
     ], ItemsComponent);
     return ItemsComponent;
@@ -1045,7 +1046,8 @@ module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_item_service__ = __webpack_require__("../../../../../src/app/services/item.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__("../../../../rxjs/_esm5/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_operators__ = __webpack_require__("../../../../rxjs/_esm5/operators/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1058,6 +1060,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+// tslint:disable-next-line:import-blacklist
 
 
 var NavbarComponent = (function () {
@@ -1144,9 +1148,7 @@ var NavbarComponent = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         var message = { data: { text: 'namasteji' } };
-        this.http.post(this.url, JSON.stringify(message), { headers: headers })
-            .map(function (response) { return response.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["a" /* Observable */].throw(error.json()); })
+        this.http.post(this.url, JSON.stringify(message), { headers: headers }).pipe(Object(__WEBPACK_IMPORTED_MODULE_5_rxjs_operators__["i" /* map */])(function (response) { return response.json(); }), Object(__WEBPACK_IMPORTED_MODULE_5_rxjs_operators__["b" /* catchError */])(function (error) { return __WEBPACK_IMPORTED_MODULE_4_rxjs__["b" /* Observable */].throw(error.json()); }))
             .subscribe(function (result) { console.log(result); });
     };
     // addStaffCollection() {
@@ -1286,7 +1288,7 @@ var EditUnitsComponent = (function () {
             template: __webpack_require__("../../../../../src/app/edit-units/edit-units.component.html"),
             styles: [__webpack_require__("../../../../../src/app/edit-units/edit-units.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatSnackBar */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatSnackBar */]])
     ], EditUnitsComponent);
     return EditUnitsComponent;
 }());
@@ -1390,9 +1392,8 @@ module.exports = "<div class=\"mat-card\" fxLayout=\"row\" fxLayoutAlign=\"cente
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/catch.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__("../../../../rxjs/_esm5/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operators__ = __webpack_require__("../../../../rxjs/_esm5/operators/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1405,7 +1406,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
+// tslint:disable-next-line:import-blacklist
 
 
 var LoginComponent = (function () {
@@ -1433,8 +1434,7 @@ var LoginComponent = (function () {
             headers.append('Content-Type', 'application/json');
             var user = { MES_No: this.mesNo, Password: this.password };
             this.http.post('https://us-central1-cecc-staff.cloudfunctions.net/uploadForm2', JSON.stringify(user), { headers: headers })
-                .map(function (response) { return response.json(); })
-                .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); })
+                .pipe(Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__["i" /* map */])(function (response) { return response.json(); }), Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_operators__["b" /* catchError */])(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["b" /* Observable */].throw(error.json()); }))
                 .subscribe(function (result) {
                 console.log(result);
                 if (result.token) {
@@ -1508,9 +1508,11 @@ var MaterialModule = (function () {
     MaterialModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* NgModule */])({
             imports: [__WEBPACK_IMPORTED_MODULE_1__angular_material_toolbar__["a" /* MatToolbarModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material_card__["a" /* MatCardModule */], __WEBPACK_IMPORTED_MODULE_3__angular_material_button__["a" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_7__angular_material_icon__["a" /* MatIconModule */], __WEBPACK_IMPORTED_MODULE_9__angular_material_list__["a" /* MatListModule */], __WEBPACK_IMPORTED_MODULE_8__angular_material_snack_bar__["b" /* MatSnackBarModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material_input__["b" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_5__angular_material_select__["a" /* MatSelectModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material_datepicker__["a" /* MatDatepickerModule */], __WEBPACK_IMPORTED_MODULE_10__angular_material_dialog__["b" /* MatDialogModule */], __WEBPACK_IMPORTED_MODULE_11__angular_material_sidenav__["a" /* MatSidenavModule */], __WEBPACK_IMPORTED_MODULE_12__angular_material__["b" /* MatProgressSpinnerModule */]],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material_input__["b" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_5__angular_material_select__["a" /* MatSelectModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material_datepicker__["a" /* MatDatepickerModule */], __WEBPACK_IMPORTED_MODULE_10__angular_material_dialog__["b" /* MatDialogModule */], __WEBPACK_IMPORTED_MODULE_11__angular_material_sidenav__["a" /* MatSidenavModule */],
+                __WEBPACK_IMPORTED_MODULE_12__angular_material__["c" /* MatProgressSpinnerModule */], __WEBPACK_IMPORTED_MODULE_12__angular_material__["a" /* MatAutocompleteModule */]],
             exports: [__WEBPACK_IMPORTED_MODULE_1__angular_material_toolbar__["a" /* MatToolbarModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material_card__["a" /* MatCardModule */], __WEBPACK_IMPORTED_MODULE_3__angular_material_button__["a" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_7__angular_material_icon__["a" /* MatIconModule */], __WEBPACK_IMPORTED_MODULE_9__angular_material_list__["a" /* MatListModule */], __WEBPACK_IMPORTED_MODULE_8__angular_material_snack_bar__["b" /* MatSnackBarModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material_input__["b" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_5__angular_material_select__["a" /* MatSelectModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material_datepicker__["a" /* MatDatepickerModule */], __WEBPACK_IMPORTED_MODULE_10__angular_material_dialog__["b" /* MatDialogModule */], __WEBPACK_IMPORTED_MODULE_11__angular_material_sidenav__["a" /* MatSidenavModule */], __WEBPACK_IMPORTED_MODULE_12__angular_material__["b" /* MatProgressSpinnerModule */]]
+                __WEBPACK_IMPORTED_MODULE_4__angular_material_input__["b" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_5__angular_material_select__["a" /* MatSelectModule */], __WEBPACK_IMPORTED_MODULE_6__angular_material_datepicker__["a" /* MatDatepickerModule */], __WEBPACK_IMPORTED_MODULE_10__angular_material_dialog__["b" /* MatDialogModule */], __WEBPACK_IMPORTED_MODULE_11__angular_material_sidenav__["a" /* MatSidenavModule */],
+                __WEBPACK_IMPORTED_MODULE_12__angular_material__["c" /* MatProgressSpinnerModule */], __WEBPACK_IMPORTED_MODULE_12__angular_material__["a" /* MatAutocompleteModule */]]
         })
     ], MaterialModule);
     return MaterialModule;
@@ -1538,7 +1540,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ptos {\n    width: 100%;\n    position: relative;\n    max-height: 425px;\n    overflow: auto;\n}\n.pto-sno {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-year {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-unit {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-station {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\n.pto-date {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\nh2 {\n    text-align: center;\n}\n.pto-list {\n    height: 350px;\n}\nmat-spinner {\n    margin: auto;\n}\n", ""]);
+exports.push([module.i, ".ptos {\n    width: 100%;\n    position: relative;\n    max-height: 425px;\n    overflow: auto;\n}\n.pto-sno {\n    width: 20%;\n    font-size: 12px;\n    text-align: left;\n}\n.pto-year {\n    width: 20%;\n    font-size: 12px;\n    text-align: left;\n}\n.pto-unit {\n    width: 20%;\n    font-size: 12px;\n    text-align: left;\n}\n.pto-station {\n    width: 20%;\n    font-size: 12px;\n    text-align: left;\n}\n.pto-date {\n    width: 20%;\n    font-size: 12px;\n    text-align: center;\n}\nh2 {\n    text-align: center;\n}\n.pto-list {\n    height: 350px;\n}\nmat-spinner {\n    margin: auto;\n}\n", ""]);
 
 // exports
 
@@ -1551,7 +1553,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-list/pto-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-pto-search></app-pto-search>\n<div class=\"ptos\">      \n  <mat-card>\n    <mat-nav-list *ngIf=\"!ptoService.isLoading\">\n        <a mat-list-item *ngFor=\"let pto of ptos\" (click)=\"showDetails($event,pto)\">\n            <div class=\"pto-sno\">\n                {{ pto.PTO_No }}\n            </div>\n            <div class=\"pto-year\">\n                {{ pto.YEAR }}\n            </div>\n            <div class=\"pto-station\">\n                {{ pto.STATION }}\n            </div>\n            <div class=\"pto-unit\">\n                {{ pto.UNIT }}\n            </div>\n            <div class=\"pto-date\">\n                {{ pto.DATE }}\n            </div>\n            <span hidden><mat-icon>close</mat-icon></span>\n        </a>\n    </mat-nav-list>\n    <mat-spinner *ngIf=\"ptoService.isLoading\"></mat-spinner>\n  </mat-card>    \n</div>"
+module.exports = "\n<app-pto-search></app-pto-search>\n<div class=\"ptos\">      \n  <mat-card>\n    <mat-nav-list *ngIf=\"!ptoService.isLoading\">\n        <a mat-list-item *ngFor=\"let pto of ptos\" (click)=\"showDetails($event,pto)\">\n            <div class=\"pto-sno\">\n                {{ pto.PTO_No }}\n            </div>\n            <div class=\"pto-year\">\n                {{ pto.YEAR }}\n            </div>\n            <div class=\"pto-station\">\n                {{ pto.STATION }}\n                <span *ngIf=\"showIP\">/ {{ pto.CITY }}</span>\n            </div>\n            <div class=\"pto-unit\">\n                {{ pto.UNIT }}\n                <span *ngIf=\"showIP\">/ {{ pto.IP }}</span>\n            </div>\n            <div class=\"pto-date\">\n                {{ pto.DATE }}\n            </div>\n            <span hidden><mat-icon>close</mat-icon></span>\n        </a>\n    </mat-nav-list>\n    <mat-spinner *ngIf=\"ptoService.isLoading\"></mat-spinner>\n  </mat-card>    \n</div>"
 
 /***/ }),
 
@@ -1578,18 +1580,21 @@ var PtoListComponent = (function () {
         this.ptoService = ptoService;
         this.sortUp = false;
         this.detailClicked = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.showIP = false;
     }
     PtoListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.ptoService.isLoading = true;
         this.getSubscription = this.ptoService.getPtos().subscribe(function (ptos) {
             _this.ptos = ptos;
+            _this.ptoService.ptosCount = _this.ptos.length;
             _this.ptoService.isLoading = false;
             console.log('Total ptos : ', _this.ptos);
         });
         this.searchSubscription = this.ptoService.search.subscribe(function (pto) {
             _this.ptoService.filterPtos(pto).subscribe(function (ptos) {
                 _this.ptos = ptos;
+                _this.ptoService.ptosCount = _this.ptos.length;
                 _this.ptoService.isLoading = false;
                 console.log('Total search ptos : ' + _this.ptos.length);
             });
@@ -1603,11 +1608,13 @@ var PtoListComponent = (function () {
                 _this.sortOnNumber(keys[index]);
             }
         });
+        this.ipSubscription = this.ptoService.showIP.subscribe(function () { return _this.showIP = !_this.showIP; });
     };
     PtoListComponent.prototype.ngOnDestroy = function () {
         this.getSubscription.unsubscribe();
         this.searchSubscription.unsubscribe();
         this.sortSubscription.unsubscribe();
+        this.ipSubscription.unsubscribe();
     };
     PtoListComponent.prototype.sortOnNumber = function (key) {
         this.sortUp = !this.sortUp;
@@ -1695,7 +1702,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-new/pto-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [formGroup]=\"ptoForm\" fxLayout=\"row\" fxLayoutAlign=\"start center\"> \n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"S No\" formControlName=\"ptono\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Year\" formControlName=\"year\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <mat-select placeholder=\"Station\" formControlName=\"station\">\n                <mat-option *ngFor=\"let stn of stations\" [value]=\"stn.station\" (click)=\"onSelectStation(stn)\">\n                {{ stn.station }}\n                </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n              <mat-select placeholder=\"Unit\" formControlName=\"unit\">\n                  <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                  {{ unit }}\n                  </mat-option>\n              </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" formControlName=\"date\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n        </div>\n    </form>\n  </mat-card>\n  <h3>Casualities</h3> \n  <div *ngFor=\"let formControl of controls\">\n    <mat-card>\n      <form [formGroup]=\"formControl\">\n          <div class=\"cas\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"cas-sno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"S No\" formControlName=\"sno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-mesno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"MES No\" formControlName=\"mesno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-name\">\n                <mat-form-field>\n                  <input matInput placeholder=\"Name\" formControlName=\"name\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-category\">\n              <mat-form-field>\n                <mat-select placeholder=\"Category\" formControlName=\"category\">\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                    {{ category }}\n                    </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Date\" formControlName=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-type\">\n                <mat-form-field>\n                  <mat-select placeholder=\"Type\" formControlName=\"type\">\n                      <mat-option *ngFor=\"let templete of templetes\" \n                                (click)=\"onSelect(formControl,templete.particular)\" [value]=\"templete.type\">\n                      {{ templete.type }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </div>\n            <div class=\"cas-particular\">\n              <mat-form-field>\n                <textarea matInput placeholder=\"Particular\" formControlName=\"particular\"></textarea>\n              </mat-form-field>\n            </div>\n        \n            <div class=\"icon-close\">\n              <a href=\"#\" (click)=\"deleteCas(formControl)\"><mat-icon>close</mat-icon></a>\n            </div>\n          </div>\n      </form>\n    </mat-card>\n  </div>\n   \n</div>"
+module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [formGroup]=\"ptoForm\" fxLayout=\"row\" fxLayoutAlign=\"start center\"> \n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"S No\" formControlName=\"ptono\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Year\" formControlName=\"year\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <mat-select placeholder=\"Station\" formControlName=\"station\">\n                <mat-option *ngFor=\"let stn of stations\" [value]=\"stn.station\" (click)=\"onSelectStation(stn)\">\n                {{ stn.station }}\n                </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n              <mat-select placeholder=\"Unit\" formControlName=\"unit\">\n                  <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                  {{ unit }}\n                  </mat-option>\n              </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" formControlName=\"date\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n        </div>\n    </form>\n  </mat-card>\n  <h3>Casualities</h3> \n  <div *ngFor=\"let formControl of controls; let i = index;\">\n    <mat-card>\n      <form [formGroup]=\"formControl\">\n          <div class=\"cas\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"cas-sno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"S No\" formControlName=\"sno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-mesno\">\n\n                <mat-form-field>\n                  <input placeholder=\"MES No\" matInput formControlName=\"mesno\" [matAutocomplete]=\"auto\">\n                  <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\" (optionSelected)=\"onSelectOption($event, formControl)\">\n                    <mat-option *ngFor=\"let option of filteredOptions[i] | async\" [value]=\"option\">\n                      {{option.MES_No}}\n                    </mat-option>\n                  </mat-autocomplete>\n                </mat-form-field>\n\n            </div>\n            <div class=\"cas-name\">\n                <mat-form-field>\n                  <input matInput placeholder=\"Name\" formControlName=\"name\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-category\">\n              <mat-form-field>\n                <mat-select placeholder=\"Category\" formControlName=\"category\">\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                    {{ category }}\n                    </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Date\" formControlName=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-type\">\n                <mat-form-field>\n                  <mat-select placeholder=\"Type\" formControlName=\"type\">\n                      <mat-option *ngFor=\"let templete of templetes\" \n                                (click)=\"onSelect(formControl,templete.particular)\" [value]=\"templete.type\">\n                      {{ templete.type }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </div>\n            <div class=\"cas-particular\">\n              <mat-form-field>\n                <textarea matInput placeholder=\"Particular\" formControlName=\"particular\"></textarea>\n              </mat-form-field>\n            </div>\n        \n            <div class=\"icon-close\">\n              <a href=\"#\" (click)=\"deleteCas(formControl)\"><mat-icon>close</mat-icon></a>\n            </div>\n          </div>\n      </form>\n    </mat-card>\n  </div>\n   \n</div>"
 
 /***/ }),
 
@@ -1706,7 +1713,9 @@ module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PtoNewComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__("../../../../rxjs/_esm5/operators/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_item_service__ = __webpack_require__("../../../../../src/app/services/item.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1719,12 +1728,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import { ceccAOR } from '../models/ceccAOR';
+
+
 var PtoNewComponent = (function () {
-    function PtoNewComponent(ptoService) {
+    // casIndex = 0;
+    function PtoNewComponent(ptoService, itemService) {
         this.ptoService = ptoService;
+        this.itemService = itemService;
         this.categories = ['JE (Civ)', 'JE (E/M)', 'JE(QS&C)', 'OS', 'AAO', 'UDC', 'SAA', 'LDC', 'JAA', 'STENO GDE-III',
             'STENO', 'DTMN', 'BS', 'SK', 'M-READER', 'CMD', 'DUFTRY', 'PEON', 'CHOW(O)', 'MALI', 'S-WALA'];
+        this.filteredOptions = [];
     }
     PtoNewComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1747,10 +1760,13 @@ var PtoNewComponent = (function () {
             'casualities': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormArray */]([]),
         });
         this.controls = this.ptoForm.get('casualities').controls;
-        for (var _i = 0, _a = this.ptoService.pto.CASUALITIES; _i < _a.length; _i++) {
-            var cas = _a[_i];
-            this.addCasuality(cas);
-        }
+        this.itemsSubscription = this.itemService.getItems().subscribe(function (items) {
+            _this.items = items;
+            for (var _i = 0, _a = _this.ptoService.pto.CASUALITIES; _i < _a.length; _i++) {
+                var cas = _a[_i];
+                _this.addCasuality(cas);
+            }
+        });
         this.casualitySubscription = this.ptoService.casuality.subscribe(function (casuality) {
             _this.addCasuality(casuality);
         });
@@ -1761,8 +1777,10 @@ var PtoNewComponent = (function () {
         this.templetesSubscription.unsubscribe();
         this.casualitySubscription.unsubscribe();
         this.previewSubscription.unsubscribe();
+        this.itemsSubscription.unsubscribe();
     };
     PtoNewComponent.prototype.addCasuality = function (cas) {
+        var _this = this;
         this.casForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormGroup */]({
             'sno': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.S_No, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
             'mesno': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.MES_No, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
@@ -1773,8 +1791,23 @@ var PtoNewComponent = (function () {
             'particular': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */](cas.PARTICULAR, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required)
         });
         this.ptoForm.get('casualities').push(this.casForm);
-        // console.log(this.casuality);
-        // this.page = 'casuality';
+        this.filteredOption = this.casForm.get('mesno').valueChanges.pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["m" /* startWith */])(''), Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["i" /* map */])(function (value) { return _this._filter(value); }));
+        this.filteredOptions.push(this.filteredOption);
+    };
+    PtoNewComponent.prototype._filter = function (value) {
+        console.log('value : ', value);
+        return this.items.filter(function (item) { return item.MES_No.toString().indexOf(value) === 0; });
+    };
+    PtoNewComponent.prototype.onSelectOption = function (event, formControl) {
+        console.log('Option : ', event.option);
+        var casIndex = this.controls.indexOf(formControl);
+        this.controls[casIndex].get('name').setValue(event.option.value.NAME);
+        this.controls[casIndex].get('category').setValue(event.option.value.CATEGORY);
+    };
+    PtoNewComponent.prototype.displayFn = function (item) {
+        console.log('item : ', item);
+        return typeof item !== 'object' ? item.toString() : item.MES_No.toString();
+        // return item ? item.MES_No.toString() : undefined;
     };
     PtoNewComponent.prototype.preview = function () {
         // console.log(this.ptoForm);
@@ -1787,16 +1820,9 @@ var PtoNewComponent = (function () {
         // this.addCasuality();
         for (var _i = 0, _a = this.ptoForm.get('casualities').controls; _i < _a.length; _i++) {
             var control = _a[_i];
-            var casuality = {
-                S_No: 0,
-                MES_No: '',
-                NAME: '',
-                CATEGORY: '',
-                DATE: '',
-                PARTICULAR: ''
-            };
+            var casuality = { S_No: 0, MES_No: '', NAME: '', CATEGORY: '', DATE: '', PARTICULAR: '' };
             casuality.S_No = +control.value.sno;
-            casuality.MES_No = control.value.mesno;
+            casuality.MES_No = typeof control.value.mesno === 'object' ? control.value.mesno.MES_No : control.value.mesno;
             casuality.NAME = control.value.name;
             casuality.CATEGORY = control.value.category;
             casuality.DATE = this.getDateStr(control.value.date);
@@ -1833,6 +1859,7 @@ var PtoNewComponent = (function () {
         var casIndex = this.ptoForm.get('casualities').controls.indexOf(formControl);
         this.ptoForm.get('casualities').controls.splice(casIndex, 1);
         this.ptoService.pto.CASUALITIES.splice(casIndex, 1);
+        this.filteredOptions.splice(casIndex, 1);
         console.log('After Delete-PTO : ', this.ptoService.pto);
     };
     PtoNewComponent.prototype.getUnits = function (stn) {
@@ -1849,7 +1876,7 @@ var PtoNewComponent = (function () {
             template: __webpack_require__("../../../../../src/app/pto-new/pto-new.component.html"),
             styles: [__webpack_require__("../../../../../src/app/pto-new/pto-new.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_4__services_item_service__["a" /* ItemService */]])
     ], PtoNewComponent);
     return PtoNewComponent;
 }());
@@ -2043,7 +2070,7 @@ var PtoPreviewComponent = (function () {
             template: __webpack_require__("../../../../../src/app/pto-preview/pto-preview.component.html"),
             styles: [__webpack_require__("../../../../../src/app/pto-preview/pto-preview.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatSnackBar */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MatSnackBar */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
     ], PtoPreviewComponent);
     return PtoPreviewComponent;
 }());
@@ -2060,7 +2087,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\n.example-card {\n    margin-bottom: 5px;\n}\n.pto-ptono {\n    width: 20%;\n}\n.pto-year {\n    width: 20%;\n}\n.pto-unit{\n    width: 20%;\n}\n.pto-station{\n    width: 20%;\n}\n.pto-date{\n    width: 20%;\n}\nmat-form-field {\n    width: 90%;\n}\na {\n    padding: 0px 25px;\n}\n.filler {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nlabel {\n    font-weight: bold;\n    color: black;\n}\n.btn {\n    color: white;\n    background-color: rgb(50, 162, 250);\n    font-weight: bold;\n}\nh2 {\n    text-align: center;\n    font-size: 24px;\n    font-weight: bold;\n    margin: 0px;\n    padding: 0px;\n}\n.row {\n    margin: 0px;\n    padding: 0px;\n}\n\n", ""]);
+exports.push([module.i, "\n.example-card {\n    margin-bottom: 5px;\n}\n.pto-ptono {\n    width: 15%;\n}\n.pto-year {\n    width: 15%;\n}\n.pto-station{\n    width: 25%;\n}\n.pto-unit{\n    width: 25%;\n}\n.pto-date{\n    width: 20%;\n}\nmat-form-field {\n    width: 90%;\n}\na {\n    padding: 0px 25px;\n}\n.filler {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nlabel {\n    font-weight: bold;\n    color: black;\n}\n.btn {\n    color: white;\n    background-color: rgb(50, 162, 250);\n    font-weight: bold;\n}\nh2 {\n    text-align: center;\n    font-size: 24px;\n    font-weight: bold;\n    margin: 0px;\n    padding: 0px;\n}\n.row {\n    margin: 0px;\n    padding: 0px;\n}\n\n", ""]);
 
 // exports
 
@@ -2073,7 +2100,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-search/pto-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n      <form (ngSubmit)=\"onSubmit()\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Search</button>\n          </div>\n          <span class=\"filler\"></span>\n          <div><h2>PTO-II Order List</h2></div>\n          <span class=\"filler\"></span>   \n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n            <div class=\"pto-no\">\n              <mat-form-field>\n                <input matInput placeholder=\"PTO No\" type=\"text\" [(ngModel)]=\"pto.PTO_No\" name=\"ptono\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(0)\">\n                  <i class=\"fa fa-sort\" *ngIf=\"sortCol !== 0\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 0 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 0 && !sortUp)\"></i>\n              </a>   \n            </div>\n\n            <div class=\"pto-year\">\n              <mat-form-field>\n                <input matInput placeholder=\"Year\" type=\"text\" [(ngModel)]=\"pto.YEAR\" name=\"year\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(1)\">\n                  <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 1\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 1 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 1 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-station\">\n                <mat-form-field>\n                  <mat-select matInput placeholder=\"Station\">\n                      <mat-option (click)=\"onSelectStation(null)\">None</mat-option>\n                      <mat-option *ngFor=\"let stn of stations\" [value]=\"stn.station\" (click)=\"onSelectStation(stn)\">\n                      {{ stn.station }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(3)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 3\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 3 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 3 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-unit\">\n              <mat-form-field>\n                  <mat-select placeholder=\"Unit\" [(ngModel)]=\"pto.UNIT\" name=\"unit\">\n                      <mat-option>None</mat-option>\n                      <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                      {{ unit }}\n                      </mat-option>\n                  </mat-select>\n              </mat-form-field>\n            <a href=\"#\"  (click)=\"onSort(2)\">\n              <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 2\"></i>\n              <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 2 && sortUp)\"></i>\n              <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 2 && !sortUp)\"></i>\n            </a>\n          </div>\n\n            <div class=\"pto-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" [(ngModel)]=\"pto.DATE\" name=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                <mat-datepicker #picker1></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(4)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 4\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 4 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 4 && !sortUp)\"></i>\n              </a>\n            </div>\n   \n        </div>\n\n      </form>\n    </mat-card-content>\n</mat-card>\n\n          \n          \n          "
+module.exports = "\n<mat-card class=\"example-card\">\n    <mat-card-content>\n      <form (ngSubmit)=\"onSubmit()\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n          <div>\n            <button mat-raised-button type=\"submit\" color=\"primary\">Search</button>\n          </div>\n          <span class=\"filler\"></span>\n          <div (dblclick)=\"toggleIP()\"><h2>PTO-II Order List ( {{ ptoService.ptosCount }} )</h2></div>\n          <span class=\"filler\"></span>   \n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n            <div class=\"pto-no\">\n              <mat-form-field>\n                <input matInput placeholder=\"PTO No\" type=\"text\" [(ngModel)]=\"pto.PTO_No\" name=\"ptono\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(0)\">\n                  <i class=\"fa fa-sort\" *ngIf=\"sortCol !== 0\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 0 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 0 && !sortUp)\"></i>\n              </a>   \n            </div>\n\n            <div class=\"pto-year\">\n              <mat-form-field>\n                <input matInput placeholder=\"Year\" type=\"text\" [(ngModel)]=\"pto.YEAR\" name=\"year\">\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(1)\">\n                  <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 1\"></i>\n                  <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 1 && sortUp)\"></i>\n                  <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 1 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-station\">\n                <mat-form-field>\n                  <mat-select matInput placeholder=\"Station\">\n                      <mat-option (click)=\"onSelectStation(null)\">None</mat-option>\n                      <mat-option *ngFor=\"let stn of stations\" [value]=\"stn.station\" (click)=\"onSelectStation(stn)\">\n                      {{ stn.station }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(3)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 3\"></i>\n                <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 3 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 3 && !sortUp)\"></i>\n              </a>\n            </div>\n\n            <div class=\"pto-unit\">\n              <mat-form-field>\n                  <mat-select placeholder=\"Unit\" [(ngModel)]=\"pto.UNIT\" name=\"unit\">\n                      <mat-option>None</mat-option>\n                      <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                      {{ unit }}\n                      </mat-option>\n                  </mat-select>\n              </mat-form-field>\n            <a href=\"#\"  (click)=\"onSort(2)\">\n              <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 2\"></i>\n              <i class=\"fa fa fa-sort-alpha-asc\" *ngIf=\"(sortCol === 2 && sortUp)\"></i>\n              <i class=\"fa fa fa-sort-alpha-desc\" *ngIf=\"(sortCol === 2 && !sortUp)\"></i>\n            </a>\n          </div>\n\n            <div class=\"pto-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" [(ngModel)]=\"pto.DATE\" name=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                <mat-datepicker #picker1></mat-datepicker>\n              </mat-form-field>\n              <a href=\"#\"  (click)=\"onSort(4)\">\n                <i class=\"fa fa fa-sort\" *ngIf=\"sortCol !== 4\"></i>\n                <i class=\"fa fa fa-sort-numeric-asc\" *ngIf=\"(sortCol === 4 && sortUp)\"></i>\n                <i class=\"fa fa fa-sort-numeric-desc\" *ngIf=\"(sortCol === 4 && !sortUp)\"></i>\n              </a>\n            </div>\n   \n        </div>\n\n      </form>\n    </mat-card-content>\n</mat-card>\n\n          \n          \n          "
 
 /***/ }),
 
@@ -2158,6 +2185,10 @@ var PtoSearchComponent = (function () {
         this.sortCol = index;
         this.sortUp = !this.sortUp;
         this.ptoService.sort.next(index);
+    };
+    PtoSearchComponent.prototype.toggleIP = function () {
+        console.log('toggleIP()');
+        this.ptoService.showIP.next();
     };
     PtoSearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -2255,14 +2286,7 @@ var PtoComponent = (function () {
             }
         }
         if (navItem === 'New Casuality') {
-            var casuality = {
-                S_No: 0,
-                MES_No: '',
-                NAME: '',
-                CATEGORY: '',
-                DATE: '',
-                PARTICULAR: ''
-            };
+            var casuality = { S_No: 0, MES_No: '', NAME: '', CATEGORY: '', DATE: '', PARTICULAR: '' };
             this.ptoService.casuality.next(casuality);
         }
         if (navItem === 'edit-units') {
@@ -2304,7 +2328,7 @@ var PtoComponent = (function () {
             template: __webpack_require__("../../../../../src/app/pto/pto.component.html"),
             styles: [__webpack_require__("../../../../../src/app/pto/pto.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatSnackBar */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatSnackBar */]])
     ], PtoComponent);
     return PtoComponent;
 }());
@@ -2350,7 +2374,7 @@ var AppDateAdapter = (function (_super) {
         return ('00' + n).slice(-2);
     };
     return AppDateAdapter;
-}(__WEBPACK_IMPORTED_MODULE_0__angular_material__["d" /* NativeDateAdapter */]));
+}(__WEBPACK_IMPORTED_MODULE_0__angular_material__["e" /* NativeDateAdapter */]));
 
 
 
@@ -2363,7 +2387,7 @@ var AppDateAdapter = (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_firestore__ = __webpack_require__("../../../../angularfire2/firestore/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__("../../../../rxjs/_esm5/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_cecc_staff__ = __webpack_require__("../../../../../src/app/models/cecc-staff.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2376,15 +2400,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+// tslint:disable-next-line:import-blacklist
 
 
 var ItemService = (function () {
     function ItemService(afs) {
         this.afs = afs;
-        this.search = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
-        this.sort = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
-        this.loginStatus = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
-        this.itemsSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
+        this.search = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
+        this.sort = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
+        this.loginStatus = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
+        this.itemsSubject = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
         // this.items = this.afs.collection('items').valueChanges();
         this.itemsCollection = this.afs.collection('staff-2');
         this.items = this.itemsCollection.snapshotChanges().map(function (changes) {
@@ -2500,8 +2525,7 @@ var ItemService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PTOService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_firestore__ = __webpack_require__("../../../../angularfire2/firestore/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__ = __webpack_require__("../../../../rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__("../../../../rxjs/_esm5/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2513,7 +2537,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
+// tslint:disable-next-line:import-blacklist
 
 // import { ceccAOR } from '../models/ceccAOR';
 // import { templetes } from '../models/templetes';
@@ -2521,11 +2545,12 @@ var PTOService = (function () {
     // stations = Object.keys(ceccAOR);
     function PTOService(afs) {
         this.afs = afs;
-        this.search = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
-        this.sort = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
-        this.casuality = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
-        this.preview = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
-        this.casSummary = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["a" /* Subject */]();
+        this.search = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
+        this.sort = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
+        this.casuality = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
+        this.preview = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
+        this.casSummary = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
+        this.showIP = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
         this.pto = {
             PTO_No: null,
             YEAR: null,
@@ -2551,7 +2576,7 @@ var PTOService = (function () {
         return this.ptos;
     };
     PTOService.prototype.addPto = function () {
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */].fromPromise(this.ptoCollection.add(this.pto));
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["b" /* Observable */].fromPromise(this.ptoCollection.add(this.pto));
     };
     PTOService.prototype.filterPtos = function (pto) {
         console.log('Filtering PTOs');
@@ -2740,7 +2765,7 @@ var TempletesComponent = (function () {
             template: __webpack_require__("../../../../../src/app/templetes/templetes.component.html"),
             styles: [__webpack_require__("../../../../../src/app/templetes/templetes.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatSnackBar */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_pto_service__["a" /* PTOService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatSnackBar */]])
     ], TempletesComponent);
     return TempletesComponent;
 }());
