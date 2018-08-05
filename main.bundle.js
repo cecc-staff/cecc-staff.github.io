@@ -298,7 +298,7 @@ var CasListComponent = (function () {
                 var pto = _a[_i];
                 for (var _b = 0, _c = pto.CASUALITIES; _b < _c.length; _b++) {
                     var cas = _c[_b];
-                    if (+cas.MES_No === +obj.mesno) {
+                    if (cas.MES_No === obj.mesno) {
                         var cas_pto = __assign({}, cas, { PTO_No: pto.PTO_No, PTO_YEAR: pto.YEAR, PTO_UNIT: pto.UNIT, PTO_STATION: pto.STATION, PTO_DATE: pto.DATE });
                         _this.casualities.push(cas_pto);
                         _this.name = cas_pto.NAME;
@@ -541,18 +541,8 @@ var AddItemComponent = (function () {
         this.categories = ['JE (Civ)', 'JE (E/M)', 'JE(QS&C)', 'OS', 'AAO', 'UDC', 'SAA', 'LDC', 'JAA',
             'STENO GDE-III', 'STENO', 'DTMN', 'BS', 'SK', 'CHOW(O)'];
         this.logoPath = 'https://cecc-staff.github.io/assets/MES_Logo.png';
-        this.item = {
-            MES_No: null,
-            NAME: '',
-            CATEGORY: '',
-            DOB: '',
-            DOJ: '',
-            UNIT: '',
-            UNIT_SENIORITY: '',
-            STATION: '',
-            STN_SENIORITY: '',
-            REMARKS: ''
-        };
+        this.item = { MES_No: '', NAME: '', CATEGORY: '', DOB: '', DOJ: '', UNIT: '', UNIT_SENIORITY: '',
+            STATION: '', STN_SENIORITY: '', REMARKS: '' };
         this.user = null;
     }
     AddItemComponent.prototype.ngOnInit = function () {
@@ -579,14 +569,6 @@ var AddItemComponent = (function () {
     };
     AddItemComponent.prototype.onSubmit = function () {
         this.itemService.isLoading = true;
-        var numItem = +this.item.MES_No;
-        if (numItem && (numItem < numItem + 1)) {
-            console.log('+this.item.MES_No : ', +this.item.MES_No);
-            this.item.MES_No = +this.item.MES_No;
-        }
-        else {
-            console.log('this.item.MES_No : ', this.item.MES_No);
-        }
         this.setDates();
         this.itemService.search.next(this.item);
         console.log(this.item);
@@ -658,7 +640,7 @@ var AddItemComponent = (function () {
         this.item.STN_SENIORITY = this.getDateStr(this.item.STN_SENIORITY);
     };
     AddItemComponent.prototype.resetItem = function () {
-        this.item = { MES_No: null, NAME: '', CATEGORY: '', DOB: '', DOJ: '', UNIT: '', UNIT_SENIORITY: '',
+        this.item = { MES_No: '', NAME: '', CATEGORY: '', DOB: '', DOJ: '', UNIT: '', UNIT_SENIORITY: '',
             STATION: '', STN_SENIORITY: '', REMARKS: '' };
     };
     AddItemComponent.prototype.getDateStr = function (dtStr) {
@@ -849,12 +831,36 @@ var ItemsComponent = (function () {
         }
     };
     ItemsComponent.prototype.sortOnNumber = function () {
+        var nan = '22772';
+        console.log(typeof +nan === 'number');
         this.sortUp = !this.sortUp;
         if (this.sortUp) {
-            this.items.sort(function (a, b) { return a['MES_No'] - b['MES_No']; });
+            this.items.sort(function (a, b) {
+                if (typeof +a['MES_No'] === 'number') {
+                    if (typeof +b['MES_No'] === 'number') {
+                        return +a['MES_No'] - (+b['MES_No']);
+                    }
+                    else {
+                        return -1;
+                    }
+                }
+                else {
+                    if (typeof +b['MES_No'] === 'number') {
+                        return 1;
+                    }
+                    else {
+                        if (a['MES_No'] < b['MES_No']) {
+                            return -1;
+                        }
+                        else {
+                            return 1;
+                        }
+                    }
+                }
+            });
         }
         else {
-            this.items.sort(function (a, b) { return b['MES_No'] - a['MES_No']; });
+            this.items.sort(function (a, b) { return +b['MES_No'] - (+a['MES_No']); });
         }
     };
     ItemsComponent.prototype.sortOnElement = function (key) {
@@ -933,15 +939,8 @@ var ItemsComponent = (function () {
     ItemsComponent.prototype.updateItem = function () {
         var _this = this;
         this.itemService.isLoading = true;
-        console.log(this.myForm);
-        var numItem = +this.myForm.value.mesno;
-        if (numItem && (numItem < numItem + 1)) {
-        }
-        else {
-            numItem = this.myForm.value.mesno;
-        }
         var item = {
-            MES_No: numItem,
+            MES_No: this.myForm.value.mesno,
             NAME: this.myForm.value.name,
             CATEGORY: this.myForm.value.category,
             DOB: this.getDateStr(this.myForm.value.dob),
@@ -977,7 +976,7 @@ var ItemsComponent = (function () {
         }
     };
     ItemsComponent.prototype.showSB = function (item) {
-        if (this.user && (this.user.email || item.MES_No === +this.user.uid)) {
+        if (this.user && (this.user.email || item.MES_No === this.user.uid)) {
             var storageRef = this.storageService.storage.ref();
             storageRef.child(item.MES_No + '.pdf').getDownloadURL().then(function (url) {
                 window.open(url);
@@ -985,7 +984,7 @@ var ItemsComponent = (function () {
         }
     };
     ItemsComponent.prototype.showPointer = function (item) {
-        if (this.user && (this.user.email || item.MES_No === +this.user.uid)) {
+        if (this.user && (this.user.email || item.MES_No === this.user.uid)) {
             return true;
         }
         else {
@@ -1102,10 +1101,10 @@ var NavbarComponent = (function () {
                 _this.showPTO = false;
             }
         });
-        this.itemService.itemsSubject.subscribe(function (items) {
-            _this.items = items;
-            _this.setDownloadLink();
-        });
+        // this.itemService.itemsSubject.subscribe((items: Item[]) => {
+        //   this.items = items;
+        //   this.setDownloadLink();
+        //  });
     };
     NavbarComponent.prototype.setDownloadLink = function () {
         var itemsText = this.getItems();
@@ -1151,9 +1150,6 @@ var NavbarComponent = (function () {
         this.http.post(this.url, JSON.stringify(message), { headers: headers }).pipe(Object(__WEBPACK_IMPORTED_MODULE_5_rxjs_operators__["i" /* map */])(function (response) { return response.json(); }), Object(__WEBPACK_IMPORTED_MODULE_5_rxjs_operators__["b" /* catchError */])(function (error) { return __WEBPACK_IMPORTED_MODULE_4_rxjs__["b" /* Observable */].throw(error.json()); }))
             .subscribe(function (result) { console.log(result); });
     };
-    // addStaffCollection() {
-    //   this.itemService.addCollection();
-    // }
     NavbarComponent.prototype.togglePTO = function () {
         this.showPTO = !this.showPTO;
         this.ptoStr = this.showPTO ? 'Database' : 'PTO';
@@ -1703,7 +1699,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-new/pto-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [formGroup]=\"ptoForm\" fxLayout=\"row\" fxLayoutAlign=\"start center\"> \n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"S No\" formControlName=\"ptono\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Year\" formControlName=\"year\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <mat-select placeholder=\"Station\" formControlName=\"station\">\n                <mat-option *ngFor=\"let stn of stations\" [value]=\"stn.station\" (click)=\"onSelectStation(stn)\">\n                {{ stn.station }}\n                </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n              <mat-select placeholder=\"Unit\" formControlName=\"unit\">\n                  <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                  {{ unit }}\n                  </mat-option>\n              </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" formControlName=\"date\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n        </div>\n    </form>\n  </mat-card>\n  <h3>Casualities</h3> \n  <div *ngFor=\"let formControl of controls; let i = index;\">\n    <mat-card>\n      <form [formGroup]=\"formControl\">\n          <div class=\"cas\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"cas-sno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"S No\" formControlName=\"sno\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-mesno\">\n\n                <mat-form-field>\n                  <input placeholder=\"MES No\" matInput formControlName=\"mesno\" [matAutocomplete]=\"auto\">\n                  <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\" (optionSelected)=\"onSelectOption($event, formControl)\">\n                    <mat-option *ngFor=\"let option of filteredOptions[i] | async\" [value]=\"option\">\n                      {{option.MES_No}}\n                    </mat-option>\n                  </mat-autocomplete>\n                </mat-form-field>\n\n            </div>\n            <div class=\"cas-name\">\n                <mat-form-field>\n                  <input matInput placeholder=\"Name\" formControlName=\"name\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-category\">\n              <mat-form-field>\n                <mat-select placeholder=\"Category\" formControlName=\"category\">\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                    {{ category }}\n                    </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Date\" formControlName=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-type\">\n                <mat-form-field>\n                  <mat-select placeholder=\"Type\" formControlName=\"type\">\n                      <mat-option *ngFor=\"let templete of templetes\" \n                                (click)=\"onSelect(formControl,templete.particular)\" [value]=\"templete.type\">\n                      {{ templete.type }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </div>\n            <div class=\"cas-particular\">\n              <mat-form-field>\n                <textarea matInput placeholder=\"Particular\" formControlName=\"particular\"></textarea>\n              </mat-form-field>\n            </div>\n        \n            <div class=\"icon-close\">\n              <a href=\"#\" (click)=\"deleteCas(formControl)\"><mat-icon>close</mat-icon></a>\n            </div>\n          </div>\n      </form>\n    </mat-card>\n  </div>\n   \n</div>"
+module.exports = "<div>\n  <mat-card>\n    <h2>PTO-II Order</h2>   \n    <form [formGroup]=\"ptoForm\" fxLayout=\"row\" fxLayoutAlign=\"start center\"> \n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"S No\" formControlName=\"ptono\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput placeholder=\"Year\" formControlName=\"year\">\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <mat-select placeholder=\"Station\" formControlName=\"station\">\n                <mat-option *ngFor=\"let stn of stations\" [value]=\"stn.station\" (click)=\"onSelectStation(stn)\">\n                {{ stn.station }}\n                </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n              <mat-select placeholder=\"Unit\" formControlName=\"unit\">\n                  <mat-option *ngFor=\"let unit of units\" [value]=\"unit\">\n                  {{ unit }}\n                  </mat-option>\n              </mat-select>\n          </mat-form-field>\n        </div>\n        <div class=\"pto\">\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"Date\" formControlName=\"date\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n        </div>\n    </form>\n  </mat-card>\n  <h3>Casualities</h3> \n  <div *ngFor=\"let formControl of controls; let i = index;\">\n    <mat-card>\n      <form [formGroup]=\"formControl\">\n          <div class=\"cas\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"cas-sno\">\n                <mat-form-field>\n                  <input matInput placeholder=\"S No\" formControlName=\"sno\" [value]=\"i + 1\" readonly>\n                </mat-form-field>\n            </div>\n            <div class=\"cas-mesno\">\n\n                <mat-form-field>\n                  <input placeholder=\"MES No\" matInput formControlName=\"mesno\" [matAutocomplete]=\"auto\">\n                  <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\" (optionSelected)=\"onSelectOption($event, formControl)\">\n                    <mat-option *ngFor=\"let option of filteredOptions[i] | async\" [value]=\"option\">\n                      {{option.MES_No}}\n                    </mat-option>\n                  </mat-autocomplete>\n                </mat-form-field>\n\n            </div>\n            <div class=\"cas-name\">\n                <mat-form-field>\n                  <input matInput placeholder=\"Name\" formControlName=\"name\">\n                </mat-form-field>\n            </div>\n            <div class=\"cas-category\">\n              <mat-form-field>\n                <mat-select placeholder=\"Category\" formControlName=\"category\">\n                    <mat-option *ngFor=\"let category of categories\" [value]=\"category\">\n                    {{ category }}\n                    </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-date\">\n              <mat-form-field>\n                <input matInput [matDatepicker]=\"picker2\" placeholder=\"Date\" formControlName=\"date\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n                <mat-datepicker #picker2></mat-datepicker>\n              </mat-form-field>\n            </div>\n            <div class=\"cas-type\">\n                <mat-form-field>\n                  <mat-select placeholder=\"Type\" formControlName=\"type\">\n                      <mat-option *ngFor=\"let templete of templetes\" \n                                (click)=\"onSelect(formControl,templete.particular)\" [value]=\"templete.type\">\n                      {{ templete.type }}\n                      </mat-option>\n                  </mat-select>\n                </mat-form-field>\n              </div>\n            <div class=\"cas-particular\">\n              <mat-form-field>\n                <textarea matInput placeholder=\"Particular\" formControlName=\"particular\"></textarea>\n              </mat-form-field>\n            </div>\n        \n            <div class=\"icon-close\">\n              <a href=\"#\" (click)=\"deleteCas(formControl)\"><mat-icon>close</mat-icon></a>\n            </div>\n          </div>\n      </form>\n    </mat-card>\n  </div>\n   \n</div>"
 
 /***/ }),
 
@@ -1797,7 +1793,7 @@ var PtoNewComponent = (function () {
     };
     PtoNewComponent.prototype._filter = function (value) {
         console.log('value : ', value);
-        return this.items.filter(function (item) { return item.MES_No.toString().indexOf(value) === 0; });
+        return this.items.filter(function (item) { return item.MES_No.indexOf(value) === 0; });
     };
     PtoNewComponent.prototype.onSelectOption = function (event, formControl) {
         console.log('Option : ', event.option);
@@ -1807,7 +1803,7 @@ var PtoNewComponent = (function () {
     };
     PtoNewComponent.prototype.displayFn = function (item) {
         console.log('item : ', item);
-        return typeof item !== 'object' ? item.toString() : item.MES_No.toString();
+        return typeof item !== 'object' ? item : item.MES_No;
         // return item ? item.MES_No.toString() : undefined;
     };
     PtoNewComponent.prototype.preview = function () {
@@ -1819,10 +1815,11 @@ var PtoNewComponent = (function () {
         this.ptoService.pto.DATE = this.getDateStr(this.ptoForm.value.date),
             this.ptoService.pto.CASUALITIES = [];
         // this.addCasuality();
+        var casIndex = 1;
         for (var _i = 0, _a = this.ptoForm.get('casualities').controls; _i < _a.length; _i++) {
             var control = _a[_i];
             var casuality = { S_No: 0, MES_No: '', NAME: '', CATEGORY: '', DATE: '', PARTICULAR: '' };
-            casuality.S_No = +control.value.sno;
+            casuality.S_No = casIndex++;
             casuality.MES_No = typeof control.value.mesno === 'object' ? control.value.mesno.MES_No : control.value.mesno;
             casuality.NAME = control.value.name;
             casuality.CATEGORY = control.value.category;
@@ -2214,7 +2211,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\nmat-sidenav {\n    width: 13%;\n}\nmat-form-field {\n    width: 95%;\n}\n.card-1 {\n    margin-bottom: 5px;\n    padding-bottom: 0px;\n}\n.card-2 {\n    padding-top: 5px;\n    padding-bottom: 15px;\n    padding-left: 5px;\n    padding-right: 5px;\n    background-color: aliceblue;\n}\nmat-list-item {\n    border-bottom-style: solid;\n    border-bottom-width: 2px;\n    border-bottom-color: black;\n}\nh2 {\n    text-align: center;\n}\n.help {\n    background-color: red;\n    -webkit-animation: mymove 1s infinite;\n            animation: mymove 1s infinite;\n}\n@-webkit-keyframes mymove {\n    50% {background-color: white;}\n}\n@keyframes mymove {\n    50% {background-color: white;}\n}\n", ""]);
+exports.push([module.i, "\nmat-sidenav {\n    width: 13%;\n}\nmat-form-field {\n    width: 95%;\n}\n.card-1 {\n    margin-bottom: 5px;\n    padding-bottom: 0px;\n}\n.card-2 {\n    padding-top: 5px;\n    padding-bottom: 15px;\n    padding-left: 5px;\n    padding-right: 5px;\n    background-color: aliceblue;\n}\nmat-list-item {\n    border-bottom-style: solid;\n    border-bottom-width: 2px;\n    border-bottom-color: black;\n}\nh2 {\n    text-align: center;\n}\n.help {\n    background-color: orange;\n    -webkit-animation: mymove 1s infinite;\n            animation: mymove 1s infinite;\n}\n@-webkit-keyframes mymove {\n    50% {background-color: white;}\n}\n@keyframes mymove {\n    50% {background-color: white;}\n}\n", ""]);
 
 // exports
 
@@ -2414,6 +2411,7 @@ var ItemService = (function () {
         // this.items = this.afs.collection('items').valueChanges();
         this.itemsCollection = this.afs.collection('staff-2');
         this.items = this.itemsCollection.snapshotChanges().map(function (changes) {
+            console.log('changes.length : ', changes.length);
             return changes.map(function (a) {
                 var data = a.payload.doc.data();
                 data.id = a.payload.doc.id;
@@ -2479,25 +2477,19 @@ var ItemService = (function () {
             });
         });
     };
-    ItemService.prototype.updateItems = function (items) {
-        var _this = this;
-        var station;
-        var _loop_1 = function (item) {
-            station = 'Allahabad';
-            item.STATION = station;
-            var count = 0;
-            setTimeout(function () {
-                _this.afs.doc("staff/" + item.id).update(item).then(function () {
-                    console.log('Updated Item : ', ++count);
-                });
-            }, 500);
-        };
-        for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
-            var item = items_1[_i];
-            _loop_1(item);
-        }
-        console.log("Items with " + station + " = " + items.length);
-    };
+    // updateItems(items: Item[]) {
+    //   console.log('updateItems2 : ', items.length);
+    //   let count = 0;
+    //   for (let i = 0; i < items.length; i++) {
+    //     if (typeof items[i].MES_No === 'number' && count < 200) {
+    //       items[i].MES_No = items[i].MES_No.toString();
+    //       this.afs.doc(`staff-2/${items[i].id}`).update(items[i]).then(() => {
+    //         console.log('Updated Item : ', items[i].MES_No);
+    //       });
+    //       count++;
+    //     }
+    //   }
+    // }
     ItemService.prototype.addCollection = function () {
         console.log('ceccStaff.length : ', __WEBPACK_IMPORTED_MODULE_3__models_cecc_staff__["a" /* ceccStaff */][0]);
         for (var _i = 0, ceccStaff_1 = __WEBPACK_IMPORTED_MODULE_3__models_cecc_staff__["a" /* ceccStaff */]; _i < ceccStaff_1.length; _i++) {
