@@ -760,7 +760,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import { Subscription } from 'rxjs';
 
 
 
@@ -2224,7 +2223,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto/pto.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container>\n    \n  <mat-sidenav mode=\"side\" opened fixedInViewport=\"true\" fixedTopGap=\"110\">\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let nav of fillerNav\" (click)=\"onNavItemClick(nav)\">{{nav}}</a>\n      <mat-card class=\"card-2\">\n          <mat-form-field>\n            <input matInput placeholder=\"MES No\" type=\"text\" [(ngModel)]=\"mesno\" name=\"mesno\">\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"PTO Date From\" [(ngModel)]=\"dateFrom\" name=\"dateFrom\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker2\" placeholder=\"PTO Date Upto\" [(ngModel)]=\"dateUpto\" name=\"dateUpto\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n            <mat-datepicker #picker2></mat-datepicker>\n          </mat-form-field>\n\n        <div>\n          <button mat-raised-button (click)=\"searchCas()\"color=\"primary\">Search Casualities</button>\n        </div>\n      </mat-card>\n      <a mat-list-item (click)=\"onNavItemClick('edit-units')\">Edit Units</a>\n      <a mat-list-item (click)=\"onNavItemClick('templetes')\">PTO Templetes</a>\n      <a mat-list-item (click)=\"onNavItemClick('help')\" class=\"help\">Help (Updated)\n        <span><mat-icon>notifications_active</mat-icon></span>\n      </a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content id=\"content\">\n    <mat-card class=\"card-1\">\n        <app-pto-list *ngIf=\"page === 'list'\" (detailClicked)=\"page = 'preview'\"></app-pto-list>\n        <app-pto-new  *ngIf=\"page === 'new'\"></app-pto-new>\n        <app-pto-preview *ngIf=\"page === 'preview'\" (goBack)=\"onNavItemClick($event)\"></app-pto-preview>\n        <app-cas-list  *ngIf=\"page === 'cas'\" (detailClicked)=\"page = 'preview'\"></app-cas-list>\n        <app-edit-units  *ngIf=\"page === 'edit-units'\"></app-edit-units>\n        <app-templetes  *ngIf=\"page === 'templetes'\"></app-templetes>\n        <app-help  *ngIf=\"page === 'help'\"></app-help>\n    </mat-card>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
+module.exports = "<mat-sidenav-container>\n    \n  <mat-sidenav mode=\"side\" opened fixedInViewport=\"true\" fixedTopGap=\"110\">\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let nav of fillerNav\" (click)=\"onNavItemClick(nav)\">{{nav}}</a>\n      <mat-card class=\"card-2\">\n          <mat-form-field>\n            <input matInput placeholder=\"MES No\" type=\"text\" [(ngModel)]=\"mesno\" name=\"mesno\">\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker1\" placeholder=\"PTO Date From\" [(ngModel)]=\"dateFrom\" name=\"dateFrom\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n            <mat-datepicker #picker1></mat-datepicker>\n          </mat-form-field>\n\n          <mat-form-field>\n            <input matInput [matDatepicker]=\"picker2\" placeholder=\"PTO Date Upto\" [(ngModel)]=\"dateUpto\" name=\"dateUpto\">\n            <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n            <mat-datepicker #picker2></mat-datepicker>\n          </mat-form-field>\n\n        <div>\n          <button mat-raised-button (click)=\"searchCas()\"color=\"primary\">Search Casualities</button>\n        </div>\n      </mat-card>\n      <a mat-list-item (click)=\"onNavItemClick('edit-units')\">Edit Units</a>\n      <a mat-list-item (click)=\"onNavItemClick('templetes')\">PTO Templetes</a>\n      <a mat-list-item (click)=\"onNavItemClick('help')\" class=\"help\">Help (Updated) \n        <span><mat-icon>notifications_active</mat-icon></span>\n      </a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content id=\"content\">\n    <mat-card class=\"card-1\">\n        <app-pto-list *ngIf=\"page === 'list'\" (detailClicked)=\"page = 'preview'\"></app-pto-list>\n        <app-pto-new  *ngIf=\"page === 'new'\"></app-pto-new>\n        <app-pto-preview *ngIf=\"page === 'preview'\" (goBack)=\"onNavItemClick($event)\"></app-pto-preview>\n        <app-cas-list  *ngIf=\"page === 'cas'\" (detailClicked)=\"page = 'preview'\"></app-cas-list>\n        <app-edit-units  *ngIf=\"page === 'edit-units'\"></app-edit-units>\n        <app-templetes  *ngIf=\"page === 'templetes'\"></app-templetes>\n        <app-help  *ngIf=\"page === 'help'\"></app-help>\n    </mat-card>\n  </mat-sidenav-content>\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -2275,12 +2274,12 @@ var PtoComponent = (function () {
         }
         if (navItem === 'Publish...') {
             this.ptoService.preview.next();
-            if ((this.ptoService.pto.PTO_No) && (this.ptoService.pto.YEAR) &&
-                this.ptoService.pto.UNIT && this.ptoService.pto.STATION && this.ptoService.pto.DATE) {
+            if ((this.ptoService.pto.PTO_No) && (this.ptoService.pto.YEAR) && this.ptoService.pto.UNIT &&
+                this.ptoService.pto.STATION && this.ptoService.pto.DATE && this.casualityValid()) {
                 this.page = 'preview';
             }
             else {
-                this.snackBar.open('The PTO Form Fields cannot be left Blank!', '', { duration: 2000, });
+                this.snackBar.open('The PTO/Casuality Form Fields cannot be left Blank!', '', { duration: 2000, });
             }
         }
         if (navItem === 'New Casuality') {
@@ -2295,6 +2294,26 @@ var PtoComponent = (function () {
         }
         if (navItem === 'help') {
             this.page = 'help';
+        }
+    };
+    PtoComponent.prototype.casualityValid = function () {
+        if (this.ptoService.pto.CASUALITIES.length > 0) {
+            if (this.ptoService.pto.CASUALITIES.every(function (cas) {
+                if (cas.MES_No && cas.NAME && cas.CATEGORY && cas.DATE && cas.PARTICULAR) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return true;
         }
     };
     PtoComponent.prototype.searchCas = function () {
