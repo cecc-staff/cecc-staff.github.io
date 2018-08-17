@@ -1094,7 +1094,7 @@ var NavbarComponent = (function () {
         this.headStr = '';
         this.url = 'https://us-central1-cecc-staff.cloudfunctions.net/addMessage';
         this.indianFlag = 'https://cecc-staff.github.io/assets/indian-flag.gif';
-        this.vajpayee = 'https://cecc-staff.github.io/assets/vajpayee.jpg';
+        this.vajpayee = 'https://cecc-staff.github.io/assets/vajpayee.png';
     }
     NavbarComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1634,11 +1634,12 @@ var PtoListComponent = (function () {
             console.log('Total ptos : ', _this.ptos);
         });
         this.searchSubscription = this.ptoService.search.subscribe(function (pto) {
-            _this.ptoService.filterPtos(pto).subscribe(function (ptos) {
+            _this.filterSubscription = _this.ptoService.filterPtos(pto).subscribe(function (ptos) {
                 _this.ptos = ptos;
                 _this.ptoService.ptosCount = _this.ptos.length;
                 _this.ptoService.isLoading = false;
                 console.log('Total search ptos : ' + _this.ptos.length);
+                _this.filterSubscription.unsubscribe();
             });
         });
         this.sortSubscription = this.ptoService.sort.subscribe(function (index) {
@@ -2170,20 +2171,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PtoSearchComponent = (function () {
     function PtoSearchComponent(ptoService) {
         this.ptoService = ptoService;
-        this.pto = {
-            PTO_No: null,
-            YEAR: null,
-            UNIT: '',
-            STATION: '',
-            DATE: ''
-        };
+        this.pto = { PTO_No: null, YEAR: null, UNIT: '', STATION: '', DATE: '' };
     }
     PtoSearchComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getSubscription = this.ptoService.getStations().subscribe(function (stations) {
-            _this.stations = stations;
-            // console.log('Stations : ', stations);
-        });
+        this.getSubscription = this.ptoService.getStations().subscribe(function (stations) { _this.stations = stations; });
         this.searchSubscription = this.ptoService.search.subscribe(function (pto) { return _this.pto = pto; });
     };
     PtoSearchComponent.prototype.ngOnDestroy = function () {
