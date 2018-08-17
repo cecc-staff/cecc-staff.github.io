@@ -1054,7 +1054,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href=\"#\" (click)=\"togglePTO()\">{{ ptoStr }}</a>\n    <span class=\"filler1\"></span>\n    <a class=\"heading\" href=\"/\">Chief Engineer Central Command</a>\n    <span class=\"filler2\"></span>\n    <a *ngIf=\"!showPTO && user && user.email\" class=\"login\" id=\"downloadLink\" download=\"cecc-staff.csv\">Download</a>\n    <span class=\"filler3\"></span>\n    <a class=\"login\" href=\"#\" (click)=\"login()\">{{ logStr }}</a>\n</mat-toolbar>\n<div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n  <span class=\"filler3\"></span>\n  <img [src]=\"indianFlag\" class=\"img-responsive\">\n  <span class=\"filler3\"></span>\n  <h2 class=\"database\"> {{ headStr }} of Basic Staff </h2>\n  <span class=\"filler3\"></span>\n  <img [src]=\"indianFlag\" class=\"img-responsive\">\n  <span class=\"filler3\"></span>\n</div>\n<p class=\"feedback\" color=\"primary\">Feedback: Sanjeev Gahlot,Jt.DG(Pers),CE CC Lucknow</p>\n<div *ngIf=\"!showPTO\">\n  <div *ngIf=\"!showLoginCard\">\n    <app-add-item [user]=\"user\"></app-add-item>\n    <app-items [user]=\"user\"></app-items>\n  </div>\n  <app-login *ngIf=\"showLoginCard\"></app-login>\n</div>\n<app-pto *ngIf=\"showPTO\"></app-pto>\n\n\n"
+module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href=\"#\" (click)=\"togglePTO()\">{{ ptoStr }}</a>\n    <span class=\"filler1\"></span>\n    <a class=\"heading\" href=\"/\">Chief Engineer Central Command</a>\n    <span class=\"filler2\"></span>\n    <a *ngIf=\"!showPTO && user && user.email\" class=\"login\" id=\"downloadLink\" download=\"cecc-staff.csv\">Download</a>\n    <span class=\"filler3\"></span>\n    <a class=\"login\" href=\"#\" (click)=\"login()\">{{ logStr }}</a>\n</mat-toolbar>\n<div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n  <span class=\"filler3\"></span>\n  <img [src]=\"vajpayee\" class=\"img-responsive\">\n  <span class=\"filler3\"></span>\n  <h2 class=\"database\"> {{ headStr }} of Basic Staff </h2>\n  <span class=\"filler3\"></span>\n  <img [src]=\"vajpayee\" class=\"img-responsive\">\n  <span class=\"filler3\"></span>\n</div>\n<p class=\"feedback\" color=\"primary\">Feedback: Sanjeev Gahlot,Jt.DG(Pers),CE CC Lucknow</p>\n<div *ngIf=\"!showPTO\">\n  <div *ngIf=\"!showLoginCard\">\n    <app-add-item [user]=\"user\"></app-add-item>\n    <app-items [user]=\"user\"></app-items>\n  </div>\n  <app-login *ngIf=\"showLoginCard\"></app-login>\n</div>\n<app-pto *ngIf=\"showPTO\"></app-pto>\n\n\n"
 
 /***/ }),
 
@@ -1094,6 +1094,7 @@ var NavbarComponent = (function () {
         this.headStr = '';
         this.url = 'https://us-central1-cecc-staff.cloudfunctions.net/addMessage';
         this.indianFlag = 'https://cecc-staff.github.io/assets/indian-flag.gif';
+        this.vajpayee = 'https://cecc-staff.github.io/assets/vajpayee.jpg';
     }
     NavbarComponent.prototype.ngOnInit = function () {
         var _this = this;
