@@ -1041,7 +1041,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\nmat-toolbar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.filler1 {\n    -webkit-box-flex: 6;\n        -ms-flex: 6 1 auto;\n            flex: 6 1 auto;\n}\n.heading {\n    color: white;\n    font-size: 30px;\n    text-decoration: none;\n}\n.filler2 {\n    -webkit-box-flex: 3;\n        -ms-flex: 3 1 auto;\n            flex: 3 1 auto;\n}\n.login {\n    color: white;\n    text-decoration: none;\n}\n.filler3 {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nh2.database {\n    font-family: Arial, Helvetica, sans-serif;\n    text-align: center;\n    padding: 0px;\n    margin: 0px;\n}\n.feedback {\n    color: red;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 10px;\n    text-align: center;\n    font-style: italic;\n    margin: 0px;\n    padding: 0px;\n}\n.img-responsive {\n  max-height: 30px;\n}\n\n.filler4 {\n  width: 20%;\n}\n\n@-webkit-keyframes mymove-right {\n  0%   {margin-left: 90%; margin-top: 0px;}\n  100%  {margin-left: 0%; margin-top: 10px;}\n}\n\n@keyframes mymove-right {\n  0%   {margin-left: 90%; margin-top: 0px;}\n  100%  {margin-left: 0%; margin-top: 10px;}\n}\n.animation-right {\n  height: 20px;\n  -webkit-animation-name: mymove-right;\n          animation-name: mymove-right;\n  -webkit-animation-duration: 4s;\n          animation-duration: 4s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n\n@-webkit-keyframes mymove-left {\n  0%   {margin-left: 0%; margin-top: 0px;}\n  100%  {margin-left: 90%; margin-top: 10px;}\n}\n\n@keyframes mymove-left {\n  0%   {margin-left: 0%; margin-top: 0px;}\n  100%  {margin-left: 90%; margin-top: 10px;}\n}\n.animation-left {\n  height: 20px;\n  -webkit-animation-name: mymove-left;\n          animation-name: mymove-left;\n  -webkit-animation-duration: 4s;\n          animation-duration: 4s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.anounce-left {\n  width: 220px;\n  height: 20px;\n  background-color: light-grey;\n  position: relative;\n  -webkit-animation: head-left 5s 4s infinite;\n          animation: head-left 5s 4s infinite;\n}\n@-webkit-keyframes head-left {\n  0%   {left:0%; top:0px;}\n  50%  {left:-20%; top:0px;}\n  100% {left:0%; top:0px;}\n}\n@keyframes head-left {\n  0%   {left:0%; top:0px;}\n  50%  {left:-20%; top:0px;}\n  100% {left:0%; top:0px;}\n}\n.anounce-right {\n  width: 220px;\n  height: 20px;\n  background-color: light-grey;\n  position: relative;\n  -webkit-animation: head-right 5s 4s infinite alternate;\n          animation: head-right 5s 4s infinite alternate;\n}\n@-webkit-keyframes head-right {\n  0%   {left:0%; top:0px;}\n  100% {left:20%; top:0px;}\n}\n@keyframes head-right {\n  0%   {left:0%; top:0px;}\n  100% {left:20%; top:0px;}\n}\n", ""]);
+exports.push([module.i, "\nmat-toolbar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.filler1 {\n    -webkit-box-flex: 6;\n        -ms-flex: 6 1 auto;\n            flex: 6 1 auto;\n}\n.heading {\n    color: white;\n    font-size: 30px;\n    text-decoration: none;\n}\n.filler2 {\n    -webkit-box-flex: 3;\n        -ms-flex: 3 1 auto;\n            flex: 3 1 auto;\n}\n.login {\n    color: white;\n    text-decoration: none;\n}\n.filler3 {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nh2.database {\n    font-family: Arial, Helvetica, sans-serif;\n    text-align: center;\n    padding: 0px;\n    margin: 0px;\n}\n.feedback {\n    color: red;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 10px;\n    text-align: center;\n    font-style: italic;\n    margin: 0px;\n    padding: 0px;\n}\n.img-responsive {\n  max-height: 30px;\n}\n\n.filler4 {\n  width: 20%;\n}\n\n@-webkit-keyframes mymove-right {\n  0%   {margin-left: 90%; margin-top: 0px;}\n  100%  {margin-left: 0%; margin-top: 10px;}\n}\n\n@keyframes mymove-right {\n  0%   {margin-left: 90%; margin-top: 0px;}\n  100%  {margin-left: 0%; margin-top: 10px;}\n}\n.animation-right {\n  height: 20px;\n  -webkit-animation-name: mymove-right;\n          animation-name: mymove-right;\n  -webkit-animation-duration: 4s;\n          animation-duration: 4s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n\n@-webkit-keyframes mymove-left {\n  0%   {margin-left: 0%; margin-top: 0px;}\n  100%  {margin-left: 90%; margin-top: 10px;}\n}\n\n@keyframes mymove-left {\n  0%   {margin-left: 0%; margin-top: 0px;}\n  100%  {margin-left: 90%; margin-top: 10px;}\n}\n.animation-left {\n  height: 20px;\n  -webkit-animation-name: mymove-left;\n          animation-name: mymove-left;\n  -webkit-animation-duration: 4s;\n          animation-duration: 4s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.anounce-left {\n  width: 220px;\n  height: 20px;\n  background-color: light-grey;\n  position: relative;\n  -webkit-animation: head-left 5s 4s infinite;\n          animation: head-left 5s 4s infinite;\n}\n@-webkit-keyframes head-left {\n  0%   {left:0%; top:0px;}\n  50%  {left:-20%; top:0px;}\n  100% {left:0%; top:0px;}\n}\n@keyframes head-left {\n  0%   {left:0%; top:0px;}\n  50%  {left:-20%; top:0px;}\n  100% {left:0%; top:0px;}\n}\n.anounce-right {\n  width: 220px;\n  height: 20px;\n  background-color: light-grey;\n  position: relative;\n  -webkit-animation: head-right 5s 4s infinite alternate;\n          animation: head-right 5s 4s infinite alternate;\n}\n@-webkit-keyframes head-right {\n  0%   {left:1%; top:0px;}\n  100% {left:20%; top:0px;}\n}\n@keyframes head-right {\n  0%   {left:1%; top:0px;}\n  100% {left:20%; top:0px;}\n}\n", ""]);
 
 // exports
 
@@ -1054,7 +1054,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href=\"#\" (click)=\"togglePTO()\">{{ ptoStr }}</a>\n    <span class=\"filler1\"></span>\n    <a class=\"heading\" href=\"/\">Chief Engineer Central Command</a>\n    <span class=\"filler2\"></span>\n    <a *ngIf=\"!showPTO && user && user.email\" class=\"login\" id=\"downloadLink\" download=\"cecc-staff.csv\">Download</a>\n    <span class=\"filler3\"></span>\n    <a class=\"login\" href=\"#\" (click)=\"login()\">{{ logStr }}</a>\n</mat-toolbar>\n<div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n  <div class=\"anounce-left\"></div>\n  <h2 class=\"database\"> {{ headStr }} of Basic Staff </h2>\n  <div class=\"anounce-right\"><a href=\"#\">Watch here for any Anoucements!</a></div>\n</div>\n<p class=\"feedback\" color=\"primary\">Feedback: Sanjeev Gahlot,Jt.DG(Pers),CE CC Lucknow</p>\n<div *ngIf=\"!showPTO\">\n  <div *ngIf=\"!showLoginCard\">\n    <app-add-item [user]=\"user\"></app-add-item>\n    <app-items [user]=\"user\"></app-items>\n  </div>\n  <app-login *ngIf=\"showLoginCard\"></app-login>\n</div>\n<app-pto *ngIf=\"showPTO\"></app-pto>\n\n\n"
+module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href=\"#\" (click)=\"togglePTO()\">{{ ptoStr }}</a>\n    <span class=\"filler1\"></span>\n    <a class=\"heading\" href=\"/\">Chief Engineer Central Command</a>\n    <span class=\"filler2\"></span>\n    <a *ngIf=\"!showPTO && user && user.email\" class=\"login\" id=\"downloadLink\" download=\"cecc-staff.csv\">Download</a>\n    <span class=\"filler3\"></span>\n    <a class=\"login\" href=\"#\" (click)=\"login()\">{{ logStr }}</a>\n</mat-toolbar>\n<div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n  <div class=\"anounce-left\"></div>\n  <h2 class=\"database\"> {{ headStr }} of Basic Staff </h2>\n  <div class=\"anounce-right\"><a href=\"#\">Watch here for any Anouncements!</a></div>\n</div>\n<p class=\"feedback\" color=\"primary\">Feedback: Sanjeev Gahlot,Jt.DG(Pers),CE CC Lucknow</p>\n<div *ngIf=\"!showPTO\">\n  <div *ngIf=\"!showLoginCard\">\n    <app-add-item [user]=\"user\"></app-add-item>\n    <app-items [user]=\"user\"></app-items>\n  </div>\n  <app-login *ngIf=\"showLoginCard\"></app-login>\n</div>\n<app-pto *ngIf=\"showPTO\"></app-pto>\n\n\n"
 
 /***/ }),
 
@@ -1067,6 +1067,7 @@ module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_item_service__ = __webpack_require__("../../../../../src/app/services/item.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_pto_service__ = __webpack_require__("../../../../../src/app/services/pto.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1080,11 +1081,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var NavbarComponent = (function () {
-    function NavbarComponent(afAuth, itemService, http) {
+    function NavbarComponent(afAuth, itemService, http, ptoService) {
         this.afAuth = afAuth;
         this.itemService = itemService;
         this.http = http;
+        this.ptoService = ptoService;
         this.showLoginCard = false;
         this.showPTO = false;
         // loggedIn = false;
@@ -1136,6 +1139,29 @@ var NavbarComponent = (function () {
         console.log('textFile : ' + textFile);
         document.getElementById('downloadLink').href = textFile;
     };
+    // setDownloadLink() {
+    //     let result = '[';
+    //     this.ptoService.getPtos().subscribe((ptos) => {
+    //       for (const pto of ptos) {
+    //         result += `{PTO_No: ${pto.PTO_No}, YEAR: ${pto.YEAR}, UNIT: '${pto.UNIT}',
+    //         STATION: '${pto.STATION}', DATE: '${pto.DATE}', CITY: '${pto.CITY}', IP: '${pto.IP}',
+    //         TIME: '${pto.TIME}', CASUALITIES: [`;
+    //         for (let i = 0; i < pto.CASUALITIES.length; i++) {
+    //           const cas = pto.CASUALITIES[i];
+    //           result += `{S_No: ${cas.S_No},MES_No: '${cas.MES_No}',NAME: '${cas.NAME}',DATE: '${cas.DATE}',
+    //           CATEGORY: '${cas.CATEGORY}', TYPE: '${cas.TYPE}', PARTICULAR: '${cas.PARTICULAR}'}`;
+    //           if ( i < pto.CASUALITIES.length - 1) {
+    //             result += ',';
+    //           }
+    //         }
+    //         result += ']},';
+    //       }
+    //       result += ']';
+    //       const data = new Blob([result], {type: 'text/plain'});
+    //       const textFile = window.URL.createObjectURL(data);
+    //       (<HTMLAnchorElement>document.getElementById('downloadLink')).href = textFile;
+    //     });
+    // }
     NavbarComponent.prototype.login = function () {
         if (this.logStr === 'Login') {
             this.showLoginCard = true;
@@ -1206,7 +1232,8 @@ var NavbarComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/navbar/navbar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/navbar/navbar.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__services_item_service__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__services_item_service__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_4__services_pto_service__["a" /* PTOService */]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
@@ -1596,7 +1623,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-list/pto-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-pto-search></app-pto-search>\n<div class=\"ptos\">      \n  <mat-card>\n    <mat-nav-list *ngIf=\"!ptoService.isLoading\">\n        <a mat-list-item *ngFor=\"let pto of ptos\" (click)=\"showDetails($event,pto)\">\n            <div class=\"pto-sno\">\n                {{ pto.PTO_No }}\n            </div>\n            <div class=\"pto-year\">\n                {{ pto.YEAR }}\n            </div>\n            <div class=\"pto-station\">\n                {{ pto.STATION }}\n                <span *ngIf=\"showIP\">/ {{ pto.CITY }}</span>\n            </div>\n            <div class=\"pto-unit\">\n                {{ pto.UNIT }}\n                <span *ngIf=\"showIP\">/ {{ pto.IP }}</span>\n            </div>\n            <div class=\"pto-date\">\n                {{ pto.DATE }}\n            </div>\n            <span hidden><mat-icon>close</mat-icon></span>\n        </a>\n    </mat-nav-list>\n    <mat-spinner *ngIf=\"ptoService.isLoading\"></mat-spinner>\n  </mat-card>    \n</div>"
+module.exports = "\n<app-pto-search></app-pto-search>\n<div class=\"ptos\">\n  <mat-card>\n    <mat-nav-list *ngIf=\"!ptoService.isLoading\">\n        <a mat-list-item *ngFor=\"let pto of ptos\" (click)=\"showDetails(pto)\">\n            <div class=\"pto-sno\">\n                {{ pto.PTO_No }}\n            </div>\n            <div class=\"pto-year\">\n                {{ pto.YEAR }}\n            </div>\n            <div class=\"pto-station\">\n                {{ pto.STATION }}\n                <span *ngIf=\"showIP\">/ {{ pto.CITY }}</span>\n            </div>\n            <div class=\"pto-unit\">\n                {{ pto.UNIT }}\n                <span *ngIf=\"showIP\">/ {{ pto.IP }}</span>\n            </div>\n            <div class=\"pto-date\">\n                {{ pto.DATE }}\n            </div>\n            <span hidden><mat-icon>close</mat-icon></span>\n        </a>\n    </mat-nav-list>\n    <mat-spinner *ngIf=\"ptoService.isLoading\"></mat-spinner>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -1698,11 +1725,11 @@ var PtoListComponent = (function () {
             });
         }
     };
-    PtoListComponent.prototype.showDetails = function (event, pto) {
-        if (event.srcElement.innerHTML === 'close') {
-            this.ptoService.deletePto(pto.id).then(function () { return console.log('PTO Deleted'); });
-            return;
-        }
+    PtoListComponent.prototype.showDetails = function (pto) {
+        // if (event.srcElement.innerHTML === 'close') {
+        //       this.ptoService.deletePto(pto.id).then(() => console.log('PTO Deleted'));
+        //       return;
+        // }
         this.detailClicked.emit();
         this.ptoService.pto = pto;
     };
@@ -1953,7 +1980,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pto-preview/pto-preview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h2>\n    Part-II Order<br> by {{ ptoService.pto.UNIT }}, {{ ptoService.pto.STATION }}\n  </h2>\n  <div class=\"row\">\n    <span>UNIT : {{ ptoService.pto.UNIT }}</span>\n    <span class=\"filler\"></span>\n    <span>S.No. : {{ ptoService.pto.PTO_No }} / {{ ptoService.pto.YEAR }}</span>\n  </div>\n  <div class=\"row\">\n    <span>STATION : {{ ptoService.pto.STATION }}</span>\n    <span class=\"filler\"></span>\n    <span>Dated : {{ ptoService.pto.DATE }}</span>\n  </div>\n  <div class=\"row\">\n    <span>IP ADDRESS / CITY : {{ ptoService.pto.IP }} / {{ ptoService.pto.CITY }}</span>\n    <span class=\"filler\"></span>\n    <span>Date & Time : {{ time }}</span>\n  </div>\n  <hr>\n  <table id=\"table\">\n    <tr>\n      <th class=\"sno\">S.No.</th>\n      <th class=\"mesno\">MES No & Name</th>\n      <th class=\"design\">Design</th>\n      <th class=\"date\">Date</th>\n      <th class=\"particular\">Particulars</th>\n    </tr>\n    <tr *ngFor=\"let cas of ptoService.pto.CASUALITIES\">\n      <td>{{ cas.S_No }}</td>\n      <td>MES - {{ cas.MES_No }} <br> {{ cas.NAME }}</td>\n      <td>{{ cas.CATEGORY }}</td>\n      <td>{{ cas.DATE }}</td>\n      <td>{{ cas.PARTICULAR }}</td>\n    </tr>\n  </table>\n  <hr>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" *ngIf=\"!ptoService.isLoading\">\n      <span class=\"filler\"></span>\n      <div>\n        <button mat-raised-button (click)=\"print()\"color=\"primary\">Print</button>\n      </div>\n      <div>\n        <button mat-raised-button (click)=\"back('Edit PTO')\"color=\"primary\">Edit</button>\n      </div>\n      <div>\n        <button mat-raised-button (click)=\"publish()\"color=\"primary\">Publish</button>\n      </div>\n  </div>\n  <mat-spinner *ngIf=\"ptoService.isLoading\"></mat-spinner>\n</div>\n"
+module.exports = "<div>\n  <h2>\n    Part-II Order<br> by {{ ptoService.pto.UNIT }}, {{ ptoService.pto.STATION }}\n  </h2>\n  <div class=\"row\">\n    <span>Unit : {{ ptoService.pto.UNIT }}</span>\n    <span class=\"filler\"></span>\n    <span>S.No. : {{ ptoService.pto.PTO_No }} / {{ ptoService.pto.YEAR }}</span>\n  </div>\n  <div class=\"row\">\n    <span>Station : {{ ptoService.pto.STATION }}</span>\n    <span class=\"filler\"></span>\n    <span>Dated : {{ ptoService.pto.DATE }}</span>\n  </div>\n  <div class=\"row\">\n    <span>IP Address / City : {{ ptoService.pto.IP }} / {{ ptoService.pto.CITY }}</span>\n    <span class=\"filler\"></span>\n    <span>Date / Time : {{ time }}</span>\n  </div>\n  <hr>\n  <table id=\"table\">\n    <tr>\n      <th class=\"sno\">S.No.</th>\n      <th class=\"mesno\">MES No & Name</th>\n      <th class=\"design\">Design</th>\n      <th class=\"date\">Date</th>\n      <th class=\"particular\">Particulars</th>\n    </tr>\n    <tr *ngFor=\"let cas of ptoService.pto.CASUALITIES\">\n      <td>{{ cas.S_No }}</td>\n      <td>MES - {{ cas.MES_No }} <br> {{ cas.NAME }}</td>\n      <td>{{ cas.CATEGORY }}</td>\n      <td>{{ cas.DATE }}</td>\n      <td>{{ cas.PARTICULAR }}</td>\n    </tr>\n  </table>\n  <hr>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" *ngIf=\"!ptoService.isLoading\">\n      <span class=\"filler\"></span>\n      <div>\n        <button mat-raised-button (click)=\"print()\"color=\"primary\">Print</button>\n      </div>\n      <div>\n        <button mat-raised-button (click)=\"back('Edit PTO')\"color=\"primary\">Edit</button>\n      </div>\n      <div>\n        <button mat-raised-button (click)=\"publish()\"color=\"primary\">Publish</button>\n      </div>\n  </div>\n  <mat-spinner *ngIf=\"ptoService.isLoading\"></mat-spinner>\n</div>\n"
 
 /***/ }),
 
@@ -2000,7 +2027,7 @@ var PtoPreviewComponent = (function () {
     PtoPreviewComponent.prototype.ngOnInit = function () {
         if (this.ptoService.pto.TIME) {
             var date = new Date(this.ptoService.pto.TIME);
-            this.time = date.toDateString() + '/' + date.toLocaleTimeString();
+            this.time = date.toDateString() + ' / ' + date.toLocaleTimeString();
         }
         else {
             this.time = 'Not Found';
@@ -2586,10 +2613,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // tslint:disable-next-line:import-blacklist
 
-// import { ceccAOR } from '../models/ceccAOR';
-// import { templetes } from '../models/templetes';
+// import { ptoArray } from '../models/ptoArray';
 var PTOService = (function () {
-    // stations = Object.keys(ceccAOR);
     function PTOService(afs) {
         this.afs = afs;
         this.search = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
@@ -2598,14 +2623,7 @@ var PTOService = (function () {
         this.preview = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
         this.casSummary = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
         this.showIP = new __WEBPACK_IMPORTED_MODULE_2_rxjs__["d" /* Subject */]();
-        this.pto = {
-            PTO_No: null,
-            YEAR: null,
-            UNIT: '',
-            STATION: '',
-            DATE: '',
-            CASUALITIES: []
-        };
+        this.pto = { PTO_No: null, YEAR: null, UNIT: '', STATION: '', DATE: '', CASUALITIES: [] };
         this.ptoCollection = this.afs.collection('pto', function (ref) { return ref.orderBy('DATE', 'desc'); });
         // this.ptos = this.ptoCollection.valueChanges();
         this.ptos = this.ptoCollection.snapshotChanges().map(function (changes) {
@@ -2613,13 +2631,12 @@ var PTOService = (function () {
             return changes.map(function (a) {
                 var data = a.payload.doc.data();
                 data.id = a.payload.doc.id;
-                // console.log('Get PTOs - data : ' + JSON.stringify(data));
                 return data;
             });
         });
-        // afs.collection('pto').auditTrail().subscribe(console.log);
     }
     PTOService.prototype.getPtos = function () {
+        // this.ptos = of(ptoArray);
         return this.ptos;
     };
     PTOService.prototype.addPto = function () {
