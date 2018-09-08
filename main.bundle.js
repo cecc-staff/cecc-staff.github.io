@@ -825,7 +825,8 @@ var ItemsComponent = (function () {
             _this.itemsSubscription.unsubscribe();
             _this.clearState();
         });
-        this.stationSubscription = this.ptoService.getStations().subscribe(function (stations) {
+        this.stationSubscription = this.ptoService.getStations()
+            .subscribe(function (stations) {
             _this.stations = stations;
         });
     };
@@ -963,21 +964,29 @@ var ItemsComponent = (function () {
             REMARKS: this.myForm.value.remarks,
             id: this.itemToEdit.id
         };
-        var searchItem = { MES_No: item.MES_No, NAME: '', CATEGORY: '', DOB: '', DOJ: '',
-            UNIT: '', UNIT_SENIORITY: '', STATION: '', STN_SENIORITY: '', REMARKS: '' };
-        this.filterSubscription = this.itemService.filterItems(searchItem).subscribe(function (items) {
-            if (items.length === 0) {
-                _this.itemService.updateItem(item).then(function () {
-                    _this.itemService.isLoading = false;
-                });
-                _this.clearState();
-            }
-            else {
+        if (this.itemToEdit.MES_No === item.MES_No) {
+            this.itemService.updateItem(item).then(function () {
                 _this.itemService.isLoading = false;
-                _this.snackBar.open('Duplicate MES No. is not Allowed !', '', { duration: 2000, });
-            }
-            _this.filterSubscription.unsubscribe();
-        });
+            });
+            this.clearState();
+        }
+        else {
+            var searchItem = { MES_No: item.MES_No, NAME: '', CATEGORY: '', DOB: '', DOJ: '',
+                UNIT: '', UNIT_SENIORITY: '', STATION: '', STN_SENIORITY: '', REMARKS: '' };
+            this.filterSubscription = this.itemService.filterItems(searchItem).subscribe(function (items) {
+                if (items.length === 0) {
+                    _this.itemService.updateItem(item).then(function () {
+                        _this.itemService.isLoading = false;
+                    });
+                    _this.clearState();
+                }
+                else {
+                    _this.itemService.isLoading = false;
+                    _this.snackBar.open('Duplicate MES No. is not Allowed !', '', { duration: 2000, });
+                }
+                _this.filterSubscription.unsubscribe();
+            });
+        }
     };
     ItemsComponent.prototype.clearState = function () {
         console.log('State Cleared');
@@ -1041,7 +1050,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\nmat-toolbar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.filler1 {\n    -webkit-box-flex: 6;\n        -ms-flex: 6 1 auto;\n            flex: 6 1 auto;\n}\n.heading {\n    color: white;\n    font-size: 30px;\n    text-decoration: none;\n}\n.filler2 {\n    -webkit-box-flex: 3;\n        -ms-flex: 3 1 auto;\n            flex: 3 1 auto;\n}\n.login {\n    color: white;\n    text-decoration: none;\n}\n.filler3 {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nh2.database {\n    font-family: Arial, Helvetica, sans-serif;\n    text-align: center;\n    padding: 0px;\n    margin: 0px;\n}\n.feedback {\n    color: red;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 10px;\n    text-align: center;\n    font-style: italic;\n    margin: 0px;\n    padding: 0px;\n}\n.img-responsive {\n  max-height: 30px;\n}\n\n.filler4 {\n  width: 20%;\n}\n\n@-webkit-keyframes mymove-right {\n  0%   {margin-left: 90%; margin-top: 0px;}\n  100%  {margin-left: 0%; margin-top: 10px;}\n}\n\n@keyframes mymove-right {\n  0%   {margin-left: 90%; margin-top: 0px;}\n  100%  {margin-left: 0%; margin-top: 10px;}\n}\n.animation-right {\n  height: 20px;\n  -webkit-animation-name: mymove-right;\n          animation-name: mymove-right;\n  -webkit-animation-duration: 4s;\n          animation-duration: 4s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n\n@-webkit-keyframes mymove-left {\n  0%   {margin-left: 0%; margin-top: 0px;}\n  100%  {margin-left: 90%; margin-top: 10px;}\n}\n\n@keyframes mymove-left {\n  0%   {margin-left: 0%; margin-top: 0px;}\n  100%  {margin-left: 90%; margin-top: 10px;}\n}\n.animation-left {\n  height: 20px;\n  -webkit-animation-name: mymove-left;\n          animation-name: mymove-left;\n  -webkit-animation-duration: 4s;\n          animation-duration: 4s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.anounce-left {\n  width: 220px;\n  height: 20px;\n  background-color: light-grey;\n  position: relative;\n  -webkit-animation: head-left 5s 4s infinite;\n          animation: head-left 5s 4s infinite;\n}\n@-webkit-keyframes head-left {\n  0%   {left:0%; top:0px;}\n  50%  {left:-20%; top:0px;}\n  100% {left:0%; top:0px;}\n}\n@keyframes head-left {\n  0%   {left:0%; top:0px;}\n  50%  {left:-20%; top:0px;}\n  100% {left:0%; top:0px;}\n}\n.anounce-right {\n  width: 220px;\n  height: 20px;\n  background-color: light-grey;\n  position: relative;\n  -webkit-animation: head-right 5s 4s infinite alternate;\n          animation: head-right 5s 4s infinite alternate;\n}\n@-webkit-keyframes head-right {\n  0%   {left:1%; top:0px;}\n  100% {left:20%; top:0px;}\n}\n@keyframes head-right {\n  0%   {left:1%; top:0px;}\n  100% {left:20%; top:0px;}\n}\n", ""]);
+exports.push([module.i, "\nmat-toolbar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.filler1 {\n    -webkit-box-flex: 6;\n        -ms-flex: 6 1 auto;\n            flex: 6 1 auto;\n}\n.heading {\n    color: white;\n    font-size: 30px;\n    text-decoration: none;\n}\n.filler2 {\n    -webkit-box-flex: 3;\n        -ms-flex: 3 1 auto;\n            flex: 3 1 auto;\n}\n.login {\n    color: white;\n    text-decoration: none;\n}\n.filler3 {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 auto;\n            flex: 1 1 auto;\n}\nh2.database {\n    font-family: Arial, Helvetica, sans-serif;\n    text-align: center;\n    padding: 0px;\n    margin: 0px;\n}\n.feedback {\n    color: red;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 10px;\n    text-align: center;\n    font-style: italic;\n    margin: 0px;\n    padding: 0px;\n}\n.img-responsive {\n  max-height: 30px;\n}\n\n.filler4 {\n  width: 20%;\n}\n\n@-webkit-keyframes mymove-right {\n  0%   {margin-left: 90%; margin-top: 0px;}\n  100%  {margin-left: 0%; margin-top: 10px;}\n}\n\n@keyframes mymove-right {\n  0%   {margin-left: 90%; margin-top: 0px;}\n  100%  {margin-left: 0%; margin-top: 10px;}\n}\n.animation-right {\n  height: 20px;\n  -webkit-animation-name: mymove-right;\n          animation-name: mymove-right;\n  -webkit-animation-duration: 4s;\n          animation-duration: 4s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n\n@-webkit-keyframes mymove-left {\n  0%   {margin-left: 0%; margin-top: 0px;}\n  100%  {margin-left: 90%; margin-top: 10px;}\n}\n\n@keyframes mymove-left {\n  0%   {margin-left: 0%; margin-top: 0px;}\n  100%  {margin-left: 90%; margin-top: 10px;}\n}\n.animation-left {\n  height: 20px;\n  -webkit-animation-name: mymove-left;\n          animation-name: mymove-left;\n  -webkit-animation-duration: 4s;\n          animation-duration: 4s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.anounce-left {\n  width: 220px;\n  height: 20px;\n  background-color: light-grey;\n  position: relative;\n  -webkit-animation: head-left 5s 4s infinite;\n          animation: head-left 5s 4s infinite;\n}\n@-webkit-keyframes head-left {\n  0%   {left:0%; top:0px;}\n  50%  {left:-20%; top:0px;}\n  100% {left:0%; top:0px;}\n}\n@keyframes head-left {\n  0%   {left:0%; top:0px;}\n  50%  {left:-20%; top:0px;}\n  100% {left:0%; top:0px;}\n}\n.anounce-right {\n  width: 220px;\n  height: 20px;\n  text-align: center;\n  background-color: light-grey;\n  position: relative;\n  -webkit-animation: head-right 5s 4s infinite alternate;\n          animation: head-right 5s 4s infinite alternate;\n}\n@-webkit-keyframes head-right {\n  0%   {left:1%; top:0px;}\n  100% {left:20%; top:0px;}\n}\n@keyframes head-right {\n  0%   {left:1%; top:0px;}\n  100% {left:20%; top:0px;}\n}\n", ""]);
 
 // exports
 
@@ -1054,7 +1063,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href=\"#\" (click)=\"togglePTO()\">{{ ptoStr }}</a>\n    <span class=\"filler1\"></span>\n    <a class=\"heading\" href=\"/\">Chief Engineer Central Command</a>\n    <span class=\"filler2\"></span>\n    <a *ngIf=\"!showPTO && user && user.email\" class=\"login\" id=\"downloadLink\" download=\"cecc-staff.csv\">Download</a>\n    <span class=\"filler3\"></span>\n    <a class=\"login\" href=\"#\" (click)=\"login()\">{{ logStr }}</a>\n</mat-toolbar>\n<div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n  <div class=\"anounce-left\"></div>\n  <h2 class=\"database\"> {{ headStr }} of Basic Staff </h2>\n  <div class=\"anounce-right\"><a href=\"#\">Watch here for any Anouncements!</a></div>\n</div>\n<p class=\"feedback\" color=\"primary\">Feedback: Sanjeev Gahlot,Jt.DG(Pers),CE CC Lucknow</p>\n<div *ngIf=\"!showPTO\">\n  <div *ngIf=\"!showLoginCard\">\n    <app-add-item [user]=\"user\"></app-add-item>\n    <app-items [user]=\"user\"></app-items>\n  </div>\n  <app-login *ngIf=\"showLoginCard\"></app-login>\n</div>\n<app-pto *ngIf=\"showPTO\"></app-pto>\n\n\n"
+module.exports = "\n<mat-toolbar color=\"primary\">\n    <a class=\"login\" href=\"#\" (click)=\"togglePTO()\">{{ ptoStr }}</a>\n    <span class=\"filler1\"></span>\n    <a class=\"heading\" href=\"/\">Chief Engineer Central Command</a>\n    <span class=\"filler2\"></span>\n    <a *ngIf=\"!showPTO && user && user.email\" class=\"login\" id=\"downloadLink\" download=\"cecc-staff.csv\">Download</a>\n    <span class=\"filler3\"></span>\n    <a class=\"login\" href=\"#\" (click)=\"login()\">{{ logStr }}</a>\n</mat-toolbar>\n<div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n  <div class=\"anounce-left\"></div>\n  <h2 class=\"database\"> {{ headStr }} of Basic Staff </h2>\n  <div class=\"anounce-right\"><a id=\"anouncement\">Click here for any Anouncements!</a></div>\n</div>\n<p class=\"feedback\" color=\"primary\">Feedback: Sanjeev Gahlot,Jt.DG(Pers),CE CC Lucknow</p>\n<div *ngIf=\"!showPTO\">\n  <div *ngIf=\"!showLoginCard\">\n    <app-add-item [user]=\"user\"></app-add-item>\n    <app-items [user]=\"user\"></app-items>\n  </div>\n  <app-login *ngIf=\"showLoginCard\"></app-login>\n</div>\n<app-pto *ngIf=\"showPTO\"></app-pto>\n\n\n"
 
 /***/ }),
 
@@ -1099,6 +1108,7 @@ var NavbarComponent = (function () {
         this.indianFlag = 'https://cecc-staff.github.io/assets/indian-flag.gif';
         this.vajpayee = 'https://cecc-staff.github.io/assets/vajpayee.png';
         this.flowers = 'https://cecc-staff.github.io/assets/flowers.jpg';
+        this.anouncement = 'https://cecc-staff.github.io/assets/anouncement.pdf';
     }
     NavbarComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1130,6 +1140,7 @@ var NavbarComponent = (function () {
                 _this.setDownloadLink();
             }
         });
+        document.getElementById('anouncement').href = this.anouncement;
     };
     NavbarComponent.prototype.setDownloadLink = function () {
         var itemsText = this.getItems();
