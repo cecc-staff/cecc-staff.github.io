@@ -2084,7 +2084,9 @@ var PtoPreviewComponent = (function () {
         };
         __WEBPACK_IMPORTED_MODULE_1_jspdf_dist_jspdf_min___default.a.API.heading = function (pto) {
             this.setFontSize(16);
-            this.text(['Part-II Order', '       By', pto.UNIT + ' ' + pto.STATION], 90, 7);
+            this.text(['Part-II Order', '       By'], 90, 7);
+            var unitName = pto.UNIT + ', ' + pto.STATION;
+            this.text(unitName, 95 - unitName.length, 20);
             this.setLineWidth(0.3);
             this.hline(15, 38, 180);
             this.hline(15, 55, 180);
