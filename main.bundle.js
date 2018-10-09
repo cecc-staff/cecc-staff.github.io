@@ -798,18 +798,19 @@ var ItemsComponent = (function () {
             console.log('Items Count : ' + items.length);
             _this.itemService.itemsSubject.next(_this.items);
         }, function (error) { return console.log(error); });
-        this.itemService.search.subscribe(function (item) {
+        this.searchSubscription = this.itemService.search.subscribe(function (item) {
             // item.STATION = 'ALLAHABAD';
-            _this.itemService.filterItems(item).subscribe(function (items) {
+            var filterSubscription = _this.itemService.filterItems(item).subscribe(function (items) {
                 _this.items = items;
                 _this.itemService.count = _this.items.length;
                 _this.itemService.isLoading = false;
                 _this.itemService.itemsSubject.next(_this.items);
                 /*  Call to update Staff Records  */
                 // this.itemService.updateItems(this.items);
+                filterSubscription.unsubscribe();
             });
         });
-        this.itemService.sort.subscribe(function (index) {
+        this.sortSubscription = this.itemService.sort.subscribe(function (index) {
             if (index) {
                 var keys = ['MES_No', 'NAME', 'CATEGORY', 'DOB', 'DOJ', 'UNIT',
                     'UNIT_SENIORITY', 'STATION', 'STN_SENIORITY', 'REMARKS'];
@@ -833,6 +834,8 @@ var ItemsComponent = (function () {
     ItemsComponent.prototype.ngOnDestroy = function () {
         this.itemsSubscription.unsubscribe();
         this.stationSubscription.unsubscribe();
+        this.searchSubscription.unsubscribe();
+        this.sortSubscription.unsubscribe();
     };
     ItemsComponent.prototype.onSelectStation = function (stn) {
         if (stn) {
@@ -973,7 +976,7 @@ var ItemsComponent = (function () {
         else {
             var searchItem = { MES_No: item.MES_No, NAME: '', CATEGORY: '', DOB: '', DOJ: '',
                 UNIT: '', UNIT_SENIORITY: '', STATION: '', STN_SENIORITY: '', REMARKS: '' };
-            this.filterSubscription = this.itemService.filterItems(searchItem).subscribe(function (items) {
+            var filterSubscription_1 = this.itemService.filterItems(searchItem).subscribe(function (items) {
                 if (items.length === 0) {
                     _this.itemService.updateItem(item).then(function () {
                         _this.itemService.isLoading = false;
@@ -984,7 +987,7 @@ var ItemsComponent = (function () {
                     _this.itemService.isLoading = false;
                     _this.snackBar.open('Duplicate MES No. is not Allowed !', '', { duration: 2000, });
                 }
-                _this.filterSubscription.unsubscribe();
+                filterSubscription_1.unsubscribe();
             });
         }
     };
@@ -1151,27 +1154,17 @@ var NavbarComponent = (function () {
         document.getElementById('downloadLink').href = textFile;
     };
     // setDownloadLink() {
-    //     let result = '[';
-    //     this.ptoService.getPtos().subscribe((ptos) => {
-    //       for (const pto of ptos) {
-    //         result += `{PTO_No: ${pto.PTO_No}, YEAR: ${pto.YEAR}, UNIT: '${pto.UNIT}',
-    //         STATION: '${pto.STATION}', DATE: '${pto.DATE}', CITY: '${pto.CITY}', IP: '${pto.IP}',
-    //         TIME: '${pto.TIME}', CASUALITIES: [`;
-    //         for (let i = 0; i < pto.CASUALITIES.length; i++) {
-    //           const cas = pto.CASUALITIES[i];
-    //           result += `{S_No: ${cas.S_No},MES_No: '${cas.MES_No}',NAME: '${cas.NAME}',DATE: '${cas.DATE}',
-    //           CATEGORY: '${cas.CATEGORY}', TYPE: '${cas.TYPE}', PARTICULAR: '${cas.PARTICULAR}'}`;
-    //           if ( i < pto.CASUALITIES.length - 1) {
-    //             result += ',';
-    //           }
-    //         }
-    //         result += ']},';
-    //       }
-    //       result += ']';
-    //       const data = new Blob([result], {type: 'text/plain'});
-    //       const textFile = window.URL.createObjectURL(data);
-    //       (<HTMLAnchorElement>document.getElementById('downloadLink')).href = textFile;
-    //     });
+    //   let result = '[';
+    //   const getSubs: Subscription = this.ptoService.getPtos().subscribe((ptos) => {
+    //     for (const pto of ptos) {
+    //       result += JSON.stringify(pto) + ',';
+    //     }
+    //     result += ']';
+    //     const data = new Blob([result], {type: 'text/plain'});
+    //     const textFile = window.URL.createObjectURL(data);
+    //     (<HTMLAnchorElement>document.getElementById('downloadLink')).href = textFile;
+    //     getSubs.unsubscribe();
+    //   });
     // }
     NavbarComponent.prototype.login = function () {
         if (this.logStr === 'Login') {
@@ -1667,6 +1660,7 @@ var PtoListComponent = (function () {
         var _this = this;
         this.ptoService.isLoading = true;
         this.getSubscription = this.ptoService.getPtos().subscribe(function (ptos) {
+            console.log(ptos);
             _this.ptos = ptos;
             _this.ptoService.ptosCount = _this.ptos.length;
             _this.ptoService.isLoading = false;
@@ -1694,9 +1688,9 @@ var PtoListComponent = (function () {
     };
     PtoListComponent.prototype.ngOnDestroy = function () {
         this.getSubscription.unsubscribe();
+        this.ipSubscription.unsubscribe();
         this.searchSubscription.unsubscribe();
         this.sortSubscription.unsubscribe();
-        this.ipSubscription.unsubscribe();
     };
     PtoListComponent.prototype.sortOnNumber = function (key) {
         this.sortUp = !this.sortUp;
@@ -2077,12 +2071,8 @@ var PtoPreviewComponent = (function () {
                         _this.snackBar.open('This PTO is already Published !', '', { duration: 2000, });
                     }
                 }
+                _this.filterSubscription.unsubscribe();
             });
-        }
-    };
-    PtoPreviewComponent.prototype.ngOnDestroy = function () {
-        if (this.filterSubscription) {
-            this.filterSubscription.unsubscribe();
         }
     };
     PtoPreviewComponent.prototype.back = function (navItem) {
@@ -2130,12 +2120,24 @@ var PtoPreviewComponent = (function () {
     };
     PtoPreviewComponent.prototype.split = function (str, segment) {
         var index = 0;
+        var sIndex = 0;
         var arrStr = [];
         var part;
+        var full;
+        str += ' ';
         while (index < str.length) {
             part = str.substr(index, segment);
-            arrStr.push(part);
-            index += segment;
+            sIndex = part.lastIndexOf(' ');
+            if (sIndex >= 0) {
+                full = part.substring(0, sIndex);
+            }
+            else {
+                full = part;
+                arrStr.push(full);
+                break;
+            }
+            arrStr.push(full);
+            index += sIndex + 1;
         }
         return arrStr;
     };
@@ -2647,7 +2649,9 @@ var PTOService = (function () {
         });
     }
     PTOService.prototype.getPtos = function () {
-        // this.ptos = of(ptoArray);
+        // const array: PTO[] = ptoArray;
+        // console.log(array);
+        // this.ptos = of(array);
         return this.ptos;
     };
     PTOService.prototype.addPto = function () {
